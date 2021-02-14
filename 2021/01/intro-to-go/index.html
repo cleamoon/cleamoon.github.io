@@ -1,0 +1,3185 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+
+
+
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yj0.se","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="Basic Go synax is introduced in this article.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction to Go">
+<meta property="og:url" content="http://yj0.se/2021/01/intro-to-go/index.html">
+<meta property="og:site_name" content="Yue Jiao's blog">
+<meta property="og:description" content="Basic Go synax is introduced in this article.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-06T23:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-29T15:01:20.536Z">
+<meta property="article:author" content="Yue Jiao">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yj0.se/2021/01/intro-to-go/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Introduction to Go | Yue Jiao's blog</title>
+  
+
+
+
+
+
+
+  <style>:root {
+  --body-bg-color: #fff;
+  --content-bg-color: #f5f5f5;
+  --card-bg-color: #f5f5f5;
+  --text-color: #555;
+  --blockquote-color: #666;
+  --link-color: #555;
+  --link-hover-color: #222;
+  --brand-color: #222;
+  --brand-hover-color: #222;
+  --table-row-odd-bg-color: #f9f9f9;
+  --table-row-hover-bg-color: #f5f5f5;
+  --menu-item-bg-color: #ddd;
+  --btn-default-bg: transparent;
+  --btn-default-color: var(--link-color);
+  --btn-default-border-color: var(--link-color);
+  --btn-default-hover-bg: transparent;
+  --btn-default-hover-color: var(--link-hover-color);
+  --btn-default-hover-border-color: var(--link-hover-color);
+}
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+body {
+  margin: 0;
+}
+main {
+  display: block;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+a {
+  background: transparent;
+}
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+b,
+strong {
+  font-weight: bolder;
+}
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+img {
+  border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+button,
+input {
+/* 1 */
+  overflow: visible;
+}
+button,
+select {
+/* 1 */
+  text-transform: none;
+}
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+progress {
+  vertical-align: baseline;
+}
+textarea {
+  overflow: auto;
+}
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+[type='search'] {
+  outline-offset: -2px; /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+}
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+  font: inherit; /* 2 */
+  -webkit-appearance: button; /* 1 */
+}
+details {
+  display: block;
+}
+summary {
+  display: list-item;
+}
+template {
+  display: none;
+}
+[hidden] {
+  display: none;
+}
+::selection {
+  background: #262a30;
+  color: #eee;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: var(--body-bg-color);
+  color: var(--text-color);
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1em;
+  line-height: 2;
+}
+@media (max-width: 991px) {
+  body {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: bold;
+  line-height: 1.5;
+  margin: 20px 0 15px;
+}
+h1 {
+  font-size: 1.5em;
+}
+h2 {
+  font-size: 1.375em;
+}
+h3 {
+  font-size: 1.25em;
+}
+h4 {
+  font-size: 1.125em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 0.875em;
+}
+p {
+  margin: 0 0 20px 0;
+}
+a,
+span.exturl {
+  border-bottom: 1px solid #ccc;
+  color: var(--link-color);
+  outline: 0;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+a:hover,
+span.exturl:hover {
+  border-bottom-color: var(--link-hover-color);
+  color: var(--link-hover-color);
+}
+iframe,
+img,
+video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+hr {
+  background-image: repeating-linear-gradient(-45deg, #ddd, #ddd 4px, transparent 4px, transparent 8px);
+  border: 0;
+  height: 3px;
+  margin: 40px 0;
+}
+blockquote {
+  border-left: 4px solid #ddd;
+  color: var(--blockquote-color);
+  margin: 0;
+  padding: 0 15px;
+}
+blockquote cite::before {
+  content: '-';
+  padding: 0 5px;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0;
+  padding: 0;
+}
+kbd {
+  background-color: #f5f5f5;
+  background-image: linear-gradient(#eee, #fff, #eee);
+  border: 1px solid #ccc;
+  border-radius: 0.2em;
+  box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.1);
+  color: #555;
+  font-family: inherit;
+  padding: 0.1em 0.3em;
+  white-space: nowrap;
+}
+.table-container {
+  overflow: auto;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.875em;
+  margin: 0 0 20px 0;
+  width: 100%;
+}
+tbody tr:nth-of-type(odd) {
+  background: var(--table-row-odd-bg-color);
+}
+tbody tr:hover {
+  background: var(--table-row-hover-bg-color);
+}
+caption,
+th,
+td {
+  font-weight: normal;
+  padding: 8px;
+  vertical-align: middle;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  border-bottom: 3px solid #ddd;
+}
+th {
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+td {
+  border-bottom-width: 1px;
+}
+.btn {
+  background: var(--btn-default-bg);
+  border: 2px solid var(--btn-default-border-color);
+  border-radius: 0;
+  color: var(--btn-default-color);
+  display: inline-block;
+  font-size: 0.875em;
+  line-height: 2;
+  padding: 0 20px;
+  text-decoration: none;
+  transition-property: background-color;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.btn:hover {
+  background: var(--btn-default-hover-bg);
+  border-color: var(--btn-default-hover-border-color);
+  color: var(--btn-default-hover-color);
+}
+.btn + .btn {
+  margin: 0 0 8px 8px;
+}
+.btn .fa-fw {
+  text-align: left;
+  width: 1.285714285714286em;
+}
+.toggle {
+  line-height: 0;
+}
+.toggle .toggle-line {
+  background: #fff;
+  display: inline-block;
+  height: 2px;
+  left: 0;
+  position: relative;
+  top: 0;
+  transition: all 0.4s;
+  vertical-align: top;
+  width: 100%;
+}
+.toggle .toggle-line:not(:first-child) {
+  margin-top: 3px;
+}
+.toggle.toggle-arrow .toggle-line-first {
+  top: 2px;
+  transform: rotate(-45deg);
+  width: 50%;
+}
+.toggle.toggle-arrow .toggle-line-middle {
+  width: 90%;
+}
+.toggle.toggle-arrow .toggle-line-last {
+  top: -2px;
+  transform: rotate(45deg);
+  width: 50%;
+}
+.toggle.toggle-close .toggle-line-first {
+  top: 5px;
+  transform: rotate(-45deg);
+}
+.toggle.toggle-close .toggle-line-middle {
+  opacity: 0;
+}
+.toggle.toggle-close .toggle-line-last {
+  top: -5px;
+  transform: rotate(45deg);
+}
+.highlight-container {
+  position: relative;
+}
+.highlight-container:hover .copy-btn,
+.highlight-container .copy-btn:focus {
+  opacity: 1;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background-color: #eee;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  font-size: 0.8125em;
+  right: 4px;
+  top: 8px;
+}
+.highlight,
+pre {
+  background: #f7f7f7;
+  color: #4d4d4c;
+  line-height: 1.6;
+  margin: 0 auto 20px;
+}
+pre,
+code {
+  font-family: consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+}
+code {
+  background: #eee;
+  border-radius: 3px;
+  color: #555;
+  padding: 2px 4px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.highlight *::selection {
+  background: #d6d6d6;
+}
+.highlight pre {
+  border: 0;
+  margin: 0;
+  padding: 10px 0;
+}
+.highlight table {
+  border: 0;
+  margin: 0;
+  width: auto;
+}
+.highlight td {
+  border: 0;
+  padding: 0;
+}
+.highlight figcaption {
+  background: #eff2f3;
+  color: #4d4d4c;
+  display: flex;
+  font-size: 0.875em;
+  justify-content: space-between;
+  line-height: 1.2;
+  padding: 0.5em;
+}
+.highlight figcaption a {
+  color: #4d4d4c;
+}
+.highlight figcaption a:hover {
+  border-bottom-color: #4d4d4c;
+}
+.highlight .gutter {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.highlight .gutter pre {
+  background: #eff2f3;
+  color: #869194;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+}
+.highlight .code pre {
+  background: #f7f7f7;
+  padding-left: 10px;
+  width: 100%;
+}
+.gist table {
+  width: auto;
+}
+.gist table td {
+  border: 0;
+}
+pre {
+  overflow: auto;
+  padding: 10px;
+}
+pre code {
+  background: none;
+  color: #4d4d4c;
+  font-size: 0.875em;
+  padding: 0;
+  text-shadow: none;
+}
+pre .deletion {
+  background: #fdd;
+}
+pre .addition {
+  background: #dfd;
+}
+pre .meta {
+  color: #eab700;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+pre .comment {
+  color: #8e908c;
+}
+pre .variable,
+pre .attribute,
+pre .tag,
+pre .name,
+pre .regexp,
+pre .ruby .constant,
+pre .xml .tag .title,
+pre .xml .pi,
+pre .xml .doctype,
+pre .html .doctype,
+pre .css .id,
+pre .css .class,
+pre .css .pseudo {
+  color: #c82829;
+}
+pre .number,
+pre .preprocessor,
+pre .built_in,
+pre .builtin-name,
+pre .literal,
+pre .params,
+pre .constant,
+pre .command {
+  color: #f5871f;
+}
+pre .ruby .class .title,
+pre .css .rules .attribute,
+pre .string,
+pre .symbol,
+pre .value,
+pre .inheritance,
+pre .header,
+pre .ruby .symbol,
+pre .xml .cdata,
+pre .special,
+pre .formula {
+  color: #718c00;
+}
+pre .title,
+pre .css .hexcolor {
+  color: #3e999f;
+}
+pre .function,
+pre .python .decorator,
+pre .python .title,
+pre .ruby .function .title,
+pre .ruby .title .keyword,
+pre .perl .sub,
+pre .javascript .title,
+pre .coffeescript .title {
+  color: #4271ae;
+}
+pre .keyword,
+pre .javascript .function {
+  color: #8959a8;
+}
+.blockquote-center {
+  border-left: none;
+  margin: 40px 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+}
+.blockquote-center .fa {
+  display: block;
+  opacity: 0.6;
+  position: absolute;
+  width: 100%;
+}
+.blockquote-center .fa-quote-left {
+  border-top: 1px solid #ccc;
+  text-align: left;
+  top: -20px;
+}
+.blockquote-center .fa-quote-right {
+  border-bottom: 1px solid #ccc;
+  text-align: right;
+  bottom: -20px;
+}
+.blockquote-center p,
+.blockquote-center div {
+  text-align: center;
+}
+.post-body .group-picture img {
+  margin: 0 auto;
+  padding: 0 3px;
+}
+.group-picture-row {
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.group-picture-column {
+  float: left;
+  margin-bottom: 10px;
+}
+.post-body .label {
+  color: #555;
+  display: inline;
+  padding: 0 2px;
+}
+.post-body .label.default {
+  background: #f0f0f0;
+}
+.post-body .label.primary {
+  background: #efe6f7;
+}
+.post-body .label.info {
+  background: #e5f2f8;
+}
+.post-body .label.success {
+  background: #e7f4e9;
+}
+.post-body .label.warning {
+  background: #fcf6e1;
+}
+.post-body .label.danger {
+  background: #fae8eb;
+}
+.post-body .tabs {
+  margin-bottom: 20px;
+}
+.post-body .tabs,
+.tabs-comment {
+  display: block;
+  padding-top: 10px;
+  position: relative;
+}
+.post-body .tabs ul.nav-tabs,
+.tabs-comment ul.nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  margin-bottom: -1px;
+  padding: 0;
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs,
+  .tabs-comment ul.nav-tabs {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+.post-body .tabs ul.nav-tabs li.tab,
+.tabs-comment ul.nav-tabs li.tab {
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 3px solid transparent;
+  flex-grow: 1;
+  list-style-type: none;
+  border-radius: 0 0 0 0;
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs li.tab,
+  .tabs-comment ul.nav-tabs li.tab {
+    border-bottom: 1px solid transparent;
+    border-left: 3px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+  }
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs li.tab,
+  .tabs-comment ul.nav-tabs li.tab {
+    border-radius: 0;
+  }
+}
+.post-body .tabs ul.nav-tabs li.tab a,
+.tabs-comment ul.nav-tabs li.tab a {
+  border-bottom: initial;
+  display: block;
+  line-height: 1.8;
+  outline: 0;
+  padding: 0.25em 0.75em;
+  text-align: center;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+.post-body .tabs ul.nav-tabs li.tab a i,
+.tabs-comment ul.nav-tabs li.tab a i {
+  width: 1.285714285714286em;
+}
+.post-body .tabs ul.nav-tabs li.tab.active,
+.tabs-comment ul.nav-tabs li.tab.active {
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: 3px solid #fc6423;
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs li.tab.active,
+  .tabs-comment ul.nav-tabs li.tab.active {
+    border-bottom: 1px solid #ddd;
+    border-left: 3px solid #fc6423;
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+  }
+}
+.post-body .tabs ul.nav-tabs li.tab.active a,
+.tabs-comment ul.nav-tabs li.tab.active a {
+  color: var(--link-color);
+  cursor: default;
+}
+.post-body .tabs .tab-content .tab-pane,
+.tabs-comment .tab-content .tab-pane {
+  border: 1px solid #ddd;
+  border-top: 0;
+  padding: 20px 20px 0 20px;
+  border-radius: 0;
+}
+.post-body .tabs .tab-content .tab-pane:not(.active),
+.tabs-comment .tab-content .tab-pane:not(.active) {
+  display: none;
+}
+.post-body .tabs .tab-content .tab-pane.active,
+.tabs-comment .tab-content .tab-pane.active {
+  display: block;
+}
+.post-body .tabs .tab-content .tab-pane.active:nth-of-type(1),
+.tabs-comment .tab-content .tab-pane.active:nth-of-type(1) {
+  border-radius: 0 0 0 0;
+}
+@media (max-width: 413px) {
+  .post-body .tabs .tab-content .tab-pane.active:nth-of-type(1),
+  .tabs-comment .tab-content .tab-pane.active:nth-of-type(1) {
+    border-radius: 0;
+  }
+}
+.post-body .note {
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding: 1em;
+  position: relative;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+}
+.post-body .note h2,
+.post-body .note h3,
+.post-body .note h4,
+.post-body .note h5,
+.post-body .note h6 {
+  margin-top: 0;
+  border-bottom: initial;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+.post-body .note p:first-child,
+.post-body .note ul:first-child,
+.post-body .note ol:first-child,
+.post-body .note table:first-child,
+.post-body .note pre:first-child,
+.post-body .note blockquote:first-child,
+.post-body .note img:first-child {
+  margin-top: 0;
+}
+.post-body .note p:last-child,
+.post-body .note ul:last-child,
+.post-body .note ol:last-child,
+.post-body .note table:last-child,
+.post-body .note pre:last-child,
+.post-body .note blockquote:last-child,
+.post-body .note img:last-child {
+  margin-bottom: 0;
+}
+.post-body .note.default {
+  border-left-color: #777;
+}
+.post-body .note.default h2,
+.post-body .note.default h3,
+.post-body .note.default h4,
+.post-body .note.default h5,
+.post-body .note.default h6 {
+  color: #777;
+}
+.post-body .note.primary {
+  border-left-color: #6f42c1;
+}
+.post-body .note.primary h2,
+.post-body .note.primary h3,
+.post-body .note.primary h4,
+.post-body .note.primary h5,
+.post-body .note.primary h6 {
+  color: #6f42c1;
+}
+.post-body .note.info {
+  border-left-color: #428bca;
+}
+.post-body .note.info h2,
+.post-body .note.info h3,
+.post-body .note.info h4,
+.post-body .note.info h5,
+.post-body .note.info h6 {
+  color: #428bca;
+}
+.post-body .note.success {
+  border-left-color: #5cb85c;
+}
+.post-body .note.success h2,
+.post-body .note.success h3,
+.post-body .note.success h4,
+.post-body .note.success h5,
+.post-body .note.success h6 {
+  color: #5cb85c;
+}
+.post-body .note.warning {
+  border-left-color: #f0ad4e;
+}
+.post-body .note.warning h2,
+.post-body .note.warning h3,
+.post-body .note.warning h4,
+.post-body .note.warning h5,
+.post-body .note.warning h6 {
+  color: #f0ad4e;
+}
+.post-body .note.danger {
+  border-left-color: #d9534f;
+}
+.post-body .note.danger h2,
+.post-body .note.danger h3,
+.post-body .note.danger h4,
+.post-body .note.danger h5,
+.post-body .note.danger h6 {
+  color: #d9534f;
+}
+.pagination .prev,
+.pagination .next,
+.pagination .page-number,
+.pagination .space {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 0 11px;
+  position: relative;
+  top: -1px;
+}
+@media (max-width: 767px) {
+  .pagination .prev,
+  .pagination .next,
+  .pagination .page-number,
+  .pagination .space {
+    margin: 0 5px;
+  }
+}
+.pagination {
+  border-top: 1px solid #eee;
+  margin: 120px 0 0;
+  text-align: center;
+}
+.pagination .prev,
+.pagination .next,
+.pagination .page-number {
+  border-bottom: 0;
+  border-top: 1px solid #eee;
+  transition-property: border-color;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.pagination .prev:hover,
+.pagination .next:hover,
+.pagination .page-number:hover {
+  border-top-color: #222;
+}
+.pagination .space {
+  margin: 0;
+  padding: 0;
+}
+.pagination .prev {
+  margin-left: 0;
+}
+.pagination .next {
+  margin-right: 0;
+}
+.pagination .page-number.current {
+  background: #ccc;
+  border-top-color: #ccc;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .pagination {
+    border-top: none;
+  }
+  .pagination .prev,
+  .pagination .next,
+  .pagination .page-number {
+    border-bottom: 1px solid #eee;
+    border-top: 0;
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+  .pagination .prev:hover,
+  .pagination .next:hover,
+  .pagination .page-number:hover {
+    border-bottom-color: #222;
+  }
+}
+.comments {
+  margin-top: 60px;
+  overflow: hidden;
+}
+.comment-button-group {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  margin: 1em 0;
+}
+.comment-button-group .comment-button {
+  margin: 0.1em 0.2em;
+}
+.comment-button-group .comment-button.active {
+  background: var(--btn-default-hover-bg);
+  border-color: var(--btn-default-hover-border-color);
+  color: var(--btn-default-hover-color);
+}
+.comment-position {
+  display: none;
+}
+.comment-position.active {
+  display: block;
+}
+.tabs-comment {
+  background: var(--content-bg-color);
+  margin-top: 4em;
+  padding-top: 0;
+}
+.tabs-comment .comments {
+  border: 0;
+  box-shadow: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+.container {
+  min-height: 100%;
+  position: relative;
+}
+.main-inner {
+  margin: 0 auto;
+  width: 700px;
+}
+@media (min-width: 1200px) {
+  .main-inner {
+    width: 800px;
+  }
+}
+@media (min-width: 1600px) {
+  .main-inner {
+    width: 900px;
+  }
+}
+@media (max-width: 767px) {
+  .content-wrap {
+    padding: 0 20px;
+  }
+}
+.header {
+  background: transparent;
+}
+.header-inner {
+  margin: 0 auto;
+  width: 700px;
+}
+@media (min-width: 1200px) {
+  .header-inner {
+    width: 800px;
+  }
+}
+@media (min-width: 1600px) {
+  .header-inner {
+    width: 900px;
+  }
+}
+.site-brand-container {
+  display: flex;
+  flex-shrink: 0;
+  padding: 0 10px;
+}
+.headband {
+  background: #222;
+  height: 3px;
+}
+.site-meta {
+  flex-grow: 1;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .site-meta {
+    text-align: center;
+  }
+}
+.brand {
+  border-bottom: none;
+  color: var(--brand-color);
+  display: inline-block;
+  line-height: 1.375em;
+  padding: 0 40px;
+  position: relative;
+}
+.brand:hover {
+  color: var(--brand-hover-color);
+}
+.site-title {
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1.375em;
+  font-weight: normal;
+  margin: 0;
+}
+.site-subtitle {
+  color: #999;
+  font-size: 0.8125em;
+  margin: 10px 0;
+}
+.use-motion .brand {
+  opacity: 0;
+}
+.use-motion .site-title,
+.use-motion .site-subtitle,
+.use-motion .custom-logo-image {
+  opacity: 0;
+  position: relative;
+  top: -10px;
+}
+.site-nav-toggle,
+.site-nav-right {
+  display: none;
+}
+@media (max-width: 767px) {
+  .site-nav-toggle,
+  .site-nav-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.site-nav-toggle .toggle,
+.site-nav-right .toggle {
+  color: var(--text-color);
+  padding: 10px;
+  width: 22px;
+}
+.site-nav-toggle .toggle .toggle-line,
+.site-nav-right .toggle .toggle-line {
+  background: var(--text-color);
+  border-radius: 1px;
+}
+.site-nav {
+  display: block;
+}
+@media (max-width: 767px) {
+  .site-nav {
+    clear: both;
+    display: none;
+  }
+}
+.site-nav.site-nav-on {
+  display: block;
+}
+.menu {
+  margin-top: 20px;
+  padding-left: 0;
+  text-align: center;
+}
+.menu-item {
+  display: inline-block;
+  list-style: none;
+  margin: 0 10px;
+}
+@media (max-width: 767px) {
+  .menu-item {
+    display: block;
+    margin-top: 10px;
+  }
+  .menu-item.menu-item-search {
+    display: none;
+  }
+}
+.menu-item a,
+.menu-item span.exturl {
+  border-bottom: 0;
+  display: block;
+  font-size: 0.8125em;
+  transition-property: border-color;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+@media (hover: none) {
+  .menu-item a:hover,
+  .menu-item span.exturl:hover {
+    border-bottom-color: transparent !important;
+  }
+}
+.menu-item .fa,
+.menu-item .fab,
+.menu-item .far,
+.menu-item .fas {
+  margin-right: 8px;
+}
+.menu-item .badge {
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  margin-left: 0.35em;
+  margin-top: 0.35em;
+  text-align: center;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .menu-item .badge {
+    float: right;
+    margin-left: 0;
+  }
+}
+.menu-item-active a,
+.menu .menu-item a:hover,
+.menu .menu-item span.exturl:hover {
+  background: var(--menu-item-bg-color);
+}
+.use-motion .menu-item {
+  opacity: 0;
+}
+.sidebar {
+  background: #222;
+  bottom: 0;
+  box-shadow: inset 0 2px 6px #000;
+  position: fixed;
+  top: 0;
+}
+@media (max-width: 991px) {
+  .sidebar {
+    display: none;
+  }
+}
+.sidebar-inner {
+  color: #999;
+  padding: 18px 10px;
+  text-align: center;
+}
+.cc-license {
+  margin-top: 10px;
+  text-align: center;
+}
+.cc-license .cc-opacity {
+  border-bottom: none;
+  opacity: 0.7;
+}
+.cc-license .cc-opacity:hover {
+  opacity: 0.9;
+}
+.cc-license img {
+  display: inline-block;
+}
+.site-author-image {
+  border: 2px solid #333;
+  display: block;
+  margin: 0 auto;
+  max-width: 96px;
+  padding: 2px;
+}
+.site-author-name {
+  color: #f5f5f5;
+  font-weight: normal;
+  margin: 5px 0 0;
+  text-align: center;
+}
+.site-description {
+  color: #999;
+  font-size: 1em;
+  margin-top: 5px;
+  text-align: center;
+}
+.links-of-author {
+  margin-top: 15px;
+}
+.links-of-author a,
+.links-of-author span.exturl {
+  border-bottom-color: #555;
+  display: inline-block;
+  font-size: 0.8125em;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.links-of-author a::before,
+.links-of-author span.exturl::before {
+  background: #88d1ff;
+  border-radius: 50%;
+  content: ' ';
+  display: inline-block;
+  height: 4px;
+  margin-right: 3px;
+  vertical-align: middle;
+  width: 4px;
+}
+.sidebar-button {
+  margin-top: 15px;
+}
+.sidebar-button a {
+  border: 1px solid #fc6423;
+  border-radius: 4px;
+  color: #fc6423;
+  display: inline-block;
+  padding: 0 15px;
+}
+.sidebar-button a .fa,
+.sidebar-button a .fab,
+.sidebar-button a .far,
+.sidebar-button a .fas {
+  margin-right: 5px;
+}
+.sidebar-button a:hover {
+  background: #fc6423;
+  border: 1px solid #fc6423;
+  color: #fff;
+}
+.sidebar-button a:hover .fa,
+.sidebar-button a:hover .fab,
+.sidebar-button a:hover .far,
+.sidebar-button a:hover .fas {
+  color: #fff;
+}
+.links-of-blogroll {
+  font-size: 0.8125em;
+  margin-top: 10px;
+}
+.links-of-blogroll-title {
+  font-size: 0.875em;
+  font-weight: 600;
+  margin-top: 0;
+}
+.links-of-blogroll-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#sidebar-dimmer {
+  display: none;
+}
+@media (max-width: 767px) {
+  #sidebar-dimmer {
+    background: #000;
+    display: block;
+    height: 100%;
+    left: 100%;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+  }
+  .sidebar-active + #sidebar-dimmer {
+    opacity: 0.7;
+    transform: translateX(-100%);
+    transition: opacity 0.5s;
+  }
+}
+.sidebar-nav {
+  margin: 0;
+  padding-bottom: 20px;
+  padding-left: 0;
+}
+.sidebar-nav li {
+  border-bottom: 1px solid transparent;
+  color: #666;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.875em;
+}
+.sidebar-nav li.sidebar-nav-overview {
+  margin-left: 10px;
+}
+.sidebar-nav li:hover {
+  color: #f5f5f5;
+}
+.sidebar-nav .sidebar-nav-active {
+  border-bottom-color: #87daff;
+  color: #87daff;
+}
+.sidebar-nav .sidebar-nav-active:hover {
+  color: #87daff;
+}
+.sidebar-panel {
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.sidebar-panel-active {
+  display: block;
+}
+.sidebar-toggle {
+  background: #222;
+  bottom: 45px;
+  cursor: pointer;
+  height: 14px;
+  left: 30px;
+  padding: 5px;
+  position: fixed;
+  width: 14px;
+  z-index: 1300;
+}
+@media (max-width: 991px) {
+  .sidebar-toggle {
+    left: 20px;
+    opacity: 0.8;
+    display: none;
+  }
+}
+.sidebar-toggle:hover .toggle-line {
+  background: #87daff;
+}
+.post-toc {
+  font-size: 0.875em;
+}
+.post-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0 2px 5px 10px;
+  text-align: left;
+}
+.post-toc ol > ol {
+  padding-left: 0;
+}
+.post-toc ol a {
+  transition-property: all;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.post-toc .nav-item {
+  line-height: 1.8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.post-toc .nav .nav-child {
+  display: none;
+}
+.post-toc .nav .active > .nav-child {
+  display: block;
+}
+.post-toc .nav .active-current > .nav-child {
+  display: block;
+}
+.post-toc .nav .active-current > .nav-child > .nav-item {
+  display: block;
+}
+.post-toc .nav .active > a {
+  border-bottom-color: #87daff;
+  color: #87daff;
+}
+.post-toc .nav .active-current > a {
+  color: #87daff;
+}
+.post-toc .nav .active-current > a:hover {
+  color: #87daff;
+}
+.site-state {
+  display: flex;
+  justify-content: center;
+  line-height: 1.4;
+  margin-top: 10px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+.site-state-item {
+  padding: 0 15px;
+}
+.site-state-item:not(:first-child) {
+  border-left: 1px solid #333;
+}
+.site-state-item a {
+  border-bottom: none;
+}
+.site-state-item-count {
+  display: block;
+  font-size: 1.25em;
+  font-weight: 600;
+  text-align: center;
+}
+.site-state-item-name {
+  color: inherit;
+  font-size: 0.875em;
+}
+.footer {
+  color: #999;
+  font-size: 0.875em;
+  padding: 20px 0;
+}
+.footer.footer-fixed {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+.footer-inner {
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  width: 700px;
+}
+@media (min-width: 1200px) {
+  .footer-inner {
+    width: 800px;
+  }
+}
+@media (min-width: 1600px) {
+  .footer-inner {
+    width: 900px;
+  }
+}
+.languages {
+  display: inline-block;
+  font-size: 1.125em;
+  position: relative;
+}
+.languages .lang-select-label span {
+  margin: 0 0.5em;
+}
+.languages .lang-select {
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.with-love {
+  color: #ff0000;
+  display: inline-block;
+  margin: 0 5px;
+  animation: iconAnimate 1.33s ease-in-out infinite;
+}
+.powered-by,
+.theme-info {
+  display: inline-block;
+}
+@-moz-keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@-webkit-keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@-o-keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+.back-to-top {
+  font-size: 12px;
+  text-align: center;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.back-to-top {
+  background: #222;
+  bottom: -100px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  left: 30px;
+  opacity: 1;
+  padding: 0 6px;
+  position: fixed;
+  transition-property: bottom;
+  z-index: 1300;
+  width: 24px;
+}
+.back-to-top span {
+  display: none;
+}
+.back-to-top:hover {
+  color: #87daff;
+}
+.back-to-top.back-to-top-on {
+  bottom: 19px;
+}
+@media (max-width: 991px) {
+  .back-to-top {
+    left: 20px;
+    opacity: 0.8;
+  }
+}
+.reading-progress-bar {
+  background: #37c6c0;
+  display: block;
+  height: 3px;
+  left: 0;
+  position: fixed;
+  width: 0;
+  z-index: 1500;
+  top: 0;
+}
+.post-body {
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+@media (min-width: 1200px) {
+  .post-body {
+    font-size: 1.125em;
+  }
+}
+.post-body .exturl .fa {
+  font-size: 0.875em;
+  margin-left: 4px;
+}
+.post-body .image-caption,
+.post-body .figure .caption {
+  color: #999;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1;
+  margin: -20px auto 15px;
+  text-align: center;
+}
+.post-sticky-flag {
+  display: inline-block;
+  transform: rotate(30deg);
+}
+.post-button {
+  margin-top: 40px;
+  text-align: center;
+}
+.use-motion .post-block,
+.use-motion .pagination,
+.use-motion .comments {
+  opacity: 0;
+}
+.use-motion .post-header {
+  opacity: 0;
+}
+.use-motion .post-body {
+  opacity: 0;
+}
+.use-motion .collection-header {
+  opacity: 0;
+}
+.posts-collapse {
+  margin-left: 35px;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .posts-collapse {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+.posts-collapse .collection-title {
+  font-size: 1.125em;
+  position: relative;
+}
+.posts-collapse .collection-title::before {
+  background: #999;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  content: ' ';
+  height: 10px;
+  left: 0;
+  margin-left: -6px;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  width: 10px;
+}
+.posts-collapse .collection-year {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 60px 0;
+  position: relative;
+}
+.posts-collapse .collection-year::before {
+  background: #bbb;
+  border-radius: 50%;
+  content: ' ';
+  height: 8px;
+  left: 0;
+  margin-left: -4px;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  width: 8px;
+}
+.posts-collapse .collection-header {
+  display: block;
+  margin: 0 0 0 20px;
+}
+.posts-collapse .collection-header small {
+  color: #bbb;
+  margin-left: 5px;
+}
+.posts-collapse .post-header {
+  border-bottom: 1px dashed #ccc;
+  margin: 30px 0;
+  padding-left: 15px;
+  position: relative;
+  transition-property: border;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.posts-collapse .post-header::before {
+  background: #bbb;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  content: ' ';
+  height: 6px;
+  left: 0;
+  margin-left: -4px;
+  position: absolute;
+  top: 0.75em;
+  transition-property: background;
+  width: 6px;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.posts-collapse .post-header:hover {
+  border-bottom-color: #666;
+}
+.posts-collapse .post-header:hover::before {
+  background: #222;
+}
+.posts-collapse .post-meta {
+  display: inline;
+  font-size: 0.75em;
+  margin-right: 10px;
+}
+.posts-collapse .post-title {
+  display: inline;
+}
+.posts-collapse .post-title a,
+.posts-collapse .post-title span.exturl {
+  border-bottom: none;
+  color: var(--link-color);
+}
+.posts-collapse .post-title .fa-external-link-alt {
+  font-size: 0.875em;
+  margin-left: 5px;
+}
+.posts-collapse::before {
+  background: #f5f5f5;
+  content: ' ';
+  height: 100%;
+  left: 0;
+  margin-left: -2px;
+  position: absolute;
+  top: 1.25em;
+  width: 4px;
+}
+.post-eof {
+  background: #ccc;
+  height: 1px;
+  margin: 80px auto 60px;
+  text-align: center;
+  width: 8%;
+}
+.post-block:last-of-type .post-eof {
+  display: none;
+}
+.content {
+  padding-top: 40px;
+}
+@media (min-width: 992px) {
+  .post-body {
+    text-align: justify;
+  }
+}
+@media (max-width: 991px) {
+  .post-body {
+    text-align: justify;
+  }
+}
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  padding-top: 10px;
+}
+.post-body h1 .header-anchor,
+.post-body h2 .header-anchor,
+.post-body h3 .header-anchor,
+.post-body h4 .header-anchor,
+.post-body h5 .header-anchor,
+.post-body h6 .header-anchor {
+  border-bottom-style: none;
+  color: #ccc;
+  float: right;
+  margin-left: 10px;
+  visibility: hidden;
+}
+.post-body h1 .header-anchor:hover,
+.post-body h2 .header-anchor:hover,
+.post-body h3 .header-anchor:hover,
+.post-body h4 .header-anchor:hover,
+.post-body h5 .header-anchor:hover,
+.post-body h6 .header-anchor:hover {
+  color: inherit;
+}
+.post-body h1:hover .header-anchor,
+.post-body h2:hover .header-anchor,
+.post-body h3:hover .header-anchor,
+.post-body h4:hover .header-anchor,
+.post-body h5:hover .header-anchor,
+.post-body h6:hover .header-anchor {
+  visibility: visible;
+}
+.post-body iframe,
+.post-body img,
+.post-body video {
+  margin-bottom: 20px;
+}
+.post-body .video-container {
+  height: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding-top: 75%;
+  position: relative;
+  width: 100%;
+}
+.post-body .video-container iframe,
+.post-body .video-container object,
+.post-body .video-container embed {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.post-gallery {
+  align-items: center;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+  .post-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.post-gallery a {
+  border: 0;
+}
+.post-gallery img {
+  margin: 0;
+}
+.posts-expand .post-header {
+  font-size: 1.125em;
+}
+.posts-expand .post-title {
+  font-size: 1.5em;
+  font-weight: normal;
+  margin: initial;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.posts-expand .post-title-link {
+  border-bottom: none;
+  color: var(--link-color);
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+.posts-expand .post-title-link::before {
+  background: var(--link-color);
+  bottom: 0;
+  content: '';
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  visibility: hidden;
+  width: 100%;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.posts-expand .post-title-link:hover::before {
+  transform: scaleX(1);
+  visibility: visible;
+}
+.posts-expand .post-title-link .fa-external-link-alt {
+  font-size: 0.875em;
+  margin-left: 5px;
+}
+.posts-expand .post-meta {
+  color: #999;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 0.75em;
+  margin: 3px 0 60px 0;
+  text-align: center;
+}
+.posts-expand .post-meta .post-description {
+  font-size: 0.875em;
+  margin-top: 2px;
+}
+.posts-expand .post-meta time {
+  border-bottom: 1px dashed #999;
+  cursor: pointer;
+}
+.post-meta .post-meta-item + .post-meta-item::before {
+  content: '|';
+  margin: 0 0.5em;
+}
+.post-meta-divider {
+  margin: 0 0.5em;
+}
+.post-meta-item-icon {
+  margin-right: 3px;
+}
+@media (max-width: 991px) {
+  .post-meta-item-icon {
+    display: inline-block;
+  }
+}
+@media (max-width: 991px) {
+  .post-meta-item-text {
+    display: none;
+  }
+}
+.post-nav {
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding: 10px 5px 0;
+}
+.post-nav-item {
+  flex: 1;
+}
+.post-nav-item a {
+  border-bottom: none;
+  display: block;
+  font-size: 0.875em;
+  line-height: 1.6;
+  position: relative;
+}
+.post-nav-item a:active {
+  top: 2px;
+}
+.post-nav-item .fa {
+  font-size: 0.75em;
+}
+.post-nav-item:first-child {
+  margin-right: 15px;
+}
+.post-nav-item:first-child .fa {
+  margin-right: 5px;
+}
+.post-nav-item:last-child {
+  margin-left: 15px;
+  text-align: right;
+}
+.post-nav-item:last-child .fa {
+  margin-left: 5px;
+}
+.rtl.post-body p,
+.rtl.post-body a,
+.rtl.post-body h1,
+.rtl.post-body h2,
+.rtl.post-body h3,
+.rtl.post-body h4,
+.rtl.post-body h5,
+.rtl.post-body h6,
+.rtl.post-body li,
+.rtl.post-body ul,
+.rtl.post-body ol {
+  direction: rtl;
+  font-family: UKIJ Ekran;
+}
+.rtl.post-title {
+  font-family: UKIJ Ekran;
+}
+.post-tags {
+  margin-top: 40px;
+  text-align: center;
+}
+.post-tags a {
+  display: inline-block;
+  font-size: 0.8125em;
+}
+.post-tags a:not(:last-child) {
+  margin-right: 10px;
+}
+.post-widgets {
+  border-top: 1px solid #eee;
+  margin-top: 15px;
+  text-align: center;
+}
+.wp_rating {
+  height: 20px;
+  line-height: 20px;
+  margin-top: 10px;
+  padding-top: 6px;
+  text-align: center;
+}
+.social-like {
+  display: flex;
+  font-size: 0.875em;
+  justify-content: center;
+  text-align: center;
+}
+.reward-container {
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+  width: 90%;
+}
+.reward-container button {
+  background: transparent;
+  border: 1px solid #fc6423;
+  border-radius: 0;
+  color: #fc6423;
+  cursor: pointer;
+  line-height: 2;
+  outline: 0;
+  padding: 0 15px;
+  vertical-align: text-top;
+}
+.reward-container button:hover {
+  background: #fc6423;
+  border: 1px solid transparent;
+  color: #fa9366;
+}
+#qr {
+  padding-top: 20px;
+}
+#qr a {
+  border: 0;
+}
+#qr img {
+  display: inline-block;
+  margin: 0.8em 2em 0 2em;
+  max-width: 100%;
+  width: 180px;
+}
+#qr p {
+  text-align: center;
+}
+.category-all-page .category-all-title {
+  text-align: center;
+}
+.category-all-page .category-all {
+  margin-top: 20px;
+}
+.category-all-page .category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.category-all-page .category-list-item {
+  margin: 5px 10px;
+}
+.category-all-page .category-list-count {
+  color: #bbb;
+}
+.category-all-page .category-list-count::before {
+  content: ' (';
+  display: inline;
+}
+.category-all-page .category-list-count::after {
+  content: ') ';
+  display: inline;
+}
+.category-all-page .category-list-child {
+  padding-left: 10px;
+}
+.event-list {
+  padding: 0;
+}
+.event-list hr {
+  background: #222;
+  margin: 20px 0 45px 0;
+}
+.event-list hr::after {
+  background: #222;
+  color: #fff;
+  content: 'NOW';
+  display: inline-block;
+  font-weight: bold;
+  padding: 0 5px;
+  text-align: right;
+}
+.event-list .event {
+  background: #222;
+  margin: 20px 0;
+  min-height: 40px;
+  padding: 15px 0 15px 10px;
+}
+.event-list .event .event-summary {
+  color: #fff;
+  margin: 0;
+  padding-bottom: 3px;
+}
+.event-list .event .event-summary::before {
+  animation: dot-flash 1s alternate infinite ease-in-out;
+  color: #fff;
+  content: '\f111';
+  display: inline-block;
+  font-size: 10px;
+  margin-right: 25px;
+  vertical-align: middle;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.event-list .event .event-relative-time {
+  color: #bbb;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: normal;
+  padding-left: 12px;
+}
+.event-list .event .event-details {
+  color: #fff;
+  display: block;
+  line-height: 18px;
+  margin-left: 56px;
+  padding-bottom: 6px;
+  padding-top: 3px;
+  text-indent: -24px;
+}
+.event-list .event .event-details::before {
+  color: #fff;
+  display: inline-block;
+  margin-right: 9px;
+  text-align: center;
+  text-indent: 0;
+  width: 14px;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.event-list .event .event-details.event-location::before {
+  content: '\f041';
+}
+.event-list .event .event-details.event-duration::before {
+  content: '\f017';
+}
+.event-list .event-past {
+  background: #f5f5f5;
+}
+.event-list .event-past .event-summary,
+.event-list .event-past .event-details {
+  color: #bbb;
+  opacity: 0.9;
+}
+.event-list .event-past .event-summary::before,
+.event-list .event-past .event-details::before {
+  animation: none;
+  color: #bbb;
+}
+@-moz-keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@-webkit-keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@-o-keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+ul.breadcrumb {
+  font-size: 0.75em;
+  list-style: none;
+  margin: 1em 0;
+  padding: 0 2em;
+  text-align: center;
+}
+ul.breadcrumb li {
+  display: inline;
+}
+ul.breadcrumb li + li::before {
+  content: '/\00a0';
+  font-weight: normal;
+  padding: 0.5em;
+}
+ul.breadcrumb li + li:last-child {
+  font-weight: bold;
+}
+.tag-cloud {
+  text-align: center;
+}
+.tag-cloud a {
+  display: inline-block;
+  margin: 10px;
+}
+.tag-cloud a:hover {
+  color: var(--link-hover-color) !important;
+}
+.search-pop-overlay {
+  background: rgba(0,0,0,0);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: visibility 0s linear 0.2s, background 0.2s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1400;
+}
+.search-pop-overlay.search-active {
+  background: rgba(0,0,0,0.3);
+  transition: background 0.2s;
+  visibility: visible;
+}
+.search-popup {
+  background: var(--card-bg-color);
+  border-radius: 5px;
+  height: 80%;
+  left: calc(50% - 350px);
+  position: fixed;
+  top: 10%;
+  transform: scale(0);
+  transition: transform 0.2s;
+  width: 700px;
+  z-index: 1500;
+}
+.search-active .search-popup {
+  transform: scale(1);
+}
+@media (max-width: 767px) {
+  .search-popup {
+    border-radius: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+.search-popup .search-icon,
+.search-popup .popup-btn-close {
+  color: #999;
+  font-size: 18px;
+  padding: 0 10px;
+}
+.search-popup .popup-btn-close {
+  cursor: pointer;
+}
+.search-popup .popup-btn-close:hover .fa {
+  color: #222;
+}
+.search-popup .search-header {
+  background: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  padding: 5px;
+}
+.search-popup input.search-input {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+.search-popup input.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+.search-popup .search-input-container {
+  flex-grow: 1;
+  padding: 2px;
+}
+.search-popup ul.search-result-list {
+  margin: 0 5px;
+  padding: 0;
+  width: 100%;
+}
+.search-popup p.search-result {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px 0;
+}
+.search-popup a.search-result-title {
+  font-weight: bold;
+}
+.search-popup .search-keyword {
+  border-bottom: 1px dashed #ff2a2a;
+  color: #ff2a2a;
+  font-weight: bold;
+}
+.search-popup #search-result {
+  display: flex;
+  height: calc(100% - 55px);
+  overflow: auto;
+  padding: 5px 25px;
+}
+.search-popup #no-result {
+  color: #ccc;
+  margin: auto;
+}
+mjx-container[jax="CHTML"][display="true"],
+.has-jax {
+  overflow: auto hidden;
+}
+mjx-container + br {
+  display: none;
+}
+hr {
+  height: 2px;
+  margin: 20px 0;
+}
+.btn {
+  padding: 0 10px;
+}
+.headband {
+  display: none;
+}
+.main-inner {
+  padding-bottom: 80px;
+}
+@media (max-width: 767px) {
+  .main-inner {
+    width: auto;
+  }
+}
+.content {
+  padding-top: 80px;
+}
+@media (max-width: 767px) {
+  .content {
+    padding-top: 60px;
+  }
+}
+.pagination {
+  margin: 120px 0 0;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .pagination {
+    margin: 80px 10px 0;
+    text-align: center;
+  }
+}
+.footer {
+  background: var(--content-bg-color);
+  color: var(--text-color);
+  padding: 10px 0;
+}
+.footer-inner {
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .footer-inner {
+    text-align: center;
+    width: auto;
+  }
+}
+.header {
+  background: var(--content-bg-color);
+}
+.header-inner {
+  align-items: center;
+  display: flex;
+  padding: 20px 0;
+}
+@media (max-width: 767px) {
+  .header-inner {
+    display: block;
+    padding: 10px 0;
+    width: auto;
+  }
+}
+.site-meta {
+  line-height: normal;
+}
+.site-meta .brand {
+  padding: 2px 1px;
+}
+@media (max-width: 767px) {
+  .site-meta .brand {
+    display: block;
+  }
+}
+.site-meta .site-title {
+  font-weight: bolder;
+}
+.logo-line-before,
+.logo-line-after {
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 75%;
+}
+@media (max-width: 767px) {
+  .logo-line-before,
+  .logo-line-after {
+    display: none;
+  }
+}
+.logo-line-before i,
+.logo-line-after i {
+  background: var(--brand-color);
+  display: block;
+  height: 2px;
+  position: relative;
+}
+.use-motion .logo-line-before i {
+  left: -100%;
+}
+.use-motion .logo-line-after i {
+  right: -100%;
+}
+.site-subtitle {
+  display: none;
+}
+.site-nav {
+  flex-grow: 1;
+}
+@media (max-width: 767px) {
+  .site-nav {
+    padding: 10px 10px 0;
+  }
+}
+.menu {
+  margin: 0;
+}
+.menu .menu-item {
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .menu .menu-item {
+    margin-top: 5px;
+  }
+}
+.menu .menu-item a,
+.menu .menu-item span.exturl {
+  border-radius: 2px;
+  padding: 0 10px;
+  transition-property: background;
+}
+@media (max-width: 767px) {
+  .menu .menu-item a,
+  .menu .menu-item span.exturl {
+    text-align: left;
+  }
+}
+.menu .menu-item .badge {
+  background: #fff;
+  border-radius: 10px;
+  color: #555;
+  padding: 1px 4px;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+}
+.posts-expand.index .post-title,
+.posts-expand.index .post-meta {
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .posts-expand.index .post-title,
+  .posts-expand.index .post-meta {
+    text-align: center;
+  }
+}
+.posts-expand.index .post-meta {
+  margin: 5px 0 20px 0;
+}
+.posts-expand .post-eof {
+  display: none;
+}
+.posts-expand .post-block:not(:first-child) {
+  margin-top: 120px;
+}
+.posts-expand .post-title,
+.posts-expand .post-meta {
+  text-align: center;
+}
+.posts-expand .post-body img {
+  margin-left: 0;
+}
+.posts-expand .post-tags {
+  text-align: left;
+}
+.posts-expand .post-tags a {
+  background: #f5f5f5;
+  border-bottom: none;
+  padding: 1px 5px;
+}
+.posts-expand .post-tags a:hover {
+  background: #ccc;
+}
+.posts-expand .post-nav {
+  margin-top: 40px;
+}
+.post-button {
+  margin-top: 20px;
+  text-align: left;
+}
+.post-button .btn {
+  background: none;
+  border: 0;
+  border-bottom: 2px solid var(--btn-default-border-color);
+  padding: 0;
+  transition-property: border;
+}
+.post-button .btn:hover {
+  border-bottom-color: var(--btn-default-hover-border-color);
+}
+.sidebar {
+  right: -320px;
+}
+.sidebar.sidebar-active {
+  right: 0;
+}
+.sidebar-toggle,
+.back-to-top {
+  left: auto;
+  right: 30px;
+}
+@media (max-width: 991px) {
+  .sidebar-toggle,
+  .back-to-top {
+    right: 20px;
+  }
+}
+.book-mark-link {
+  left: 30px;
+}
+.sidebar {
+  width: 320px;
+  z-index: 1200;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+.sidebar a,
+.sidebar span.exturl {
+  border-bottom-color: #555;
+  color: #999;
+}
+.sidebar a:hover,
+.sidebar span.exturl:hover {
+  border-bottom-color: #eee;
+  color: #eee;
+}
+.links-of-blogroll-item {
+  padding: 2px 10px;
+}
+.links-of-blogroll-item a,
+.links-of-blogroll-item span.exturl {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sub-menu {
+  margin: 10px 0;
+}
+.sub-menu .menu-item {
+  display: inline-block;
+}
+</style><noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Yue Jiao's blog" type="application/atom+xml">
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}</script><noscript><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&amp;display=swap&amp;subset=latin,latin-ext"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yue Jiao's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yj0.se/2021/01/intro-to-go/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yue Jiao">
+      <meta itemprop="description" content="Personal blog for idea sharing and archiving.">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yue Jiao's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Introduction to Go
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-07T00:00:00+01:00">2021-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-29 16:01:20" itemprop="dateModified" datetime="2021-01-29T16:01:20+01:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Basic Go synax is introduced in this article. </p>
+<a id="more"></a>
+
+<h4 id="Packages-variables-and-functions"><a href="#Packages-variables-and-functions" class="headerlink" title="Packages, variables, and functions"></a>Packages, variables, and functions</h4>  <figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"math/rand"</span></span><br><span class="line">    <span class="string">"math/cmplx"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(x, y <span class="keyword">int</span>)</span> <span class="title">int</span></span> {</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swap</span><span class="params">(x, y <span class="keyword">string</span>)</span> <span class="params">(<span class="keyword">string</span>, <span class="keyword">string</span>)</span></span> {</span><br><span class="line">    <span class="keyword">return</span> y, x</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">split</span><span class="params">(sum <span class="keyword">int</span>)</span> <span class="params">(x, y <span class="keyword">int</span>)</span></span> {</span><br><span class="line">    x = sum * <span class="number">4</span> / <span class="number">9</span></span><br><span class="line">    y = sum - x</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	ToBe	<span class="keyword">bool</span> 		= <span class="literal">false</span></span><br><span class="line">    MaxInt 	<span class="keyword">uint64</span>		= <span class="number">1</span>&lt;&lt;<span class="number">64</span> - <span class="number">1</span></span><br><span class="line">    z		<span class="keyword">complex128</span>	= cmplx.Sqrt(<span class="number">-5</span> + <span class="number">12i</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i, j <span class="keyword">int</span> = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Pi = <span class="number">3.14</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">needInt</span> <span class="params">(x <span class="keyword">int</span>)</span> <span class="title">int</span></span> { <span class="keyword">return</span> x*<span class="number">10</span> + <span class="number">1</span> }</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">needFloat</span> <span class="params">(x <span class="keyword">float64</span>)</span> <span class="title">float64</span></span> { <span class="keyword">return</span> x * <span class="number">0.1</span> }</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">    fmt.Println(<span class="string">"A random number is: "</span>, rand.Intn(<span class="number">10</span>))</span><br><span class="line">    fmt.Println(add(<span class="number">42</span>, <span class="number">13</span>))</span><br><span class="line">    a, b := swap(<span class="string">"hello"</span>, <span class="string">"world"</span>)</span><br><span class="line">    fmt.Println(a, b)</span><br><span class="line">    fmt.Println(split(<span class="number">17</span>))</span><br><span class="line">    <span class="keyword">var</span> c, python, java = <span class="literal">true</span>, <span class="literal">false</span>, <span class="string">"no"</span></span><br><span class="line">    fmt.Println(i, j, c, python, java)</span><br><span class="line">    fmt.Printf(<span class="string">"Type: %T Value: %v\n"</span>, ToBe, ToBe)</span><br><span class="line">	fmt.Printf(<span class="string">"Type: %T Value: %v\n"</span>, MaxInt, MaxInt)</span><br><span class="line">	fmt.Printf(<span class="string">"Type: %T Value: %v\n"</span>, z, z)</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">var</span> f <span class="keyword">float64</span></span><br><span class="line">	<span class="keyword">var</span> t <span class="keyword">bool</span></span><br><span class="line">	<span class="keyword">var</span> s <span class="keyword">string</span></span><br><span class="line">	fmt.Printf(<span class="string">"%v %v %v %q\n"</span>, i, f, t, s)</span><br><span class="line">    fmt.Println(<span class="string">"Happy"</span>, Pi, <span class="string">"Day"</span>)</span><br><span class="line">    <span class="keyword">const</span> Big = <span class="number">1</span> &lt;&lt; <span class="number">100</span></span><br><span class="line">    fmt.Println(needFloat(Big))		<span class="comment">// This line works as it print Big as a float number</span></span><br><span class="line">	<span class="comment">// fmt.Println(needInt(Big))	// This line does not work as it through overflows int exception</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><p>Inside a function, the <code>:=</code> short assignment statement can be used in place of a <code>var</code> declaration with implicit type</p>
+<ul>
+<li>Outside a function, every statement begins with a keyword (<code>var</code>, <code>func</code> and so on) and so the <code>:=</code> construct is not available</li>
+</ul>
+</li>
+<li><p>Naked return statements should be used only in short functions. They can harm readability in longer functions</p>
+</li>
+<li><p>The expression <code>T(v)</code> converts the value <code>v</code> to the type <code>T</code>. Unlike in C, in Go assignment between items of different type requires an explicit conversion</p>
+</li>
+<li><p>When declaring a variable without specifying an explicit type, the variable’s type is inferred from the value on the right hand side</p>
+<ul>
+<li>When the right hand side of the declaration is typed, the new variable is of that same</li>
+<li>When the right hand side contains an untyped numeric constant, the new variable may be an <code>int</code>, <code>float64</code>, or <code>complex128</code> depending on the precision of the constant</li>
+</ul>
+</li>
+<li><p>Constants cannot be declared using the <code>:=</code> syntax</p>
+</li>
+<li><p>Numeric constants are high-precision values. An untyped constant takes the type needed by its context</p>
+</li>
+</ul>
+<h4 id="Flow-control-statements-for-if-else-switch-and-defer"><a href="#Flow-control-statements-for-if-else-switch-and-defer" class="headerlink" title="Flow control statements: for, if, else, switch and defer"></a>Flow control statements: for, if, else, switch and defer</h4>  <figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"math"</span></span><br><span class="line">    <span class="string">"runtime"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sqrt</span> <span class="params">(x <span class="keyword">float64</span>)</span> <span class="title">string</span></span> {</span><br><span class="line">    <span class="keyword">if</span> str := <span class="string">"i"</span>; x &lt; <span class="number">0</span> {</span><br><span class="line">        <span class="keyword">return</span> sqrt(-x) + str</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> fmt.Sprint(math.Sqrt(x))</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">    sum := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">        sum += i</span><br><span class="line">    }</span><br><span class="line">    fmt.Println(sum)</span><br><span class="line">    </span><br><span class="line">    prod := <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> prod &lt; <span class="number">1000</span> {</span><br><span class="line">        prod += prod</span><br><span class="line">    }</span><br><span class="line">    fmt.Println(prod)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// for {}  		// infinite loop</span></span><br><span class="line">    </span><br><span class="line">    fmt.Println(sqrt(<span class="number">2</span>), sqrt(<span class="number">-4</span>))</span><br><span class="line">    </span><br><span class="line">    fmt.Print(<span class="string">"Go runs on "</span>)</span><br><span class="line">    <span class="keyword">switch</span> os := runtime.GOOS; os {</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"darwin"</span>:</span><br><span class="line">        fmt.Println(<span class="string">"OS X"</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"linux"</span>:</span><br><span class="line">        fmt.Println(<span class="string">"Linux"</span>)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        fmt.Println(<span class="string">"%s.\n"</span>, os)</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    t := time.Now()</span><br><span class="line">    <span class="keyword">switch</span> {</span><br><span class="line">    <span class="keyword">case</span> t.Hour() &lt; <span class="number">12</span>:</span><br><span class="line">        fmt.Println(<span class="string">"Good morning"</span>)</span><br><span class="line">    <span class="keyword">case</span> t.Hour() &lt; <span class="number">17</span>:</span><br><span class="line">        fmt.Println(<span class="string">"Good afternoon"</span>)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        fmt.Println(<span class="string">"Good evening"</span>)</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">defer</span> fmt.Println(<span class="string">"GO!"</span>)</span><br><span class="line">    <span class="keyword">defer</span> fmt.Println(<span class="string">"world"</span>)</span><br><span class="line">    fmt.Println(<span class="string">"hello"</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><p>Go cannot have declared but not used variables</p>
+</li>
+<li><p>The init and post statements are optional for the for loop. For is Go’s “while”</p>
+</li>
+<li><p>Variables declared by the short statement in the if expression are only in scope until the end of <code>if</code></p>
+</li>
+<li><p>A defer statement defers the execution of a function until the surrounding function returns</p>
+<ul>
+<li>The deferred call’s arguments are evaluated immediately, but the function call is not executed until the surrounding function returns</li>
+<li>Deferred function calls are pushed onto a stack. When a function returns, its deferred calls are executed in last-in-first-out order</li>
+</ul>
+</li>
+</ul>
+<h4 id="More-types-structs-slices-and-maps"><a href="#More-types-structs-slices-and-maps" class="headerlink" title="More types: structs, slices, and maps"></a>More types: structs, slices, and maps</h4>  <figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">package</span> main</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">import</span> (</span><br><span class="line">     <span class="string">"fmt"</span></span><br><span class="line">     <span class="string">"strings"</span></span><br><span class="line">     <span class="string">"math"</span></span><br><span class="line"> )</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">type</span> Vertex <span class="keyword">struct</span> {</span><br><span class="line">     X <span class="keyword">int</span></span><br><span class="line">     Y <span class="keyword">int</span></span><br><span class="line"> }</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">func</span> <span class="title">compute</span><span class="params">(fn <span class="keyword">func</span>(<span class="keyword">float64</span>, <span class="keyword">float64</span>)</span> <span class="title">float64</span>) <span class="title">float64</span></span> {</span><br><span class="line">     <span class="keyword">return</span> fn(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"> }</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">func</span> <span class="title">adder</span><span class="params">()</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span>)</span> <span class="title">int</span></span> {</span><br><span class="line">     sum := <span class="number">0</span></span><br><span class="line">     <span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(x <span class="keyword">int</span>)</span> <span class="title">int</span></span> {</span><br><span class="line">         sum += x</span><br><span class="line">         <span class="keyword">return</span> sum</span><br><span class="line">     }</span><br><span class="line"> }</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">     i := <span class="number">42</span></span><br><span class="line">     </span><br><span class="line">     p := &amp;i			<span class="comment">// point to i</span></span><br><span class="line">     fmt.Println(*p)	<span class="comment">// read i through the pointer</span></span><br><span class="line">     *p = <span class="number">21</span>			<span class="comment">// set i through the pointer</span></span><br><span class="line">     fmt.Println(i)	<span class="comment">// see the new value of i</span></span><br><span class="line">     </span><br><span class="line">     v1 := Vertex {<span class="number">1</span>, <span class="number">2</span>}</span><br><span class="line">     fmt.Println(Vertex{<span class="number">1</span>, <span class="number">2</span>})</span><br><span class="line">     fmt.Println(v1.X)        </span><br><span class="line">     pv := &amp;v1</span><br><span class="line">     pv.X = <span class="number">4</span></span><br><span class="line">     fmt.Println(v1, pv)</span><br><span class="line">     </span><br><span class="line">     v2 := Vertex{X: <span class="number">1</span>}</span><br><span class="line">     v3 := Vertex{}</span><br><span class="line">     fmt.Println(v2, v3)</span><br><span class="line">     </span><br><span class="line">     <span class="keyword">var</span> a [<span class="number">2</span>] <span class="keyword">string</span></span><br><span class="line">     a[<span class="number">0</span>] = <span class="string">"Hello"</span></span><br><span class="line">     a[<span class="number">1</span>] = <span class="string">"World"</span></span><br><span class="line">     fmt.Println(a)</span><br><span class="line">     </span><br><span class="line">     primes := [<span class="number">6</span>] <span class="keyword">int</span> {<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>}</span><br><span class="line">     <span class="keyword">var</span> s []<span class="keyword">int</span> = primes[<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line">     fmt.Println(s)</span><br><span class="line">     fmt.Println(<span class="built_in">len</span>(s), <span class="built_in">cap</span>(s))</span><br><span class="line">     <span class="keyword">for</span> i, va := <span class="keyword">range</span> primes {</span><br><span class="line">         fmt.Printf(<span class="string">"id = %d, value = %d\n"</span>, i, va)</span><br><span class="line">     }</span><br><span class="line">     </span><br><span class="line">     ss := [] <span class="keyword">struct</span> {</span><br><span class="line">         i <span class="keyword">int</span></span><br><span class="line">         b <span class="keyword">bool</span></span><br><span class="line">     }{</span><br><span class="line">         {<span class="number">1</span>, <span class="literal">false</span>},</span><br><span class="line">         {<span class="number">2</span>, <span class="literal">true</span>},</span><br><span class="line">         {<span class="number">3</span>, <span class="literal">true</span>},</span><br><span class="line">         {<span class="number">4</span>, <span class="literal">false</span>},</span><br><span class="line">     }</span><br><span class="line">     fmt.Println(ss[<span class="number">1</span>:])</span><br><span class="line">     </span><br><span class="line">     <span class="keyword">var</span> nilslice []<span class="keyword">int</span></span><br><span class="line">     fmt.Println(nilslice, <span class="built_in">len</span>(nilslice), <span class="built_in">cap</span>(nilslice))</span><br><span class="line">     <span class="keyword">if</span> nilslice == <span class="literal">nil</span> {</span><br><span class="line">         fmt.Println(<span class="string">"nil!"</span>)</span><br><span class="line">     }</span><br><span class="line">     </span><br><span class="line">     ca := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">5</span>)</span><br><span class="line">     cb := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">0</span>, <span class="number">5</span>)</span><br><span class="line">     fmt.Println(ca, <span class="built_in">len</span>(ca), <span class="built_in">cap</span>(ca))</span><br><span class="line">     fmt.Println(cb, <span class="built_in">len</span>(cb), <span class="built_in">cap</span>(cb))</span><br><span class="line">     </span><br><span class="line">     board := [][]<span class="keyword">string</span>{</span><br><span class="line"> 		[]<span class="keyword">string</span>{<span class="string">"_"</span>, <span class="string">"_"</span>, <span class="string">"_"</span>},</span><br><span class="line"> 		[]<span class="keyword">string</span>{<span class="string">"_"</span>, <span class="string">"_"</span>, <span class="string">"_"</span>},</span><br><span class="line"> 		[]<span class="keyword">string</span>{<span class="string">"_"</span>, <span class="string">"_"</span>, <span class="string">"_"</span>},</span><br><span class="line"> 	}</span><br><span class="line"> 	board[<span class="number">0</span>][<span class="number">0</span>] = <span class="string">"X"</span></span><br><span class="line"> 	board[<span class="number">2</span>][<span class="number">2</span>] = <span class="string">"O"</span></span><br><span class="line">board[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">"X"</span></span><br><span class="line"> 	board[<span class="number">1</span>][<span class="number">0</span>] = <span class="string">"O"</span></span><br><span class="line"> 	board[<span class="number">0</span>][<span class="number">2</span>] = <span class="string">"X"</span></span><br><span class="line"> 	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(board); i++ {</span><br><span class="line"> 		fmt.Printf(<span class="string">"%s\n"</span>, strings.Join(board[i], <span class="string">" "</span>))</span><br><span class="line"> 	}</span><br><span class="line">     </span><br><span class="line">     <span class="keyword">var</span> sa []<span class="keyword">int</span></span><br><span class="line">     fmt.Println(sa, <span class="built_in">len</span>(sa), <span class="built_in">cap</span>(sa))</span><br><span class="line">     sa = <span class="built_in">append</span>(sa, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">     fmt.Println(sa, <span class="built_in">len</span>(sa), <span class="built_in">cap</span>(sa))</span><br><span class="line">     </span><br><span class="line">     <span class="keyword">type</span> Vertex <span class="keyword">struct</span> {</span><br><span class="line">         Lat, Long <span class="keyword">float64</span></span><br><span class="line">     }</span><br><span class="line">     <span class="keyword">var</span> m <span class="keyword">map</span>[<span class="keyword">string</span>]Vertex</span><br><span class="line">     m = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]Vertex)</span><br><span class="line">     m[<span class="string">"Bell Labs"</span>] = Vertex {<span class="number">40.68433</span>, <span class="number">-74.39967</span>,}</span><br><span class="line">     fmt.Println(m[<span class="string">"Bell Labs"</span>])</span><br><span class="line">     <span class="keyword">var</span> m2 = <span class="keyword">map</span>[<span class="keyword">string</span>]Vertex {</span><br><span class="line">         <span class="string">"Bell Labs"</span> : {<span class="number">40.68433</span>, <span class="number">-74.39967</span>},</span><br><span class="line">         <span class="string">"Google"</span> 	: {<span class="number">37.42202</span>, <span class="number">-122.08408</span>},</span><br><span class="line">     }</span><br><span class="line">     fmt.Println(m2)</span><br><span class="line">     va1, ok1 := m2[<span class="string">"Google"</span>]</span><br><span class="line">     fmt.Println(<span class="string">"The value: "</span>, va1, <span class="string">"Present?"</span>, ok1)</span><br><span class="line">     <span class="built_in">delete</span>(m2, <span class="string">"Google"</span>)</span><br><span class="line">     fmt.Println(m2)</span><br><span class="line">     va2, ok2 := m2[<span class="string">"Google"</span>]</span><br><span class="line">     fmt.Println(<span class="string">"The value: "</span>, va2, <span class="string">"Present?"</span>, ok2)</span><br><span class="line">     </span><br><span class="line">     hypot := <span class="function"><span class="keyword">func</span><span class="params">(x, y <span class="keyword">float64</span>)</span> <span class="title">float64</span></span> {</span><br><span class="line">         <span class="keyword">return</span> math.Sqrt(x * x + y * y)</span><br><span class="line">     }</span><br><span class="line">     fmt.Println(hypot(<span class="number">5</span>, <span class="number">12</span>))</span><br><span class="line">     fmt.Println(compute(hypot))</span><br><span class="line">     fmt.Println(compute(math.Pow))</span><br><span class="line">     </span><br><span class="line">     pos, neg := adder(), adder()</span><br><span class="line">     <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">         fmt.Println(pos(i), neg(<span class="number">-2</span> * i))</span><br><span class="line">     }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><p>Slices are like references to arrays. Changing the elements of a slice modifies the corresponding elements of its underlying array</p>
+</li>
+<li><p>A slice has both a length and a capacity</p>
+<ul>
+<li>The length of a slice is the number of elements it contains</li>
+<li>The capacity of a slice is the number of elements in the underlying array, counting from the first element in the slice</li>
+<li>The length and capacity of a slice <code>s</code> can be obtained using the expressions <code>len(s)</code> and <code>cap(s)</code></li>
+<li>When appending to a slice with enough capacity, the appended slice will be written on the original slice. When appending to a slice without enough capacity, a new slice will be created with enough capacity and the original slice will remain the same</li>
+</ul>
+</li>
+<li><p>Functions are values too. They can be passed around just like other values</p>
+</li>
+<li><p>Go functions may be closures. A closure is a function value that references variables from outside its body. The function may access and assign to the referenced variables; in this sense the function is “bound” to the variables</p>
+<ul>
+<li>For example, the <code>adder</code> function returns a closure. Each closure is bound to its own <code>sum</code> variable</li>
+</ul>
+</li>
+</ul>
+<h4 id="Methods-and-Interfaces"><a href="#Methods-and-Interfaces" class="headerlink" title="Methods and Interfaces"></a>Methods and Interfaces</h4>  <figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"math"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">    <span class="string">"io"</span></span><br><span class="line">    <span class="string">"strings"</span></span><br><span class="line">    <span class="string">"image"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Vertex <span class="keyword">struct</span> {</span><br><span class="line">    X, Y <span class="keyword">float64</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(v Vertex)</span> <span class="title">Abs</span><span class="params">()</span> <span class="title">float64</span></span> {</span><br><span class="line">    <span class="keyword">return</span> math.Sqrt(v.X * v.X + v.Y * v.Y)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(v *Vertex)</span> <span class="title">Scale</span><span class="params">(f <span class="keyword">float64</span>)</span></span> {</span><br><span class="line">    v.X = v.X * f</span><br><span class="line">    v.Y = v.Y * f</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> MyFloat <span class="keyword">float64</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f MyFloat)</span> <span class="title">Abs</span><span class="params">()</span> <span class="title">float64</span></span> {</span><br><span class="line">    <span class="keyword">if</span> f &lt; <span class="number">0</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">float64</span>(-f)</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">float64</span>(f)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Abser <span class="keyword">interface</span> {</span><br><span class="line">    Abs() <span class="keyword">float64</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> I <span class="keyword">interface</span> {</span><br><span class="line">    M()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> {</span><br><span class="line">    S <span class="keyword">string</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// This method means type T implements the interface I, </span></span><br><span class="line"><span class="comment">// but we don't need to explicitly declare that it does so</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *T)</span> <span class="title">M</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">if</span> t == <span class="literal">nil</span> {</span><br><span class="line">        fmt.Println(<span class="string">"&lt;nil&gt;"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    }</span><br><span class="line">    fmt.Println(t.S)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f MyFloat)</span> <span class="title">M</span><span class="params">()</span></span> {</span><br><span class="line">    fmt.Println(f)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">describe</span><span class="params">(i I)</span></span> {</span><br><span class="line">    fmt.Printf(<span class="string">"(%v, %T)\n"</span>, i, i)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">describe_any</span> <span class="params">(i <span class="keyword">interface</span>{})</span></span> {</span><br><span class="line">    fmt.Printf(<span class="string">"(%v, %T)\n"</span>, i, i)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">do</span><span class="params">(i <span class="keyword">interface</span>{})</span></span> {</span><br><span class="line">    <span class="keyword">switch</span> v := i.(<span class="keyword">type</span>) {</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">int</span>: </span><br><span class="line">        fmt.Printf(<span class="string">"Twice %v is %v\n"</span>, v, v*<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">string</span>:</span><br><span class="line">        fmt.Printf(<span class="string">"%q is %v bytes long\n"</span>, v, <span class="built_in">len</span>(v))</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        fmt.Printf(<span class="string">"I don't know about type %T\n"</span>, v)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span>{</span><br><span class="line">    Name <span class="keyword">string</span></span><br><span class="line">    Age <span class="keyword">int</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p Person)</span> <span class="title">String</span><span class="params">()</span> <span class="title">string</span></span> {</span><br><span class="line">    <span class="keyword">return</span> fmt.Sprintf(<span class="string">"%v (%v years)"</span>, p.Name, p.Age)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> MyError <span class="keyword">struct</span> {</span><br><span class="line">    When time.Time</span><br><span class="line">    What <span class="keyword">string</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(e *MyError)</span> <span class="title">Error</span><span class="params">()</span> <span class="title">string</span></span> {</span><br><span class="line">    <span class="keyword">return</span> fmt.Sprintf(<span class="string">"at %v, %s"</span>, e.When, e.What)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">run</span><span class="params">()</span> <span class="title">error</span></span> {</span><br><span class="line">    <span class="keyword">return</span> &amp;MyError {</span><br><span class="line">        time.Now(), </span><br><span class="line">        <span class="string">"Something is wrong"</span>,</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">    v := Vertex{<span class="number">3</span>, <span class="number">4</span>}</span><br><span class="line">    fmt.Println(v.Abs())</span><br><span class="line">    v.Scale(<span class="number">2</span>)</span><br><span class="line">    fmt.Println(v)</span><br><span class="line">    </span><br><span class="line">    f := MyFloat(-math.Sqrt2)</span><br><span class="line">    fmt.Println(f.Abs())</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> a Abser</span><br><span class="line">    a = f</span><br><span class="line">    fmt.Println(a.Abs())</span><br><span class="line">    a = &amp;v</span><br><span class="line">    fmt.Println(a.Abs())</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> i I</span><br><span class="line">    i = &amp;T{<span class="string">"hello"</span>}</span><br><span class="line">    describe(i)</span><br><span class="line">    i.M()</span><br><span class="line">    i = MyFloat(math.Pi)</span><br><span class="line">    describe(i)</span><br><span class="line">    i.M()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> e <span class="keyword">interface</span>{}</span><br><span class="line">    describe_any(e)</span><br><span class="line">    e = <span class="number">42</span></span><br><span class="line">    describe_any(e)</span><br><span class="line">    e = <span class="string">"hello"</span></span><br><span class="line">    describe_any(e)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> g <span class="keyword">interface</span>{} = <span class="string">"hello"</span></span><br><span class="line">    s, ok := g.(<span class="keyword">string</span>)</span><br><span class="line">    fmt.Println(s, ok)</span><br><span class="line">    d, ok := g.(<span class="keyword">float64</span>)</span><br><span class="line">    fmt.Println(d, ok)</span><br><span class="line">    <span class="comment">// f = g.(float64) gives panic</span></span><br><span class="line">    </span><br><span class="line">    do(<span class="number">42</span>)</span><br><span class="line">    do(<span class="string">"hello"</span>)</span><br><span class="line">    do(<span class="literal">true</span>)</span><br><span class="line">    </span><br><span class="line">    ad := Person{<span class="string">"Arthur Dent"</span>, <span class="number">42</span>}</span><br><span class="line">    zb := Person{<span class="string">"Zaphod Beeblebrox"</span>, <span class="number">9001</span>}</span><br><span class="line">    fmt.Println(ad, zb)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> err := run(); err != <span class="literal">nil</span> {</span><br><span class="line">        fmt.Println(err)</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    r := strings.NewReader(<span class="string">"Hello, Reader!"</span>)</span><br><span class="line">    </span><br><span class="line">    b := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">8</span>)</span><br><span class="line">    <span class="keyword">for</span> {</span><br><span class="line">        n, err := r.Read(b)</span><br><span class="line">        fmt.Printf(<span class="string">"n = %v, err = %v, b = %v\n"</span>, n, err, b)</span><br><span class="line">        fmt.Printf(<span class="string">"b[:n] = %q\n"</span>, b[:n])</span><br><span class="line">        <span class="keyword">if</span> err == io.EOF {</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    im := image.NewRGBA(image.Rect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>))</span><br><span class="line">    fmt.Println(im.Bounds())</span><br><span class="line">    fmt.Println(im.At(<span class="number">0</span>, <span class="number">0</span>).RGBA())</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><p>Go does not have classes. You can instead define methods on types</p>
+<ul>
+<li>A method is a function with special receiver argument</li>
+<li>The receiver appears in its own argument list between the <code>func</code> keyword and the method name</li>
+<li>You can only declare a method with a receiver whose type is defined in the same package as the method (includes the built-in types such as <code>int</code>)</li>
+</ul>
+</li>
+<li><p>You can declare methods with pointer receivers. Methods with pointer receivers can modify the value to which the receiver points</p>
+<ul>
+<li>Another reason to use pointer receiver is to avoid copying the value on each method call which can be more efficient if the receiver is a large struct</li>
+</ul>
+</li>
+<li><p>An interface type is defined as a set of method signatures. A value of interface type can hold any value that implements those method</p>
+<ul>
+<li>A type implements an interface by implementing its methods. There is no explicit declaration of intent, no “implements” keyword</li>
+<li>Implicit interfaces decouple the definition of an interface from its implementation, which could then appear in any package without prearrangement</li>
+</ul>
+</li>
+<li><p>Interface value</p>
+<ul>
+<li>Under the hood, interface values can be thought of as a tuple of a value and a concrete type: <code>(value, type)</code></li>
+<li>An interface value holds a value of a specific underlying concrete type</li>
+<li>Calling a method on an interface value executes the method of the same name on its underlying type</li>
+</ul>
+</li>
+<li><p>If the concrete value inside the interface itself is nil, the method will be called with a nil receiver</p>
+<ul>
+<li>A nil interface value holds neither value nor concrete type</li>
+<li>Calling a method on a nil interface is a run-time error because there is no type inside the interface tuple to indicate which concrete method to call</li>
+</ul>
+</li>
+<li><p>The interface type that specifies zero methods is known as the empty interface: <code>interface{}</code></p>
+<ul>
+<li>An empty interface may hold values of any type</li>
+<li>Empty interfaces are used by code that handles values of unknown type. For example, <code>fmt.Print</code> takes any number of arguments of type <code>interface{}</code></li>
+</ul>
+</li>
+<li><p>A type assertion provides access to an interface value’s underlying concrete value: <code>t := i.(T)</code></p>
+<ul>
+<li>This statement asserts that the interface value <code>i</code> holds the concrete type <code>T</code> and assigns the underlying <code>T</code> value to the variable <code>t</code></li>
+<li>If <code>i</code> does not hold a <code>T</code>, the statement will trigger a panic</li>
+<li>To test whether an interface value holds a specific type, a type assertion can return two values: the underlying value and a boolean value that reports whether the assertion succeeded. This syntax is similar to map’s</li>
+</ul>
+</li>
+<li><p>One of the most ubiquitous interfaces is <code>Stringer</code> defined by the <code>fmt</code> package</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Stringer <span class="keyword">interface</span> {</span><br><span class="line">    String() <span class="keyword">string</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>A <code>Stringer</code> is a type that can describe itself as a string</li>
+</ul>
+</li>
+<li><p>Go programs express error state with <code>error</code> values</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> error <span class="keyword">interface</span> {</span><br><span class="line">    Error() <span class="keyword">string</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>Functions often return an <code>error</code> value, and calling code should handle errors by testing whether the error equals <code>nil</code><ul>
+<li>A nil <code>error</code> denotes success; a non-nil <code>error</code> denotes failure</li>
+</ul>
+</li>
+<li>This third party package is often used together with error: <a target="_blank" rel="noopener" href="https://github.com/pkg/errors">github.com/pkg/errors</a></li>
+</ul>
+</li>
+<li><p>The <code>io</code> package specifies the <code>io.Reader</code> interface, which represents the read end of a stream of data</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(T)</span> <span class="title">Read</span><span class="params">(b []<span class="keyword">byte</span>)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><code>Read</code> populates the given byte slice with data and returns the number of bytes populated and an error value. It returns an <code>io.EOF</code> error when the stream ends</li>
+</ul>
+</li>
+<li><p>There is no check of whether a type implemented all of the methods of an interface</p>
+<ul>
+<li><p>To force a check, we can do:</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> _ Shape = (*Square)(<span class="literal">nil</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>If not all methods are implemented, the compiler shall give the following error: </p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cannot use (*Square)(nil)(type *Square) as type Shape in assignment: </span><br><span class="line">*Square does not implement Shape (missing Area method)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Concurrency"><a href="#Concurrency" class="headerlink" title="Concurrency"></a>Concurrency</h4>  <figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">    <span class="string">"sync"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">say</span><span class="params">(s <span class="keyword">string</span>)</span></span> {</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ {</span><br><span class="line">        time.Sleep(<span class="number">100</span> * time.Millisecond)</span><br><span class="line">        fmt.Println(s)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> SafeCounter <span class="keyword">struct</span> {</span><br><span class="line">    mu sync.Mutex</span><br><span class="line">    v  <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *SafeCounter)</span> <span class="title">Inc</span><span class="params">(key <span class="keyword">string</span>)</span></span> {</span><br><span class="line">    c.mu.Lock()</span><br><span class="line">    c.v[key]++</span><br><span class="line">    c.mu.Unlock()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *SafeCounter)</span> <span class="title">Value</span><span class="params">(key <span class="keyword">string</span>)</span> <span class="title">int</span></span> {</span><br><span class="line">    c.mu.Lock()</span><br><span class="line">    <span class="keyword">defer</span> c.mu.Unlock()</span><br><span class="line">    <span class="keyword">return</span> c.v[key]</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">go</span> say(<span class="string">"world"</span>)</span><br><span class="line">    say(<span class="string">"hello"</span>)</span><br><span class="line">    </span><br><span class="line">    c := SafeCounter{v: <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>)}</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++ {</span><br><span class="line">        <span class="keyword">go</span> c.Inc(<span class="string">"some key"</span>)</span><br><span class="line">    }</span><br><span class="line">    time.Sleep(time.Second)</span><br><span class="line">    fmt.Println(c.Value(<span class="string">"somekey"</span>))</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><p>A goroutine is a lightweight thread managed by the Go runtime. <code>go f(x)</code> starts a new goroutine running <code>f(x)</code></p>
+</li>
+<li><p>The evaluation of <code>f</code> and <code>x</code> happens in the current goroutine and the execution of <code>f</code> happens in the new goroutine</p>
+</li>
+<li><p>Goroutines run  in the same address space, so access to shared memory must be synchronized</p>
+</li>
+<li><p>If we want to make sure only one goroutine can access a variable at a time to avoid conflicts, we can use mutual exclusion, i.e. mutex</p>
+<ul>
+<li>We can define a block of code be executed in mutual exclusion by surrounding it with a call to <code>Lock</code> and <code>Unlock</code> as shown above</li>
+</ul>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum</span><span class="params">(s []<span class="keyword">int</span>, c <span class="keyword">chan</span> <span class="keyword">int</span>)</span></span> {</span><br><span class="line">    sum := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> s {</span><br><span class="line">        sum += v</span><br><span class="line">    }</span><br><span class="line">    c &lt;- sum <span class="comment">// send sum to c</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fibonacci</span><span class="params">(n <span class="keyword">int</span>, c <span class="keyword">chan</span> <span class="keyword">int</span>)</span></span> {</span><br><span class="line">    x, y := <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ {</span><br><span class="line">        c &lt;- x</span><br><span class="line">        x,y = y, x+y</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">close</span>(c)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fib2</span> <span class="params">(c, quit <span class="keyword">chan</span> <span class="keyword">int</span>)</span></span> {</span><br><span class="line">    x, y := <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> {</span><br><span class="line">        <span class="keyword">select</span> {</span><br><span class="line">        <span class="keyword">case</span> c &lt;- x:</span><br><span class="line">            x, y = y, x+y</span><br><span class="line">        <span class="keyword">case</span> &lt;-quit:</span><br><span class="line">            fmt.Println(<span class="string">"quit"</span>)</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">    s := []<span class="keyword">int</span> {<span class="number">7</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">-9</span>, <span class="number">4</span>, <span class="number">0</span>}</span><br><span class="line">    </span><br><span class="line">    c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">    <span class="keyword">go</span> sum(s[:<span class="built_in">len</span>(s)/<span class="number">2</span>], c)</span><br><span class="line">    <span class="keyword">go</span> sum(s[<span class="built_in">len</span>(s)/<span class="number">2</span>:], c)</span><br><span class="line">    x, y := &lt;-c, &lt;-c <span class="comment">// receive from c</span></span><br><span class="line">    </span><br><span class="line">    fmt.Println(x, y, x+y)</span><br><span class="line">    </span><br><span class="line">    bc := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">2</span>)</span><br><span class="line">    bc &lt;- <span class="number">1</span></span><br><span class="line">    bc &lt;- <span class="number">2</span></span><br><span class="line">    fmt.Println(&lt;-bc)</span><br><span class="line">    fmt.Println(&lt;-bc)</span><br><span class="line">    </span><br><span class="line">    fc := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="keyword">go</span> fibonacci(<span class="built_in">cap</span>(fc), fc)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> fc {</span><br><span class="line">        fmt.Println(i)</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    fc2  := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">    quit := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ {</span><br><span class="line">            fmt.Println(&lt;-c)</span><br><span class="line">        }</span><br><span class="line">        quit &lt;- <span class="number">0</span></span><br><span class="line">    }()</span><br><span class="line">    fib2(c, quit)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>Channels are a typed conduit through which you can send and receive values with the channel operator, <code>&lt;-</code></p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ch &lt;- v		<span class="comment">// Send v to channel ch</span></span><br><span class="line">v := &lt;-ch	<span class="comment">// Receive from ch, and assign value to v</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><p>Channels must be created before use: <code>ch := make(chan int)</code> </p>
+</li>
+<li><p>By default, sends and receives block until the other side side ready. This allows goroutines to synchronize without explicit locks or condition variables</p>
+</li>
+<li><p>Channels can be buffered. Provide the buffer length as the second argument to to <code>make</code> to initialize a buffered channel: <code>ch := make(chan int, size)</code></p>
+<p>Sends to a buffered channel block only when the buffer is full. Receives block when the buffer is empty</p>
+</li>
+<li><p>A sender can <code>close</code> a channel to indicate that no more values will be sent. Receivers can test whether a channel has been closed by assigning a second parameter to the receive expression: <code>v, ok := &lt;-ch</code>, <code>ok</code> is false if there are no more values to receive and the channel is closed</p>
+<ul>
+<li>Sending on a closed channel will cause a panic</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>The <code>select</code> statement lets a goroutine wait on multiple communication operations</p>
+<ul>
+<li>A <code>select</code> blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/intro-proBuilder/" rel="prev" title="Introduction to ProBuilder Programming">
+      <i class="fa fa-chevron-left"></i> Introduction to ProBuilder Programming
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Packages-variables-and-functions"><span class="nav-number">1.</span> <span class="nav-text">Packages, variables, and functions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Flow-control-statements-for-if-else-switch-and-defer"><span class="nav-number">2.</span> <span class="nav-text">Flow control statements: for, if, else, switch and defer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#More-types-structs-slices-and-maps"><span class="nav-number">3.</span> <span class="nav-text">More types: structs, slices, and maps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Methods-and-Interfaces"><span class="nav-number">4.</span> <span class="nav-text">Methods and Interfaces</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Concurrency"><span class="nav-number">5.</span> <span class="nav-text">Concurrency</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yue Jiao</p>
+  <div class="site-description" itemprop="description">Personal blog for idea sharing and archiving.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  © 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-fish"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yue Jiao</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+
+
+    
+
+  
+
+
+
+<script src="/bundle.js"></script><script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script></body></html>
