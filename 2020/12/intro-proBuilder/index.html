@@ -1243,7 +1243,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #88d1ff;
+  background: #7d7c09;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2766,54 +2766,55 @@ hr {
         <p>ProBuild is a BASIC-type programming language that allows you to create personalized technical indicators, trading systems and market scannign programs for the ProRealTime platform.</p>
 <p>This artical gives a simple introduction to ProBuilder Programming</p>
 <a id="more"></a>
-
-
 <p>ProBuilder evaluates the data of each price bar starting with the oldest one to the most recent one, and then executes the formula developed in the language in order to determine the value of the indicators on the current bar.</p>
-<h5 id="Add-new-indicator"><a href="#Add-new-indicator" class="headerlink" title="Add new indicator"></a>Add new indicator</h5><ul>
-<li>Click on “New indicator” to access the programming window. You can choose between:<ul>
+<h5 id="add-new-indicator">Add new indicator</h5>
+<ul>
+<li>Click on "New indicator" to access the programming window. You can choose between:
+<ul>
 <li>Programming directly an indicator in the text zone designed for writing code</li>
-<li>Using the help function by clicking on “Insert Function”. This will open a new window in which you can find all the functions available</li>
+<li>Using the help function by clicking on "Insert Function". This will open a new window in which you can find all the functions available</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h5 id="Specificities-of-ProBuilder-programming-language"><a href="#Specificities-of-ProBuilder-programming-language" class="headerlink" title="Specificities of ProBuilder programming language"></a>Specificities of ProBuilder programming language</h5><ul>
-<li>The main ideas to know in the ProBuilder language are:<ul>
+<h5 id="specificities-of-probuilder-programming-language">Specificities of ProBuilder programming language</h5>
+<ul>
+<li>The main ideas to know in the ProBuilder language are:
+<ul>
 <li>It is not necessary to declare variables</li>
 <li>It is not necessary to type variables</li>
 <li>There is no difference between capital letters and small letters</li>
-<li>We use the same symbol “=” for mathematic equality and to attribute a value to a variable</li>
-</ul>
-</li>
-<li>Financial constants<ul>
-<li>Price and volume constants adapted to the timeframe of the chart<ul>
+<li>We use the same symbol "=" for mathematic equality and to attribute a value to a variable</li>
+</ul></li>
+<li>Financial constants
+<ul>
+<li>Price and volume constants adapted to the timeframe of the chart
+<ul>
 <li><code>Open</code>: Opening price of each bar</li>
 <li><code>High</code>: Highest price of each bar</li>
 <li><code>Low</code>: Lowest price of each bar</li>
 <li><code>Close</code>: Closing price of each bar</li>
 <li><code>Volume</code>: The number of securities or contracts exchanged at each bar</li>
-</ul>
-</li>
-<li>If you want to use the information of previous bars rather than the current bar, you just need to add between square brackets the number of bars that you want to go back into the past. This rule is valid for any constant. For example:<ul>
+</ul></li>
+<li>If you want to use the information of previous bars rather than the current bar, you just need to add between square brackets the number of bars that you want to go back into the past. This rule is valid for any constant. For example:
+<ul>
 <li>Value of the closing price of the current bar: <code>Close</code></li>
 <li>Value of the closing price preceding the current bar: <code>Close[1]</code></li>
 <li>Value of the closing price preceding the <em>nth</em> bar preceding the current one: <code>Close[n]</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Daily price constants<ul>
+</ul></li>
+</ul></li>
+<li>Daily price constants
+<ul>
 <li>Contrary to the constants adapted to the timeframe of the chart, the daily price constants refer to the value of the day, regardless the timeframe of the chart</li>
-<li>The daily price constants use brackets and not square  brackets to call thevalues of previous bars<ul>
+<li>The daily price constants use brackets and not square brackets to call thevalues of previous bars
+<ul>
 <li><code>DOpen(n)</code>: Opening price of the <em>nth</em> day beforethe one of the current bar</li>
 <li><code>DHigh(n)</code>: Highest price of the <em>nth</em> day beforethe one of the current bar</li>
 <li><code>DLow(n)</code>: Lowest price of the <em>nth</em> day beforethe one of the current bar</li>
 <li><code>DClose(n)</code>: Closing price of the <em>nth</em> day beforethe one of the current bar</li>
-</ul>
-</li>
-<li>If “n” is equal to 0, “n” references the current day. As the maximum and minimum values are not defined for $n=0$, we obtain a result for previous days but not for the current day</li>
-</ul>
-</li>
-<li>Temporal constants<ul>
+</ul></li>
+<li>If "n" is equal to 0, "n" references the current day. As the maximum and minimum values are not defined for <span class="math inline">\(n=0\)</span>, we obtain a result for previous days but not for the current day</li>
+</ul></li>
+<li>Temporal constants
+<ul>
 <li><code>Date</code>: indicates the date of the close of each bar in the format YearMonthDay (YYYYMMDD)</li>
 <li>Temporal constants are considered as whole numbers</li>
 <li><code>Time</code>: indicates the hour of the closing price of each bar in the format HourMinuteSecond (HHMMSS)</li>
@@ -2828,129 +2829,112 @@ hr {
 <li><code>Days</code>: Counter of days since 1900</li>
 <li><code>BarIndex</code>: Counter of bars since the beginning of the displayed historical data</li>
 <li><code>IntradayBarIndex</code>: Counter of intraday bars</li>
-</ul>
-</li>
-<li>Constants derived from price<ul>
+</ul></li>
+<li>Constants derived from price
+<ul>
 <li><code>Range</code>: difference between High and Low</li>
 <li><code>TypicalPrice</code>: average between High, Low and Close</li>
 <li><code>WeightedClose</code>: weighted average of High (weight 1), Low (weight 1) and Close (weight 2)</li>
 <li><code>MedianPrice</code>: average between High and Low</li>
 <li><code>TotalPrice</code>: average between Open, High, Low and Close</li>
-</ul>
-</li>
-<li>The undefined constant<ul>
+</ul></li>
+<li>The undefined constant
+<ul>
 <li><code>Undefined</code>: undefined data (equivalent to an empty box)</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h5 id="How-to-use-pre-existing-indicators"><a href="#How-to-use-pre-existing-indicators" class="headerlink" title="How to use pre-existing indicators?"></a>How to use pre-existing indicators?</h5><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NameOfFunction [calculated over n periods] (applied to which price or indicator)</span><br></pre></td></tr></tbody></table></figure>
-<p>For example: </p>
+<h5 id="how-to-use-pre-existing-indicators">How to use pre-existing indicators?</h5>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NameOfFunction [calculated over n periods] (applied to which price or indicator)</span><br></pre></td></tr></tbody></table></figure>
+<p>For example:</p>
 <ul>
 <li><p>Calculating the exponential moving average over 20 periods applied to the closing price:</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RETURN ExponentialAverage[20](Close)</span><br></pre></td></tr></tbody></table></figure></li>
 <li><p>Calculating the weighted moving average over 20 bars applied to the typical price:</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mm = WeightedAverage[20](TypicalPrice)</span><br><span class="line">RETURN mm</span><br></pre></td></tr></tbody></table></figure>
-
-
-</li>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mm = WeightedAverage[20](TypicalPrice)</span><br><span class="line">RETURN mm</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
-<h5 id="Control-Structures"><a href="#Control-Structures" class="headerlink" title="Control Structures"></a>Control Structures</h5><ul>
+<h5 id="control-structures">Control Structures</h5>
+<ul>
 <li><p>IF conditions</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">IF condition1 THEN</span><br><span class="line">	procedure1</span><br><span class="line">ELSIF condition2 THEN</span><br><span class="line">	procedure2</span><br><span class="line">ELSE</span><br><span class="line">	procedure3</span><br><span class="line">ENDIF</span><br></pre></td></tr></tbody></table></figure></li>
 <li><p>FOR loop</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FOR (Variable = BeginningValueOfTheSeries) TO EndingValueOfTheSeries DO</span><br><span class="line">	(Action)</span><br><span class="line">NEXT</span><br><span class="line"></span><br><span class="line">FOR (Variable = EndingValueOfTheSeries) DOWNTO BeginningValueOfTheSeries DO</span><br><span class="line">	(Action)</span><br><span class="line">NEXT</span><br></pre></td></tr></tbody></table></figure></li>
 <li><p>WHILE loop</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">WHILE (Condition) DO</span><br><span class="line">	(Action 1)</span><br><span class="line">WEND</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></li>
-<li><p><code>BREAK</code> can be used to stop the loop and <code>CONTINUE</code> can be used to jump to next loop</p>
-</li>
-<li><p><code>ONCE</code>: The <code>ONCE</code> instruction is used to initialize a variable at a certain value “only ONE time” for the whole program</p>
+<li><p><code>BREAK</code> can be used to stop the loop and <code>CONTINUE</code> can be used to jump to next loop</p></li>
+<li><p><code>ONCE</code>: The <code>ONCE</code> instruction is used to initialize a variable at a certain value "only ONE time" for the whole program</p>
 <ul>
 <li>A variable without <code>ONCE</code> has scope in each run</li>
 <li>A variable with <code>ONCE</code> has global scope</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h5 id="Logical-operators"><a href="#Logical-operators" class="headerlink" title="Logical operators"></a>Logical operators</h5><ul>
+<h5 id="logical-operators">Logical operators</h5>
+<ul>
 <li><code>NOT(a)</code>: logical NO</li>
 <li><code>a OR b</code>: logical OR</li>
 <li><code>a AND b</code>: logical AND</li>
 <li><code>a XOR b</code>: exclusive OR</li>
 </ul>
-<h5 id="Mathematical-Functions"><a href="#Mathematical-Functions" class="headerlink" title="Mathematical Functions"></a>Mathematical Functions</h5><ul>
-<li><p><code>MIN(a, b)</code>: calculate the minimum of <code>a</code> and <code>b</code></p>
-</li>
-<li><p><code>MAX(a, b)</code>: calculate the maximum of <code>a</code> and <code>b</code></p>
-</li>
-<li><p><code>ROUND(a)</code>: round <code>a</code> to the nearest whole number</p>
-</li>
-<li><p><code>ABS(a)</code>: calculate the absolute value of <code>a</code></p>
-</li>
-<li><p><code>SGN(a)</code>: shows the sign of <code>a</code> (1 if positive, -1 if negative)</p>
-</li>
-<li><p><code>SQUARE(a)</code>: calculate <code>a</code> squared</p>
-</li>
-<li><p><code>SQRT(a)</code>: calculate the square root of <code>a</code></p>
-</li>
-<li><p><code>LOG(a)</code>: calculate the Neperian logarithm of <code>a</code></p>
-</li>
-<li><p><code>EXP(a)</code>: calculate the exponent of <code>a</code></p>
-</li>
-<li><p><code>COS(a)</code>: calculate the cosine of <code>a</code></p>
-</li>
-<li><p><code>SIN(a)</code>: calculate the sine of <code>a</code></p>
-</li>
-<li><p><code>TAN(a)</code>: calculate the tangent of <code>a</code></p>
-</li>
-<li><p><code>ATAN(a)</code>: calculate the arc-tangent of <code>a</code></p>
-</li>
+<h5 id="mathematical-functions">Mathematical Functions</h5>
+<ul>
+<li><p><code>MIN(a, b)</code>: calculate the minimum of <code>a</code> and <code>b</code></p></li>
+<li><p><code>MAX(a, b)</code>: calculate the maximum of <code>a</code> and <code>b</code></p></li>
+<li><p><code>ROUND(a)</code>: round <code>a</code> to the nearest whole number</p></li>
+<li><p><code>ABS(a)</code>: calculate the absolute value of <code>a</code></p></li>
+<li><p><code>SGN(a)</code>: shows the sign of <code>a</code> (1 if positive, -1 if negative)</p></li>
+<li><p><code>SQUARE(a)</code>: calculate <code>a</code> squared</p></li>
+<li><p><code>SQRT(a)</code>: calculate the square root of <code>a</code></p></li>
+<li><p><code>LOG(a)</code>: calculate the Neperian logarithm of <code>a</code></p></li>
+<li><p><code>EXP(a)</code>: calculate the exponent of <code>a</code></p></li>
+<li><p><code>COS(a)</code>: calculate the cosine of <code>a</code></p></li>
+<li><p><code>SIN(a)</code>: calculate the sine of <code>a</code></p></li>
+<li><p><code>TAN(a)</code>: calculate the tangent of <code>a</code></p></li>
+<li><p><code>ATAN(a)</code>: calculate the arc-tangent of <code>a</code></p></li>
 </ul>
-<h5 id="Charting-comparison-functions"><a href="#Charting-comparison-functions" class="headerlink" title="Charting comparison functions"></a>Charting comparison functions</h5><ul>
-<li><code>a CROSSES OVER b</code>: the <code>a</code> curve crosses over the <code>b</code>  curve</li>
+<h5 id="charting-comparison-functions">Charting comparison functions</h5>
+<ul>
+<li><code>a CROSSES OVER b</code>: the <code>a</code> curve crosses over the <code>b</code> curve</li>
 <li><code>a CROSSES UNDER b</code>: the <code>a</code> curve crosses under the <code>b</code> curve</li>
 </ul>
-<h5 id="Summation-functions"><a href="#Summation-functions" class="headerlink" title="Summation functions"></a>Summation functions</h5><ul>
+<h5 id="summation-functions">Summation functions</h5>
+<ul>
 <li><p><code>cumsum</code>: Calculates the sum of a price or indicator over all bars loaded on the chart</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cumsum (price or indicator)</span><br></pre></td></tr></tbody></table></figure></li>
 <li><p><code>summation</code>: Calculates the sum of a price or indicator over the last n bars</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summation[number of bars]((price or indicator)</span><br></pre></td></tr></tbody></table></figure>
-
-
-</li>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summation[number of bars]((price or indicator)</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
-<h5 id="Statistical-functions"><a href="#Statistical-functions" class="headerlink" title="Statistical functions"></a>Statistical functions</h5><ul>
+<h5 id="statistical-functions">Statistical functions</h5>
+<ul>
 <li><code>lowest</code>: displays the lowest value of the price or indicator written between brackets, over the number of periods defined</li>
-<li><code>highest</code>: displays the highest value of the price or indicator written between brackets, over the number<br>of periods defined</li>
+<li><code>highest</code>: displays the highest value of the price or indicator written between brackets, over the number of periods defined</li>
 <li><code>STD</code>: displays the standard deviation of a price or indicator, over the number of periods defined</li>
 <li><code>STE</code>: displays the standard error of a price or indicator, over the number of periods defined</li>
 </ul>
-<h5 id="ProBuilder-instructions"><a href="#ProBuilder-instructions" class="headerlink" title="ProBuilder instructions"></a>ProBuilder instructions</h5><ul>
-<li><p><code>RETURN</code>: displays the result</p>
-</li>
-<li><p><code>CustomClose</code>: displays a customizable price value; by default, this price is <code>Close</code></p>
-</li>
-<li><p><code>CALL</code>: calls another <code>ProBuilder</code> indicator to use in your current program. The quickest method is to click “Insert Function” then select the “User Indicators”  category and then select the name of the indicator you want to use and click “Add</p>
+<h5 id="probuilder-instructions">ProBuilder instructions</h5>
+<ul>
+<li><p><code>RETURN</code>: displays the result</p></li>
+<li><p><code>CustomClose</code>: displays a customizable price value; by default, this price is <code>Close</code></p></li>
+<li><p><code>CALL</code>: calls another <code>ProBuilder</code> indicator to use in your current program. The quickest method is to click “Insert Function” then select the "User Indicators" category and then select the name of the indicator you want to use and click "Add</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myHistoMACD = CALL HistoMACD</span><br></pre></td></tr></tbody></table></figure></li>
 <li><p><code>AS</code>: names the result displayed</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RETURN Result1 AS "Curve Name", Result2 AS "Curve Name"</span><br></pre></td></tr></tbody></table></figure></li>
 <li><p><code>COLOURED</code>: colours the displayed curve in with the colour of your choice</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RETURN Indicator COLOURED(Red, Green, Blue) AS "Name Of The Curve"</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p><code>REM</code> or <code>//</code>: One line comment</p>
-</li>
+<li><p><code>REM</code> or <code>//</code>: One line comment</p></li>
 </ul>
-<h5 id="Drawing-instructions"><a href="#Drawing-instructions" class="headerlink" title="Drawing instructions"></a>Drawing instructions</h5><ul>
+<h5 id="drawing-instructions">Drawing instructions</h5>
+<ul>
 <li><p>BACKGROUNDCOLOR : Lets you color the background of the chart or specific bars (such as odd/even days) The colored zone starts halfway between the previous bar and the next bar</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BACKGROUNDCOLOR (0, 127, 255, 25)</span><br></pre></td></tr></tbody></table></figure></li>
 <li><p>DRAWBARCHART : Draws a custom bar on the chart. Open, high, low and close can be constants or variables</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DRAWBARCHART (open, high, low, close) COLOURED (0, 255, 0)</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>DRAWCANDLE : Draws a custom candlestick on the chart. Open, high, low and close can be constants or<br>variables</p>
+<li><p>DRAWCANDLE : Draws a custom candlestick on the chart. Open, high, low and close can be constants or variables</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DRAWCANDLE (open, high, low, close) COLOURED (0, 255, 0)</span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>DRAWARROW : Draws an arrow pointing right. You need to define a point for the arrow (x and y axis). You<br>can also choose a colour</p>
+<li><p>DRAWARROW : Draws an arrow pointing right. You need to define a point for the arrow (x and y axis). You can also choose a colour</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DRAWARROW (x1, y1) COLOURED (R, V, B, a)</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>DRAWARROWUP : Draws an arrow pointing up</li>
 <li>DRAWARROWDOWN : Draws an arrow pointing down</li>
-</ul>
-</li>
+</ul></li>
 <li><p>DRAWRECTANGLE : Draws a rectangle on the chart</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DRAWRECTANGLE (x1, y1, x2, y2) COLOURED (R, V, B, a)</span><br></pre></td></tr></tbody></table></figure></li>
 <li><p>DRAWELLIPSE : Draws an ellipse on the chart</p>
@@ -2958,8 +2942,7 @@ hr {
 <li><p>DRAWSEGMENT : Draws a segment on the chart</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DRAWSEGMENT (x1, y1, x2, y2) COLOURED (R, V, B, a)</span><br></pre></td></tr></tbody></table></figure></li>
 <li><p>DRAWTEXT : Adds a text field to the chart with the text of your choice at a specified location</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DRAWTEXT ("your text", x1, y1) COLOURED (R, V, B, a)</span><br></pre></td></tr></tbody></table></figure>
-</li>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DRAWTEXT ("your text", x1, y1) COLOURED (R, V, B, a)</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 
     </div>
@@ -3041,7 +3024,7 @@ hr {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Add-new-indicator"><span class="nav-number">1.</span> <span class="nav-text">Add new indicator</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Specificities-of-ProBuilder-programming-language"><span class="nav-number">2.</span> <span class="nav-text">Specificities of ProBuilder programming language</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#How-to-use-pre-existing-indicators"><span class="nav-number">3.</span> <span class="nav-text">How to use pre-existing indicators?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Control-Structures"><span class="nav-number">4.</span> <span class="nav-text">Control Structures</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Logical-operators"><span class="nav-number">5.</span> <span class="nav-text">Logical operators</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mathematical-Functions"><span class="nav-number">6.</span> <span class="nav-text">Mathematical Functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Charting-comparison-functions"><span class="nav-number">7.</span> <span class="nav-text">Charting comparison functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Summation-functions"><span class="nav-number">8.</span> <span class="nav-text">Summation functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Statistical-functions"><span class="nav-number">9.</span> <span class="nav-text">Statistical functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ProBuilder-instructions"><span class="nav-number">10.</span> <span class="nav-text">ProBuilder instructions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Drawing-instructions"><span class="nav-number">11.</span> <span class="nav-text">Drawing instructions</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#add-new-indicator"><span class="nav-number">1.</span> <span class="nav-text">Add new indicator</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#specificities-of-probuilder-programming-language"><span class="nav-number">2.</span> <span class="nav-text">Specificities of ProBuilder programming language</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#how-to-use-pre-existing-indicators"><span class="nav-number">3.</span> <span class="nav-text">How to use pre-existing indicators?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#control-structures"><span class="nav-number">4.</span> <span class="nav-text">Control Structures</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#logical-operators"><span class="nav-number">5.</span> <span class="nav-text">Logical operators</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mathematical-functions"><span class="nav-number">6.</span> <span class="nav-text">Mathematical Functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#charting-comparison-functions"><span class="nav-number">7.</span> <span class="nav-text">Charting comparison functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#summation-functions"><span class="nav-number">8.</span> <span class="nav-text">Summation functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#statistical-functions"><span class="nav-number">9.</span> <span class="nav-text">Statistical functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#probuilder-instructions"><span class="nav-number">10.</span> <span class="nav-text">ProBuilder instructions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#drawing-instructions"><span class="nav-number">11.</span> <span class="nav-text">Drawing instructions</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

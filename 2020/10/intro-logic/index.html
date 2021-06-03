@@ -26,7 +26,7 @@
 <meta property="og:description" content="Note for the course Introduction to Logic of Stanford.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-23T22:00:00.000Z">
-<meta property="article:modified_time" content="2021-02-14T13:04:23.173Z">
+<meta property="article:modified_time" content="2021-06-03T12:14:26.827Z">
 <meta property="article:author" content="Yue Jiao">
 <meta name="twitter:card" content="summary">
 
@@ -1243,7 +1243,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #88d1ff;
+  background: #7d7c09;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2749,7 +2749,7 @@ hr {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-14 14:04:23" itemprop="dateModified" datetime="2021-02-14T14:04:23+01:00">2021-02-14</time>
+                <time title="Modified: 2021-06-03 14:14:26" itemprop="dateModified" datetime="2021-06-03T14:14:26+02:00">2021-06-03</time>
               </span>
 
           
@@ -2780,12 +2780,12 @@ hr {
 </ul>
 <h5 id="propositional-resolution">Propositional Resolution</h5>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 p_1 \land &amp;\dots \land p_k &amp;\Rightarrow\qquad\qquad q_1 \lor &amp;\dots \lor q_l \\
 r_1 \land &amp;\dots \land r_m &amp;\Rightarrow\qquad\qquad s_1 \lor &amp;\dots \lor q_n \\
 \hline
 p_1 \land \dots \land p_k &amp;\land r_1 \land \dots \land r_m &amp;\Rightarrow\ \ q_1 \lor \dots \lor q_l &amp; \lor s_1 \lor \dots \lor q_n
-\end{array}
+\end{aligned}
 \]</span></p>
 <ul>
 <li>2 Elaborations
@@ -2848,54 +2848,54 @@ p_1 \land \dots \land p_k &amp;\land r_1 \land \dots \land r_m &amp;\Rightarrow\
 <li>Implication Elimination (or IE). This rule eliminates the implication from the first premise</li>
 </ul>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi\Rightarrow\psi\\
 &amp;\varphi\\
 \hline
 &amp;\psi
-\end{array}
+\end{aligned}
 \]</span></p>
 <ul>
 <li>Implication Creation (IC). This rule tells us that if a sentence <span class="math inline">\(\psi\)</span> is true, we can infer (<span class="math inline">\(\varphi\Rightarrow\psi\)</span>) for any <span class="math inline">\(\varphi\)</span> whatsoever</li>
 </ul>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\psi\\
 \hline
 &amp;\varphi\Rightarrow\psi
-\end{array}
+\end{aligned}
 \]</span></p>
 <ul>
 <li>Implication Distribution (ID). This rule tells us that implication can be distributed over other implications</li>
 </ul>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi\Rightarrow(\psi\Rightarrow\chi)\\
 \hline
 &amp;(\varphi\Rightarrow\chi)\Rightarrow(\varphi\Rightarrow\chi)
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>An instance of a rules of inference is the rule obtained by consistently substituting sentences for the metavariables in the rule. If a metavariable occurs more than once, the same expression must be used for every occurrence</p>
 <ul>
 <li><p>An instance of Implication Elimination</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;p\Rightarrow q\\
 &amp;p\\
 \hline
 &amp;q
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ul></li>
 <li><p>A rule applies to a set of sentences if and only if there is an instance of the rule in which all of the premises are in the set. In this case, the conclusions of the instance are the results of the rule application</p></li>
 <li><p>In using rules of inference, it is important to remember that they apply only to top-level sentences, not to components of sentences. The following conclusion is an example of wrong inferencing</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 p\Rightarrow q \\
 p\Rightarrow r \\
 \hline
 q\Rightarrow r
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>A linear proof of a conclusion from a set of premises is a sequence of sentences terminating in the conclusion in which each item is either (1) a premise, (2) an instance of an axiom schema, or (3) the result of applying a rule of inference to earlier items in sequence</p>
 <ul>
@@ -2925,11 +2925,11 @@ q\Rightarrow r
 <li><p>3 basic operations involves in creating useful subproofs: (1) making assumptions, (2) using ordinary rules of inference to derive conclusions, (3) using structed rules of inference to derive conclusions outside of subproofs</p></li>
 <li><p>The premises can also include conditions of the form <span class="math inline">\(\varphi\vdash\psi\)</span>. The rule is called Implication Introduction:</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi\vdash\psi\\
 \hline
 &amp;\varphi\Rightarrow\psi
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ul>
 <h5 id="fitch">Fitch</h5>
@@ -2939,86 +2939,86 @@ q\Rightarrow r
 <ul>
 <li><p>And Introduction: if a proof contains sentences <span class="math inline">\(\varphi_1\)</span> through <span class="math inline">\(\varphi_n\)</span>, then we can infer their conjunction</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi_1\\
 &amp;\dots\\
 &amp;\varphi_n\\
 \hline
 &amp;\varphi_1\land\dots\land\varphi_n
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>And Elimination: if we have the conjunction of <span class="math inline">\(\varphi_1\)</span> through <span class="math inline">\(\varphi_n\)</span>, then we can infer any of the conjuncts</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi_1\land\dots\land\varphi_n\\
 \hline
 &amp;\varphi_i
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Or Introduction: allows us to infer an arbitrary disjunction so long as at least one of the disjuncts is already in the proof</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi_i\\
 \hline
 &amp;\varphi_1\lor\dots\lor\varphi_n\\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ul></li>
 <li><p>Or Elimination: if we know that every disjunct entails some sentence, then we can infer that sentence even if we do not know which disjunct is true <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi_1\lor\dots\lor\varphi_n\\
 &amp;\varphi_1\Rightarrow\psi\\
 &amp;\dots\\
 &amp;\varphi_n\Rightarrow\psi\\
 \hline
 &amp;\psi
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Negation Introduction: allows us to derive the negation of a sentence if it leads to a contradiction <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi\Rightarrow\psi\\
 &amp;\varphi\Rightarrow\neg\psi\\
 \hline
 &amp;\neg\varphi
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Negation Elimination: allows us to delete double negatives <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\neg\neg\psi\\
 \hline
 &amp;\psi
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Implication Introduction: if, by assuming <span class="math inline">\(\varphi\)</span>, we can derive <span class="math inline">\(\psi\)</span>, then we can derive (<span class="math inline">\(\varphi\Rightarrow\psi\)</span>) <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi\vdash\psi\\
 \hline
 &amp;\varphi\Rightarrow\psi
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Implication Elimination <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi\Rightarrow\psi\\
 &amp;\varphi\\
 \hline
 &amp;\psi
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Biconditional Introduction: allows us to deduce a biconditional from an implication and its inverse <span class="math display">\[
-\begin{array}
+\begin{aligned}
 \varphi\Rightarrow\psi\\
 \psi\Rightarrow\varphi\\
 \hline
 \varphi\Leftrightarrow\psi
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Biconditional Elimination: allows us to deduce two implications from a single biconditional <span class="math display">\[
-\begin{array}
+\begin{aligned}
 \varphi\Leftrightarrow\psi\\
 \hline
 \varphi\Rightarrow\psi\\
 \psi\Rightarrow\varphi\\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ul>
 <h5 id="soundness-and-completeness">Soundness and completeness</h5>
@@ -3046,37 +3046,37 @@ q\Rightarrow r
 <ol type="1">
 <li><p>Implications (I):</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi\Rightarrow\psi&amp;\rightarrow\quad&amp;\neg \varphi \lor \psi\\
 &amp;\varphi\Leftarrow\psi&amp;\rightarrow\quad&amp;\varphi \lor\neg  \psi\\
 &amp;\varphi\Leftrightarrow\psi&amp;\rightarrow\quad&amp;(\neg \varphi \lor \psi)\land(\varphi \lor\neg  \psi)\\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Negations (N):</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\neg\neg\varphi&amp;\rightarrow\quad&amp;\varphi\\
 &amp;\neg(\varphi\land\psi)&amp;\rightarrow\quad&amp;\neg\varphi \lor\neg  \psi\\
 &amp;\neg(\varphi\lor\psi)&amp;\rightarrow\quad&amp;\neg\varphi \land\neg  \psi\\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Distribution (D):</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi\lor(\psi\land\chi)&amp;\rightarrow\quad&amp;(\varphi\lor\psi)\land(\varphi\lor\chi)\\
 &amp;(\varphi\land\psi)\lor\chi&amp;\rightarrow\quad&amp;(\varphi\lor\chi)\land(\psi\lor\chi)\\
 &amp;\varphi\lor(\varphi_1\lor\dots\lor\varphi_n)&amp;\rightarrow\quad&amp;\varphi\lor\varphi_1\lor\dots\lor\varphi_n \\
 &amp;(\varphi_1\lor\dots\lor\varphi_n)\lor\varphi &amp;\rightarrow\quad&amp;\varphi_1\lor\dots\lor\varphi_n\lor\varphi\\
 &amp;\varphi\land(\varphi_1\land\dots\land\varphi_n)&amp;\rightarrow\quad&amp;\varphi\land\varphi_1\land\dots\land\varphi_n \\
 &amp;(\varphi_1\land\dots\land\varphi_n)\land\varphi &amp;\rightarrow\quad&amp;\varphi_1\land\dots\land\varphi_n\land\varphi\\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Operators (O):</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi_1\lor\dots\lor\varphi_n&amp;\rightarrow\quad&amp;\{\varphi_1, \dots, \varphi_n\}\\
 &amp;\varphi_1\land\dots\land\varphi_n&amp;\rightarrow\quad&amp;\{\varphi_1\}, \dots, \{\varphi_n\}\\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ol></li>
 </ul></li>
@@ -3085,16 +3085,16 @@ q\Rightarrow r
 <ul>
 <li><p>Given a clause containing a literal <span class="math inline">\(\chi\)</span> and other clause containing the literal <span class="math inline">\(\neg\chi\)</span>, we can infer the clause consisting of all the literals of both clauses without the complementary pair. This rule of inference is called Propositional Resolution or the Resolution Principle</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\{\varphi_1, \dots,\chi,\dots,\varphi_m\}\\
 &amp;\{\psi_1, \dots,\neg\chi,\dots,\psi_n\}\\
 \hline
 &amp;\{\varphi_1, \dots,\varphi_m,\psi_1,\dots,\psi_n\}\\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Example:</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\{\neg p, q\} \\
 &amp;\{p, q\} \\
 \hline
@@ -3115,7 +3115,7 @@ q\Rightarrow r
 \hline
 &amp;\{p, \neg p\} \\
 &amp;\{q, \neg q\}
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ul>
 <h5 id="resolution-reasoning">Resolution Reasoning</h5>
@@ -3175,13 +3175,13 @@ q(a,y)
 <ul>
 <li><p>Logical sentences are defined as in Propositional Logic. There are negations, conjunctions, disjunctions, implications, and equivalences</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\text{Negations:} &amp; (\neg p(a)) \\
 &amp;\text{Conjunction:}&amp; (p(a)\land q(b,c)) \\
 &amp;\text{Negations:} &amp; (p(a)\lor q(b,c)) \\
 &amp;\text{Negations:} &amp; (p(a)\Rightarrow q(b,c)) \\
 &amp;\text{Negations:} &amp; (p(a)\Leftrightarrow q(b,c)) \\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ul></li>
 <li><p>Quantified sentences (which have no analog in Propositional Logic)</p>
@@ -3202,10 +3202,10 @@ q(a,y)
 <li><p>An occurrence of a variable is <code>free</code> if and only if it is not in the scope of a quantifier of that variable. Otherwise, it is bound. For example, y is free and x is bound in the following sentence: <span class="math inline">\(\exists x.q(x,y)\)</span></p></li>
 <li><p>A sentence is open if and only if it has free variables. Otherwise, it is closed. For example, the first sentence below is open and the second is closed</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 p(y)\Rightarrow \exists x.q(x,y)\\
 \forall y.(p(y)) \Rightarrow \exists x.q(x,y)
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Semantics</p>
 <ul>
@@ -3249,29 +3249,29 @@ p(y)\Rightarrow \exists x.q(x,y)\\
 </ul></li>
 <li><p>The Common Quantifier Reversal gives that reversing quantifiers of the same type has no effect on truth assignment</p>
 <p><span class="math display">\[
-\begin{array}
+\begin{aligned}
 \forall x. \forall y.q(x,y) \Leftrightarrow \forall y. \forall x.q(x,y) \\
 \exists x. \exists y. q(x,y)\Leftrightarrow\exists y.\exists x.q(x,y)\\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Existential Distribution gives that it is okay to move an existential quantifier inside of a universal quantifier. The reverse is not valid <span class="math display">\[
 \exists y.\forall x.q(x,y)\Rightarrow \forall x.\exists y.q(x,y)
 \]</span></p></li>
 <li><p>Negation Distribution gives that it is okay to distribute negation over quantifiers of either type by flipping the quantifier and negating the scope of the quantified sentence <span class="math display">\[
-\begin{array}
+\begin{aligned}
 \neg \forall x.p(x)\Leftrightarrow \exists x.\neg p(x)\\
 \neg \exists x.p(x)\Leftrightarrow \forall x.\neg p(x)
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ul></li>
 <li><p>Logical Entailment</p>
 <ul>
 <li><p>A set of Relational Logic sentences <span class="math inline">\(\Delta\)</span> logically entails a sentence <span class="math inline">\(\varphi\)</span> (<span class="math inline">\(\Delta \vDash \varphi\)</span>) if and only if every truth assignment that satisfies <span class="math inline">\(\Delta\)</span> also satisfies <span class="math inline">\(\varphi\)</span>. This definition is the same for Relational Logic as for Propositional Logic</p></li>
 <li><p>The presence of variables allows for additional logical entailments. For example: <span class="math display">\[
-\begin{array}
+\begin{aligned}
 \exists y.\forall x.q(x,y) \vDash \forall x.\exists y.q(x,y) \\
 \forall x. \forall y.q(x,y) \vDash \forall x.\forall y. q(y,x)
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>A sentence with free variables is equivalent to the sentence in which all of the free variables are universally quantified</p></li>
 </ul></li>
@@ -3288,22 +3288,22 @@ p(y)\Rightarrow \exists x.q(x,y)\\
 <li><p>Once we have a set of sentences in prenex form, we compute the grounding. We start with our initial set <span class="math inline">\(\Delta\)</span> of sentences and we incrementally build up our grounding <span class="math inline">\(\Gamma\)</span>. On each step we process a sentence in <span class="math inline">\(\Delta\)</span>, using the procedure described below. The procedure terminates when <span class="math inline">\(\Delta\)</span> becomes empty. The set <span class="math inline">\(\Gamma\)</span> at that point is the grounding of the input</p>
 <ol type="1">
 <li><p>The first rule covers the case when the sentence <span class="math inline">\(\varphi\)</span> being processed is ground. In this case, we remove the sentence from <span class="math inline">\(\Delta\)</span> and add it to <span class="math inline">\(\Gamma\)</span> <span class="math display">\[
-\begin{array}
+\begin{aligned}
 \Delta_{i+1}&amp;=\Delta_i-\{\varphi\} \\
 \Gamma_{i+1}&amp;=\Gamma_i\cup\{\varphi\}
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>If our sentence is of the form <span class="math inline">\(\forall \nu.\varphi[\nu]\)</span>, we eliminate the sentence from <span class="math inline">\(\Delta_i\)</span> and replace it with copies of the scope, one copy for each object constant <span class="math inline">\(\tau\)</span> in our language <span class="math display">\[
-\begin{array}
+\begin{aligned}
 \Delta_{i+1}&amp;=\Delta_i-\{\forall \nu.\varphi[\nu]\ |\ \tau\text{ an object constant}\} \\
 \Gamma_{i+1}&amp;=\Gamma_i
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>If our sentence of the form <span class="math inline">\(\exists\nu.\varphi[\nu]\)</span>, we eliminate the sentence from <span class="math inline">\(\Delta_i\)</span> and replace it with a disjunction, where each disjunct is a copy of the scope in which the quantified variable is replaced by an object constant in our language <span class="math display">\[
-\begin{array}
+\begin{aligned}
 \Delta_{i+1}&amp;=\Delta_i-\{\exists \nu.\varphi[\nu]\}\cup\{\varphi[\tau_1]\lor\dots\varphi[\tau_n]\} \\
 \Gamma_{i+1}&amp;=\Gamma_i
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ol></li>
 <li><p>Once we have a grounding <span class="math inline">\(\Gamma\)</span>, we replace each ground relational sentence in <span class="math inline">\(\Gamma\)</span> by a proposition constant. The resulting sentences are all in PL</p></li>
@@ -3325,20 +3325,20 @@ p(y)\Rightarrow \exists x.q(x,y)\\
 <li><p>Rules for Universal Quantifiers</p>
 <ul>
 <li><p>Universal Elimination (UE) allows us to reason from the general to the particular <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\forall \nu . \varphi[\nu]\\
 \hline
 &amp;\varphi [\tau] \\
 &amp;\text{where }\tau\text{ is subsitutable and free for } \nu \text{ in }\varphi
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Universal Introduction (UI) allows us to reason from arbitrary sentences to universally quantified versions of those sentences <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi\\
 \hline
 &amp;\forall \nu .\varphi \\
 &amp;\text{where }\nu\text{ does not occur free in both } \varphi \text{ and an active assumption }
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ul></li>
 <li><p>Rules for Existential Quantifiers</p>
@@ -3349,40 +3349,40 @@ p(y)\Rightarrow \exists x.q(x,y)\\
 <li>A skolem term is effectively a placeholder for an actual object constant and is treated like an ordinary term by our rules of inference</li>
 </ul></li>
 <li><p>Existential Elimination for closed sentences: <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\exists \nu .\varphi[\nu]\\
 \hline
 &amp; \varphi[[\tau]] \\
 &amp;\text{where }\tau\text{ is a not an existing object constant}
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Existential Elimination for sentences with free variables <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\exists \nu .\varphi[\nu_1, \dots, \nu_n,\nu]\\
 \hline
 &amp; \varphi[\nu_1,\dots,\nu_n,[\pi(\nu_1,\dots,\nu_n)]] \\
 &amp;\text{where }\pi\text{ is a not an existing object constant}
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Existential Introduction (EI) allows us to infer an existentially quantified sentence in which one, some, or all occurrences of a term <span class="math inline">\(\tau\)</span> have been replaced by the existentially quantified variable provided that <span class="math inline">\(\tau\)</span> does not contain any explicitly quantified variables <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi[\tau]\\
 \hline
 &amp;\exists \nu . \varphi[\nu]\\
 &amp;\text{where }\tau\text{ does not contain any universally quantified variables}
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ul></li>
 <li><p>Domain Closure</p>
 <ul>
 <li>If we believe a schema is true for every instance, then we can infer a universally quantified version of that schema <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi[\sigma_1]\\
 &amp;\vdots\\
 &amp;\varphi[\sigma_n]\\
 \hline
 &amp;\forall \nu . \varphi[\nu]
-\end{array}
+\end{aligned}
 \]</span></li>
 </ul></li>
 </ul>
@@ -3428,32 +3428,32 @@ p(a), p(f(a)), p(f(f(a))),\dots
 <li><p>Complete induction, or mathematical induction is induction where it is sure that all instances are true</p></li>
 <li><p>Domain closure works for finite number of statements but not with infinite number</p></li>
 <li><p>Linear Induction: if we know that a schema holds of our base element and if we know that, whenever the schema holds of an element, it also holds of the successor of that element, then we can conclude that the schema holds of all elements <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi[a]\\
 &amp;\forall \mu.(\varphi[\mu]\Rightarrow\varphi[s(\mu)])\\
 \hline
 &amp;\forall \nu.\varphi[\nu]
-\end{array}
+\end{aligned}
 \]</span> here <span class="math inline">\(s\)</span> is called the successor function and all elements can be iterated in the following way <span class="math display">\[
 a\rightarrow s(a)\rightarrow s(s(a)) \rightarrow  s(s(s(a)))\rightarrow \dots
 \]</span></p></li>
 <li><p>Tree Induction: similarly <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi[a]\\
 &amp;\forall \mu.(\varphi[\mu]\Rightarrow\varphi[f(\mu)])\\
 &amp;\forall \mu.(\varphi[\mu]\Rightarrow\varphi[g(\mu)])\\
 \hline
 &amp;\forall \nu.\varphi[\nu]
-\end{array}
+\end{aligned}
 \]</span> Here <span class="math inline">\(f(\mu)\)</span> and <span class="math inline">\(g(\mu)\)</span> shall cover all the cases</p></li>
 <li><p>Structural Induction: most general form of induction. We can have multiple object constants, multiple function constants, and, unlike our other forms of induction, we can have function constants with multiple arguments <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi[a]\\
 &amp;\varphi[b]\\
 &amp;\forall \lambda.\forall \mu.((\varphi[\lambda] \land \varphi[\mu])\Rightarrow \varphi[c(\lambda,\mu)])\\
 \hline
 &amp;\forall \nu.\varphi[\nu]
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Multidimensional Induction: similar to one variable induction but with multiple variables. A general way to do this is to prove the outer quantified formula and then use induction on each of the inner conclusions as well</p></li>
 <li><p>Embedded Induction: sometimes, it is easier to use induction on parts of a problem or to prove alternative conclusions and then use these intermediate results to derive the overall conclusions</p></li>
@@ -3475,20 +3475,20 @@ a\rightarrow s(a)\rightarrow s(s(a)) \rightarrow  s(s(s(a)))\rightarrow \dots
 <li><p>The procedure for converting relational sentences to clausal form is similar to that for Propositional Logic with a few additional rules</p>
 <ol type="1">
 <li><p>Implications: <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\varphi\Rightarrow\psi&amp;\rightarrow\quad&amp;\neg \varphi \lor \psi\\
 &amp;\varphi\Leftarrow\psi&amp;\rightarrow\quad&amp;\varphi \lor\neg  \psi\\
 &amp;\varphi\Leftrightarrow\psi&amp;\rightarrow\quad&amp;(\neg \varphi \lor \psi)\land(\varphi \lor\neg  \psi)\\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 <li><p>Negations: <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\neg\neg\varphi&amp;\rightarrow\quad&amp;\varphi\\
 &amp;\neg(\varphi\land\psi)&amp;\rightarrow\quad&amp;\neg\varphi \lor\neg  \psi\\
 &amp;\neg(\varphi\lor\psi)&amp;\rightarrow\quad&amp;\neg\varphi \land\neg  \psi\\
 &amp;\lnot\forall \nu.\varphi&amp;\rightarrow\quad&amp;\exists\nu.\lnot\varphi\\
 &amp;\lnot\exists \nu.\varphi&amp;\rightarrow\quad&amp;\forall\nu.\lnot\varphi\\
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ol></li>
 </ul></li>
@@ -3506,20 +3506,20 @@ a\rightarrow s(a)\rightarrow s(s(a)) \rightarrow  s(s(s(a)))\rightarrow \dots
 </ol></li>
 <li><p>Alls out: we drop all universal quantifiers</p></li>
 <li><p>Disjunctions: <span class="math display">\[
-    \begin{array}
+    \begin{aligned}
     &amp;\varphi\lor(\psi\land\chi)&amp;\rightarrow\quad&amp;(\varphi\lor\psi)\land(\varphi\lor\chi)\\
     &amp;(\varphi\land\psi)\lor\chi&amp;\rightarrow\quad&amp;(\varphi\lor\chi)\land(\psi\lor\chi)\\
     &amp;\varphi\lor(\varphi_1\lor\dots\lor\varphi_n)&amp;\rightarrow\quad&amp;\varphi\lor\varphi_1\lor\dots\lor\varphi_n \\
     &amp;(\varphi_1\lor\dots\lor\varphi_n)\lor\varphi &amp;\rightarrow\quad&amp;\varphi_1\lor\dots\lor\varphi_n\lor\varphi\\
     &amp;\varphi\land(\varphi_1\land\dots\land\varphi_n)&amp;\rightarrow\quad&amp;\varphi\land\varphi_1\land\dots\land\varphi_n \\
     &amp;(\varphi_1\land\dots\land\varphi_n)\land\varphi &amp;\rightarrow\quad&amp;\varphi_1\land\dots\land\varphi_n\land\varphi\\
-    \end{array}
+    \end{aligned}
     \]</span></p></li>
 <li><p>Operators out: <span class="math display">\[
-    \begin{array}
+    \begin{aligned}
     &amp;\varphi_1\lor\dots\lor\varphi_n&amp;\rightarrow\quad&amp;\{\varphi_1, \dots, \varphi_n\}\\
     &amp;\varphi_1\land\dots\land\varphi_n&amp;\rightarrow\quad&amp;\{\varphi_1\}, \dots, \{\varphi_n\}\\
-    \end{array}
+    \end{aligned}
     \]</span></p></li>
 </ol>
 <ul>
@@ -3539,7 +3539,7 @@ a\rightarrow s(a)\rightarrow s(s(a)) \rightarrow  s(s(s(a)))\rightarrow \dots
 <ul>
 <li><p>The Relational Resolution Principle is analogous to that of propositional resolution. The main difference is the use of unification to unify literals before applying the rule</p></li>
 <li><p>Suppose that <span class="math inline">\(\Phi\)</span> and <span class="math inline">\(\Psi\)</span> are two clauses. If there is a literal <span class="math inline">\(\varphi\)</span> in some factor of <span class="math inline">\(\Phi\)</span> and a literal <span class="math inline">\(\lnot\psi\)</span> in some factor of <span class="math inline">\(\Psi\)</span>, then we say that the two clauses <span class="math inline">\(\Phi\)</span> and <span class="math inline">\(\psi\)</span> resolve and that the new clause <span class="math inline">\(((\Phi'-\{\varphi\})\cup(\Psi'-\{\lnot\psi\}))\sigma\)</span> is a resolvent of the two clauses <span class="math display">\[
-\begin{array}
+\begin{aligned}
 &amp;\Phi\\
 &amp;\Psi\\
 \hline
@@ -3548,7 +3548,7 @@ a\rightarrow s(a)\rightarrow s(s(a)) \rightarrow  s(s(s(a)))\rightarrow \dots
 &amp;\text{where }\Phi' \text{ is a factor of }\Phi\tau \text{ and }\varphi\in\Phi'\\
 &amp;\text{where }\Psi' \text{ is a factor of }\Psi\text{ and }\lnot\psi\in\Psi'\\
 &amp;\text{where }\sigma = mgu(\varphi,\psi)
-\end{array}
+\end{aligned}
 \]</span></p></li>
 </ul></li>
 <li><p>Reasoning with the Resolution Principle is analogous to reasoning with the Propositional Resolution Principle</p>
