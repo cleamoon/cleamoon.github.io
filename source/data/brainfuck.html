@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Very simple Brainfuck interpreter </title>
+</head>
+
+<body>
+	<h2> Known bug: </h2>
+	<ul>
+		<li>The new line character is treated as a whitespace character when outputting.</li>
+	</ul>
+
+	<hr>
+
+	<h2> TODO: (might never be done)</h2>
+	<ul>
+		<li>Replace the for-loop at a finished '[' command with a direct jump. </li>
+	</ul>
+
+	<hr>
+
+	<h2>Brainfuck code: </h2>
+	<textarea id="bfCode" rows="20" cols="100">Here to put the brainfuck code for interpretation. </textarea>
+	<br>
+	<button onclick="interp()">Submit</button>
+
+	<hr>
+	<h2>Result: </h2> <br>
+	<p id="output"></p>
+
+
+	<script>
+		function printOutput(c) {
+			document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + c;
+		}
+
+		function interp() {
+			document.getElementById('output').innerHTML = "";
+
+			let loop = [];
+			let code = document.getElementById('bfCode').value;
+			let size = 30000;
+			let mem = Array(size).fill(0);
+			let ptr = 0;
+			let res = "";
+
+			for (let i = 0; i < code.length; i++) {
+				switch (code[i]) {
+					case '+':
+						mem[ptr]++;
+						break;
+					case '-':
+						mem[ptr]--;
+						break;
+					case '>':
+						ptr++;
+						if (ptr > size) {
+							printOutput("Stack overflow. The size of the memery is limited to " + size + ".<br>");
+							return;
+						}
+						mem[ptr] = mem[ptr] || 0;
+						break;
+					case '<':
+						ptr--;
+						if (ptr < 0) {
+							printOutput("The pointer cannot point to negative address. <br>");
+							return;
+						}
+						mem[ptr] = mem[ptr] || 0;
+						break;
+					case '.':
+						res = String.fromCharCode(mem[ptr]);
+						break;
+					case ',':
+						mem[ptr] = prompt("Please enter one byte of input.")[0].charCodeAt();
+						break;
+					case '[':
+						if (mem[ptr] === 0) {
+							let nPare = 1;
+							for (let j = i + 1; j < code.length; j++) {
+								if (code[j] === '[') {
+									nPare++;
+								} else if (code[j] === ']') {
+									nPare--;
+									if (nPare === 0) {
+										i = j;
+										break;
+									}
+								}
+							}
+						} else {
+							loop.push(i);
+						}
+						break;
+					case ']':
+						if (mem[ptr] !== 0) {
+							i = loop[loop.length - 1];
+						} else {
+							loop.pop();
+						}
+						break;
+					default:
+						break;
+				}
+			}
+
+			printOutput(res);
+		}
+	</script>
+</body>
+
+</html>
