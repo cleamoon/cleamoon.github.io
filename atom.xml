@@ -6,7 +6,7 @@
   <link href="http://blog.yj0.se/atom.xml" rel="self"/>
   
   <link href="http://blog.yj0.se/"/>
-  <updated>2023-12-02T14:21:35.471Z</updated>
+  <updated>2023-12-02T20:02:14.617Z</updated>
   <id>http://blog.yj0.se/</id>
   
   <author>
@@ -17,18 +17,23 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>Simple React Hooks Note</title>
     <link href="http://blog.yj0.se/2023/react_hooks_note/"/>
     <id>http://blog.yj0.se/2023/react_hooks_note/</id>
-    <published>2023-12-02T14:01:30.584Z</published>
-    <updated>2023-12-02T14:21:35.471Z</updated>
+    <published>2023-12-01T23:00:00.000Z</published>
+    <updated>2023-12-02T20:02:14.617Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Simple React Hooks Note&lt;/p&gt;
-&lt;p&gt;Notes for React Hooks.&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;Notes for React Hooks.&lt;/p&gt;</summary>
     
     
     
+    
+    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
+    
+    <category term="React" scheme="http://blog.yj0.se/tags/React/"/>
+    
+    <category term="Frontend" scheme="http://blog.yj0.se/tags/Frontend/"/>
     
   </entry>
   
