@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -15,7 +15,7 @@
 
 
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.10.0/source/js/config.min.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.10.0/source/js/config.min.js"></script>
 
   <meta name="description" content="The find command is one of the most powerful tools in the Linux system. It searches for files and directories based on their permissions, type, ownership, size, and more. It can also be combined with">
 <meta property="og:type" content="article">
@@ -3327,7 +3327,7 @@ with other tools such as <code>grep</code> or <code>sed</code></p>
 <span id="more"></span>
 <h2 id="command-syntax">Command syntax</h2>
 <p>The general syntax for the <code>find</code> command is as follows:
-</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find [options] [path...] [expressio]</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find [options] [path...] [expressio]</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <ul>
 <li>The <code>options</code> attribute controls the treatment of the
 symbolic links</li>
@@ -3341,11 +3341,11 @@ patterns, and actions separated by operators</li>
 followed by the name of the file you are searching for. To run a
 case-insensitive search, change the <code>-name</code> option with
 <code>-iname</code></p>
-<p>For example: </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find /home/username -<span class="built_in">type</span> f -name document.pdf</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>For example: </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find /home/username -<span class="built_in">type</span> f -name document.pdf</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h3 id="find-files-by-extension">Find files by extension</h3>
 <p>Searching for files by extension is the same as searching for files
 by name</p>
-<p>For example: </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find /var/<span class="built_in">log</span>/nginx -<span class="built_in">type</span> f -name <span class="string">'*.log.gz'</span></span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>For example: </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find /var/log/nginx -<span class="built_in">type</span> f -name <span class="string">'*.log.gz'</span></span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h3 id="find-files-by-type">Find files by type</h3>
 <p>To search for fiels based on their type, use the <code>-type</code>
 option and one of the following descriptors to specify the type:</p>
@@ -3358,7 +3358,7 @@ option and one of the following descriptors to specify the type:</p>
 <li><code>p</code>: named pipe (FIFO)</li>
 <li><code>s</code>: socket</li>
 </ul>
-<p>For example: </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find /var/www/my_website -<span class="built_in">type</span> d -<span class="built_in">exec</span> chmod 0755 {} \;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> find /var/www/my_website -<span class="built_in">type</span> f -<span class="built_in">exec</span> chmod 0644 {} \;</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>For example: </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find /var/www/my_website -<span class="built_in">type</span> d -<span class="built_in">exec</span> <span class="built_in">chmod</span> 0755 {} \;</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find /var/www/my_website -<span class="built_in">type</span> f -<span class="built_in">exec</span> <span class="built_in">chmod</span> 0644 {} \;</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h3 id="find-files-by-size">Find files by size</h3>
 <p>To find files based on the file size, pass the <code>-szie</code>
 parameter along with the size criteria. You can use the following
@@ -3371,22 +3371,22 @@ suffixes to specify the file size</p>
 <li><code>M</code>: Megabytes</li>
 <li><code>G</code>: Gigabytes</li>
 </ul>
-<p>For example </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find /tmp -<span class="built_in">type</span> f -size 1024c</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>For example </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find /tmp -<span class="built_in">type</span> f -size 1024c</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>The <code>find</code> command also allows you to search for files
-that are greater or less than a specified size </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find . -<span class="built_in">type</span> f -size -1M	// less than 1M</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> find . -<span class="built_in">type</span> f -size +1M	// greater than 1M</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> find . -<span class="built_in">type</span> f -size +1M -size -2M	// between 1 and 2M</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+that are greater or less than a specified size </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find . -<span class="built_in">type</span> f -size -1M	// less than 1M</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find . -<span class="built_in">type</span> f -size +1M	// greater than 1M</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find . -<span class="built_in">type</span> f -size +1M -size -2M	// between 1 and 2M</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h3 id="find-files-by-modification-date">Find files by modification
 date</h3>
 <p>To search for files based on their last modification, access, or
 changed time, we can use a syntax similar to size. To use the plus and
 minus symbols for "greater than" or "less than" and use the
 <code>-daystart</code> option</p>
-<p>For example: </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find /home -name <span class="string">"*.conf"</span> -mtime 5	// search <span class="keyword">for</span> files that has been modified <span class="keyword">in</span> the last five days</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> find /home -mtime +30 -daystart // search <span class="keyword">for</span> files that were modified 30 or more days ago</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>For example: </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find /home -name <span class="string">"*.conf"</span> -mtime 5	// search <span class="keyword">for</span> files that has been modified <span class="keyword">in</span> the last five days</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find /home -mtime +30 -daystart // search <span class="keyword">for</span> files that were modified 30 or more days ago</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h3 id="find-files-by-permissions">Find files by permissions</h3>
 <p>The <code>-perm</code> option allows you to search for files based on
 the file permissions</p>
 <p>For example, to find all files with permissions of exactly
 <code>644</code> inside the <code>/var/www/html</code> directory
-</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find /var/www/html -perm 644</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find /var/www/html -perm 644</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>You can prefix the numeric mode with minus <code>-</code> or flash
 <code>/</code>. When slash <code>/</code> is used as the prefix, then at
 least one category (user, group, or others) must have at least the
@@ -3395,10 +3395,10 @@ as the prefix, then for the file to match, at least the specified bits
 must be set</p>
 <h3 id="find-files-by-owner">Find files by owner</h3>
 <p>To find files owned by a particular user or group, use the
-<code>-user</code> and <code>-group</code> options </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find / -user username</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<code>-user</code> and <code>-group</code> options </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find / -user username</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h3 id="find-and-delete-files">Find and delete files</h3>
 <p>To delete all matching files, append the <code>-delete</code> option
-to the end of the match expression </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find /var/<span class="built_in">log</span>/ -name `*.temp` -delete</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+to the end of the match expression </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">find /var/log/ -name `*.temp` -delete</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h2 id="symbolic-links">Symbolic links</h2>
 <p>To specify the behavior of <code>find</code> about the symbolic
 links, we can use the options <code>-H</code>, <code>-L</code>, and

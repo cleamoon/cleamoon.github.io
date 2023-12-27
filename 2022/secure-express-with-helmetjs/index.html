@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -15,7 +15,7 @@
 
 
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.10.0/source/js/config.min.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.10.0/source/js/config.min.js"></script>
 
   <meta name="description" content="In this article, We introduce HelmetJS to secure Express apps.">
 <meta property="og:type" content="article">
@@ -3232,7 +3232,7 @@ HelmetJS</h2>
 automatically sets HTTP headers. This way it can prevent sensitive
 information from unintentionally being passed between the server and
 client. You can install it by:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install --save-exact helmet@3.21.3</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install --save-exact helmet@3.21.3</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="hide-potentially-dangerous-information-using-helmet.hidepoweredby">Hide
 potentially dangerous information using
 <code>helmet.hidePoweredBy()</code></h3>
@@ -3240,7 +3240,7 @@ potentially dangerous information using
 that your site is powered by Express. <code>X-Powered-By: Express</code>
 is sent in every request coming from Express by default. You can append
 the following line to the Express app to remove this header:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(helmet.hidePoweredBy());</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(helmet.<span class="title function_">hidePoweredBy</span>());</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="mitigate-the-risk-of-clickjacking-with-helmet.frameguard">Mitigate
 the risk of clickjacking with <code>helmet.frameguard()</code></h3>
 <p>Your page could be put in a <code>&lt;frame&gt;</code> or
@@ -3254,7 +3254,7 @@ scripts. The middleware <code>helmet.frameguard()</code> sets the
 <code>X-Frame-Options</code> header. It restricts who can put your site
 in a frame. It has three modes: DENY, SAMEORIGIN, and ALLOW-FROM. For
 example:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(helmet.frameguard({<span class="attr">action</span>: <span class="string">'deny'</span>}));</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(helmet.<span class="title function_">frameguard</span>({<span class="attr">action</span>: <span class="string">'deny'</span>}));</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="mitigate-the-risk-of-cross-site-scripting-xss-attacks-with-helmet.xssfilter">Mitigate
 the risk of Cross-site scripting (XSS) attacks with
 <code>helmet.xssFilter()</code></h3>
@@ -3350,7 +3350,7 @@ your website address by default. Also set the <code>scriptSrc</code>
 directive so that you only allow scripts to be downloaded from your
 website (<code>'self'</code>), and from the domain
 <code>'trusted-cdn.com'</code>. For example:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.use(helmet.contentSecurityPolicy({ </span><br><span class="line">    <span class="attr">directives</span>: { </span><br><span class="line">        <span class="attr">defaultSrc</span>: [<span class="string">"'self'"</span>], </span><br><span class="line">        <span class="attr">scriptSrc</span> : [<span class="string">"'self'"</span>, <span class="string">"trusted-cdn.com"</span>] </span><br><span class="line">    }</span><br><span class="line">}));</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(helmet.<span class="title function_">contentSecurityPolicy</span>({ </span><br><span class="line">    <span class="attr">directives</span>: { </span><br><span class="line">        <span class="attr">defaultSrc</span>: [<span class="string">"'self'"</span>], </span><br><span class="line">        scriptSrc : [<span class="string">"'self'"</span>, <span class="string">"trusted-cdn.com"</span>] </span><br><span class="line">    }</span><br><span class="line">}));</span><br></pre></td></tr></tbody></table></figure>
 <p>Hint: in the <code>'self'</code> keyword, the single quotes are part
 of the keyword itself, so it needs to be enclosed in double quotes to be
 working.</p>
@@ -3361,7 +3361,7 @@ middleware introduced above, except <code>noCache()</code>, and
 <code>contentSecurityPolicy()</code>, but these can be enabled if
 necessary. You can also disable or configure any other middleware
 individually, using a configuration object. For example:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">app.use(helmet({</span><br><span class="line">  <span class="attr">frameguard</span>: {         <span class="comment">// configure</span></span><br><span class="line">    <span class="attr">action</span>: <span class="string">'deny'</span></span><br><span class="line">  },</span><br><span class="line">  <span class="attr">contentSecurityPolicy</span>: {    <span class="comment">// enable and configure</span></span><br><span class="line">    <span class="attr">directives</span>: {</span><br><span class="line">      <span class="attr">defaultSrc</span>: [<span class="string">"'self'"</span>],</span><br><span class="line">      <span class="attr">styleSrc</span>: [<span class="string">'style.com'</span>],</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">  <span class="attr">dnsPrefetchControl</span>: <span class="literal">false</span>     <span class="comment">// disable</span></span><br><span class="line">}))</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="title function_">helmet</span>({</span><br><span class="line">  <span class="attr">frameguard</span>: {         <span class="comment">// configure</span></span><br><span class="line">    <span class="attr">action</span>: <span class="string">'deny'</span></span><br><span class="line">  },</span><br><span class="line">  <span class="attr">contentSecurityPolicy</span>: {    <span class="comment">// enable and configure</span></span><br><span class="line">    <span class="attr">directives</span>: {</span><br><span class="line">      <span class="attr">defaultSrc</span>: [<span class="string">"'self'"</span>],</span><br><span class="line">      <span class="attr">styleSrc</span>: [<span class="string">'style.com'</span>],</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">  <span class="attr">dnsPrefetchControl</span>: <span class="literal">false</span>     <span class="comment">// disable</span></span><br><span class="line">}))</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="understand-bcrypt-hashes">Understand BCrypt hashes</h3>
 <p>BCrypt hashes are very secure. BCrypt hashes will always looks like
 <code>$2a$13$ZyprE5MRw2Q3WpNOGZWGbeG7ADUre1Q8QO.uUUtcbqloU0yvzavOm</code>
@@ -3381,14 +3381,14 @@ text, and the rest is the hashed data.</p>
 recommended to do so asynchronously on your server as to avoid blocking
 incoming connections while you hash. All you have to do to hash a
 password asynchronous is call:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bcrypt.hash(myPlaintextPassword, saltRounds, <span class="function">(<span class="params">err, hash</span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">/*Store hash in your db*/</span></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bcrypt.<span class="title function_">hash</span>(myPlaintextPassword, saltRounds, <span class="function">(<span class="params">err, hash</span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">/*Store hash in your db*/</span></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
 <p>Now when you need to figure out if a new input is the same data as
 the hash you would just use the compare function:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bcrypt.compare(myPlaintextPassword, hash, <span class="function">(<span class="params">err, res</span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">/*res == true or false*/</span></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bcrypt.<span class="title function_">compare</span>(myPlaintextPassword, hash, <span class="function">(<span class="params">err, res</span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">/*res == true or false*/</span></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
 <p>Hashing synchronously is just as easy to do but can cause lag if
 using it server side with a high cost or with hashing done very often.
 Hashing with this method is as easy as calling:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = bcrypt.hashSync(myPlaintextPassword, saltRounds);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = bcrypt.compareSync(myPlaintextPassword, hash);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = bcrypt.<span class="title function_">hashSync</span>(myPlaintextPassword, saltRounds);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = bcrypt.<span class="title function_">compareSync</span>(myPlaintextPassword, hash);</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="sources">Sources:</h3>
 <ol type="1">
 <li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.freecodecamp.org">freeCodeCamp</a></li>

@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -15,7 +15,7 @@
 
 
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.10.0/source/js/config.min.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.10.0/source/js/config.min.js"></script>
 
   <meta name="description" content="In this article, several FFmpeg examples that I used are listed.">
 <meta property="og:type" content="article">
@@ -25,7 +25,7 @@
 <meta property="og:description" content="In this article, several FFmpeg examples that I used are listed.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-13T22:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-14T13:44:43.840Z">
+<meta property="article:modified_time" content="2023-12-27T19:25:37.041Z">
 <meta property="article:author" content="Yue Jiao">
 <meta property="article:tag" content="Shell">
 <meta property="article:tag" content="FFmpeg">
@@ -3188,7 +3188,8 @@ mjx-container[display="true"] + br {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#convert-flv-to-mp3"><span class="nav-text">Convert flv to mp3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#batch-converting-mkv-to-mp4"><span class="nav-text">Batch converting mkv to mp4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#convert-animated-gif-to-mp4"><span class="nav-text">Convert animated gif to mp4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#burn-subtitles-into-a-video"><span class="nav-text">Burn subtitles into a video</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clip-video"><span class="nav-text">Clip video</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#split-video-in-chunks-with-same-length"><span class="nav-text">Split video in chunks
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#convert-flv-to-mp3"><span class="nav-text">Convert flv to mp3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#convert-all-mp3-files-in-a-directory-to-opus"><span class="nav-text">Convert all mp3
+files in a directory to opus</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#batch-converting-mkv-to-mp4"><span class="nav-text">Batch converting mkv to mp4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#convert-animated-gif-to-mp4"><span class="nav-text">Convert animated gif to mp4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#burn-subtitles-into-a-video"><span class="nav-text">Burn subtitles into a video</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clip-video"><span class="nav-text">Clip video</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#split-video-in-chunks-with-same-length"><span class="nav-text">Split video in chunks
 with same length</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#split-video-in-chunks-with-different-lengths"><span class="nav-text">Split video in
 chunks with different lengths</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compression-the-video-using-libx265"><span class="nav-text">Compression the video using
 libx265</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#simple-rescaling"><span class="nav-text">Simple rescaling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#speeding-updown-audio"><span class="nav-text">Speeding up/down audio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#broadcasting-video-through-bilibili-direct-sending"><span class="nav-text">Broadcasting
@@ -3282,7 +3283,7 @@ video through Bilibili direct-sending</span></a></li><li class="nav-item nav-lev
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-14 15:44:43" itemprop="dateModified" datetime="2022-08-14T15:44:43+02:00">2022-08-14</time>
+      <time title="Modified: 2023-12-27 20:25:37" itemprop="dateModified" datetime="2023-12-27T20:25:37+01:00">2023-12-27</time>
     </span>
 
   
@@ -3306,7 +3307,7 @@ video through Bilibili direct-sending</span></a></li><li class="nav-item nav-lev
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1.8k</span>
+      <span>2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -3327,41 +3328,44 @@ video through Bilibili direct-sending</span></a></li><li class="nav-item nav-lev
         <p>In this article, several FFmpeg examples that I used are listed.</p>
 <span id="more"></span>
 <h4 id="convert-flv-to-mp3">Convert flv to mp3</h4>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i video.flv -vn -acodec libmp3lame -ab 128k audio.mp3</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i video.flv -vn -acodec libmp3lame -ab 128k audio.mp3</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="convert-all-mp3-files-in-a-directory-to-opus">Convert all mp3
+files in a directory to opus</h4>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="keyword">for</span> f <span class="keyword">in</span> *.mp3; <span class="keyword">do</span> ffmpeg -i <span class="string">"<span class="variable">$f</span>"</span> -c:a libopus -b:a 64k <span class="string">"<span class="variable">${f%.mp3}</span>.opus"</span>; <span class="keyword">done</span></span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="batch-converting-mkv-to-mp4">Batch converting mkv to mp4</h4>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="keyword">for</span> f <span class="keyword">in</span> *.mkv; <span class="keyword">do</span> ffmpeg -i <span class="string">"<span class="variable">$f</span>"</span> -c copy <span class="string">"<span class="variable">${f%.mkv}</span>.mp4"</span>; <span class="keyword">done</span></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="keyword">for</span> f <span class="keyword">in</span> *.mkv; <span class="keyword">do</span> ffmpeg -i <span class="string">"<span class="variable">$f</span>"</span> -c copy <span class="string">"<span class="variable">${f%.mkv}</span>.mp4"</span>; <span class="keyword">done</span></span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="convert-animated-gif-to-mp4">Convert animated gif to mp4</h4>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf <span class="string">"scale=trunc(iw/2)*2:trunc(ih/2)*2"</span> video.mp4</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf <span class="string">"scale=trunc(iw/2)*2:trunc(ih/2)*2"</span> video.mp4</span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="burn-subtitles-into-a-video">Burn subtitles into a video</h4>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i video.avi -vf subtitles=subtitle.srt out.avi</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i video.avi -vf subtitles=subtitle.srt out.avi</span></span><br></pre></td></tr></tbody></table></figure>
 <p>If the subtitles is embedded in the container <code>video.mkv</code>
-</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i video.mkv -vf subtitles=video.mkv out.avi</span></span><br></pre></td></tr></tbody></table></figure> More complex, if the video has several sound tracks and
+</p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i video.mkv -vf subtitles=video.mkv out.avi</span></span><br></pre></td></tr></tbody></table></figure> More complex, if the video has several sound tracks and
 subtitles, and the subtitles use different resolution than the video:
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i in.mkv -filter_complex <span class="string">"[0:s]scale=1280:-1[sub];[0:v][sub]overlay[v]"</span> -map <span class="string">"[v]"</span> -map 0:a -c:a copy out.mp4</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i in.mkv -filter_complex <span class="string">"[0:s]scale=1280:-1[sub];[0:v][sub]overlay[v]"</span> -map <span class="string">"[v]"</span> -map 0:a -c:a copy out.mp4</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h4 id="clip-video">Clip video</h4>
 <p>The <code>-ss</code> option specifies a start timestamp, the
 <code>-t</code> option specifies the encoding duration, the
 <code>-to</code> option specifies the timestamp to which you want to
-cut. For example: </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -ss 00:00:30.0 -i input.wmv -c copy -t  00:00:10.0 output.wmv</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -ss 00:00:30.0 -i input.wmv -c copy -to 00:00:40.0 output.wmv</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+cut. For example: </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -ss 00:00:30.0 -i input.wmv -c copy -t  00:00:10.0 output.wmv</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -ss 00:00:30.0 -i input.wmv -c copy -to 00:00:40.0 output.wmv</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h4 id="split-video-in-chunks-with-same-length">Split video in chunks
 with same length</h4>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i input.mp4 -c copy -map 0 -segment_time 00:20:00 -f segment output%03d.mp4</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i input.mp4 -c copy -map 0 -segment_time 00:20:00 -f segment output%03d.mp4</span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="split-video-in-chunks-with-different-lengths">Split video in
 chunks with different lengths</h4>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i source.m4v -ss 0 -t 593.3 -c copy part1.m4v</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i source.m4v -ss 593.3 -t 551.64 -c copy part2.m4v</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i source.m4v -ss 1144.94 -t 581.25 -c copy part3.m4v</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i source.m4v -ss 0 -t 593.3 -c copy part1.m4v</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i source.m4v -ss 593.3 -t 551.64 -c copy part2.m4v</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i source.m4v -ss 1144.94 -t 581.25 -c copy part3.m4v</span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="compression-the-video-using-libx265">Compression the video using
 libx265</h4>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i input.mp4 -vcodec libx264 -crf 20 output.mp4</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i input.mp4 -vcodec libx264 -crf 20 output.mp4</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Vary the CRF between around 18 and 24 — the lower, the higher the
 bitrate</p>
 <h4 id="simple-rescaling">Simple rescaling</h4>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i input.avi -vf scale=320:240 output.avi</span></span><br></pre></td></tr></tbody></table></figure>
-<p>Keeping the aspect radio </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i input.jpg -vf scale=320:-1 output_320.png</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i input.avi -vf scale=320:240 output.avi</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Keeping the aspect radio </p><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i input.jpg -vf scale=320:-1 output_320.png</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h4 id="speeding-updown-audio">Speeding up/down audio</h4>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -i input.mkv -filter:a <span class="string">"atempo=2.0"</span> -vn output.mkv</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -i input.mkv -filter:a <span class="string">"atempo=2.0"</span> -vn output.mkv</span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="broadcasting-video-through-bilibili-direct-sending">Broadcasting
 video through Bilibili direct-sending</h4>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ffmpeg -re -i <span class="string">"1.mp4"</span> -vcodec copy -acodec aac -b:a 192k -f flv <span class="string">"rtmp://dl.live-send.acg.tv/live-dl/your_direct_sending_id_number"</span></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -re -i <span class="string">"1.mp4"</span> -vcodec copy -acodec aac -b:a 192k -f flv <span class="string">"rtmp://dl.live-send.acg.tv/live-dl/your_direct_sending_id_number"</span></span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="references">References</h4>
 <ol type="1">
 <li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://stackoverflow.com/">Stackoverflow</a></li>
