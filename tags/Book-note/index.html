@@ -17,15 +17,6 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script>
 
-    <meta name="description" content="Personal blog for idea sharing and archiving.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yue Jiao's blog">
-<meta property="og:url" content="http://blog.yj0.se/tags/Book-note/index.html">
-<meta property="og:site_name" content="Yue Jiao's blog">
-<meta property="og:description" content="Personal blog for idea sharing and archiving.">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="Yue Jiao">
-<meta name="twitter:card" content="summary">
 
 
 <link rel="canonical" href="http://blog.yj0.se/tags/Book-note/">
@@ -794,8 +785,8 @@ pre code {
   margin-bottom: 20px;
   padding: 1em;
   position: relative;
-  border: 1px solid #eee;
-  border-left-width: 5px;
+  background: #f5f5f5;
+  border: 1px solid transparent;
 }
 .post-body .note summary {
   cursor: pointer;
@@ -820,64 +811,82 @@ pre code {
   margin-bottom: 0;
 }
 .post-body .note.default {
-  border-left-color: #777;
+  background: #f3f3f3;
+  border-color: #e1e1e1;
+  color: #666;
 }
-.post-body .note.default h2,
-.post-body .note.default h3,
-.post-body .note.default h4,
-.post-body .note.default h5,
-.post-body .note.default h6 {
-  color: #777;
+.post-body .note.default a:not(.btn) {
+  border-bottom-color: #666;
+  color: #666;
+}
+.post-body .note.default a:not(.btn):hover {
+  border-bottom-color: #454545;
+  color: #454545;
 }
 .post-body .note.primary {
-  border-left-color: #6f42c1;
-}
-.post-body .note.primary h2,
-.post-body .note.primary h3,
-.post-body .note.primary h4,
-.post-body .note.primary h5,
-.post-body .note.primary h6 {
+  background: #f3daff;
+  border-color: #e1c2ff;
   color: #6f42c1;
 }
-.post-body .note.info {
-  border-left-color: #428bca;
+.post-body .note.primary a:not(.btn) {
+  border-bottom-color: #6f42c1;
+  color: #6f42c1;
 }
-.post-body .note.info h2,
-.post-body .note.info h3,
-.post-body .note.info h4,
-.post-body .note.info h5,
-.post-body .note.info h6 {
-  color: #428bca;
+.post-body .note.primary a:not(.btn):hover {
+  border-bottom-color: #453298;
+  color: #453298;
+}
+.post-body .note.info {
+  background: #d9edf7;
+  border-color: #b3e5ef;
+  color: #31708f;
+}
+.post-body .note.info a:not(.btn) {
+  border-bottom-color: #31708f;
+  color: #31708f;
+}
+.post-body .note.info a:not(.btn):hover {
+  border-bottom-color: #215761;
+  color: #215761;
 }
 .post-body .note.success {
-  border-left-color: #5cb85c;
+  background: #dff0d8;
+  border-color: #d0e6be;
+  color: #3c763d;
 }
-.post-body .note.success h2,
-.post-body .note.success h3,
-.post-body .note.success h4,
-.post-body .note.success h5,
-.post-body .note.success h6 {
-  color: #5cb85c;
+.post-body .note.success a:not(.btn) {
+  border-bottom-color: #3c763d;
+  color: #3c763d;
+}
+.post-body .note.success a:not(.btn):hover {
+  border-bottom-color: #32562c;
+  color: #32562c;
 }
 .post-body .note.warning {
-  border-left-color: #f0ad4e;
+  background: #fcf4e3;
+  border-color: #fae4cd;
+  color: #8a6d3b;
 }
-.post-body .note.warning h2,
-.post-body .note.warning h3,
-.post-body .note.warning h4,
-.post-body .note.warning h5,
-.post-body .note.warning h6 {
-  color: #f0ad4e;
+.post-body .note.warning a:not(.btn) {
+  border-bottom-color: #8a6d3b;
+  color: #8a6d3b;
+}
+.post-body .note.warning a:not(.btn):hover {
+  border-bottom-color: #714f30;
+  color: #714f30;
 }
 .post-body .note.danger {
-  border-left-color: #d9534f;
+  background: #f2dfdf;
+  border-color: #ebcdd2;
+  color: #a94442;
 }
-.post-body .note.danger h2,
-.post-body .note.danger h3,
-.post-body .note.danger h4,
-.post-body .note.danger h5,
-.post-body .note.danger h6 {
-  color: #d9534f;
+.post-body .note.danger a:not(.btn) {
+  border-bottom-color: #a94442;
+  color: #a94442;
+}
+.post-body .note.danger a:not(.btn):hover {
+  border-bottom-color: #84333f;
+  color: #84333f;
 }
 .post-body .tabs {
   margin-bottom: 20px;
@@ -1265,7 +1274,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #66feb0;
+    background: #2811f6;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3080,7 +3089,7 @@ header.header {
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">687k</span>
+    <span title="Word count total">686k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

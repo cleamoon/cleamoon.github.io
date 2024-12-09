@@ -17,15 +17,6 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script>
 
-    <meta name="description" content="Personal blog for idea sharing and archiving.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yue Jiao's blog">
-<meta property="og:url" content="http://blog.yj0.se/tags/programming/index.html">
-<meta property="og:site_name" content="Yue Jiao's blog">
-<meta property="og:description" content="Personal blog for idea sharing and archiving.">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="Yue Jiao">
-<meta name="twitter:card" content="summary">
 
 
 <link rel="canonical" href="http://blog.yj0.se/tags/programming/">
@@ -794,8 +785,8 @@ pre code {
   margin-bottom: 20px;
   padding: 1em;
   position: relative;
-  border: 1px solid #eee;
-  border-left-width: 5px;
+  background: #f5f5f5;
+  border: 1px solid transparent;
 }
 .post-body .note summary {
   cursor: pointer;
@@ -820,64 +811,82 @@ pre code {
   margin-bottom: 0;
 }
 .post-body .note.default {
-  border-left-color: #777;
+  background: #f3f3f3;
+  border-color: #e1e1e1;
+  color: #666;
 }
-.post-body .note.default h2,
-.post-body .note.default h3,
-.post-body .note.default h4,
-.post-body .note.default h5,
-.post-body .note.default h6 {
-  color: #777;
+.post-body .note.default a:not(.btn) {
+  border-bottom-color: #666;
+  color: #666;
+}
+.post-body .note.default a:not(.btn):hover {
+  border-bottom-color: #454545;
+  color: #454545;
 }
 .post-body .note.primary {
-  border-left-color: #6f42c1;
-}
-.post-body .note.primary h2,
-.post-body .note.primary h3,
-.post-body .note.primary h4,
-.post-body .note.primary h5,
-.post-body .note.primary h6 {
+  background: #f3daff;
+  border-color: #e1c2ff;
   color: #6f42c1;
 }
-.post-body .note.info {
-  border-left-color: #428bca;
+.post-body .note.primary a:not(.btn) {
+  border-bottom-color: #6f42c1;
+  color: #6f42c1;
 }
-.post-body .note.info h2,
-.post-body .note.info h3,
-.post-body .note.info h4,
-.post-body .note.info h5,
-.post-body .note.info h6 {
-  color: #428bca;
+.post-body .note.primary a:not(.btn):hover {
+  border-bottom-color: #453298;
+  color: #453298;
+}
+.post-body .note.info {
+  background: #d9edf7;
+  border-color: #b3e5ef;
+  color: #31708f;
+}
+.post-body .note.info a:not(.btn) {
+  border-bottom-color: #31708f;
+  color: #31708f;
+}
+.post-body .note.info a:not(.btn):hover {
+  border-bottom-color: #215761;
+  color: #215761;
 }
 .post-body .note.success {
-  border-left-color: #5cb85c;
+  background: #dff0d8;
+  border-color: #d0e6be;
+  color: #3c763d;
 }
-.post-body .note.success h2,
-.post-body .note.success h3,
-.post-body .note.success h4,
-.post-body .note.success h5,
-.post-body .note.success h6 {
-  color: #5cb85c;
+.post-body .note.success a:not(.btn) {
+  border-bottom-color: #3c763d;
+  color: #3c763d;
+}
+.post-body .note.success a:not(.btn):hover {
+  border-bottom-color: #32562c;
+  color: #32562c;
 }
 .post-body .note.warning {
-  border-left-color: #f0ad4e;
+  background: #fcf4e3;
+  border-color: #fae4cd;
+  color: #8a6d3b;
 }
-.post-body .note.warning h2,
-.post-body .note.warning h3,
-.post-body .note.warning h4,
-.post-body .note.warning h5,
-.post-body .note.warning h6 {
-  color: #f0ad4e;
+.post-body .note.warning a:not(.btn) {
+  border-bottom-color: #8a6d3b;
+  color: #8a6d3b;
+}
+.post-body .note.warning a:not(.btn):hover {
+  border-bottom-color: #714f30;
+  color: #714f30;
 }
 .post-body .note.danger {
-  border-left-color: #d9534f;
+  background: #f2dfdf;
+  border-color: #ebcdd2;
+  color: #a94442;
 }
-.post-body .note.danger h2,
-.post-body .note.danger h3,
-.post-body .note.danger h4,
-.post-body .note.danger h5,
-.post-body .note.danger h6 {
-  color: #d9534f;
+.post-body .note.danger a:not(.btn) {
+  border-bottom-color: #a94442;
+  color: #a94442;
+}
+.post-body .note.danger a:not(.btn):hover {
+  border-bottom-color: #84333f;
+  color: #84333f;
 }
 .post-body .tabs {
   margin-bottom: 20px;
@@ -1265,7 +1274,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #66feb0;
+    background: #2811f6;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3080,7 +3089,197 @@ header.header {
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">687k</span>
+    <span title="Word count total">686k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">10:24</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener external nofollow noreferrer" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+<script src="/bundle.js"></script><script>true;
+{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script></body></html>     <span itemprop="name">Secure Express apps with HelmetJS</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated" datetime="2022-03-22T18:32:07+01:00" content="2022-03-22">
+          03-22
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2022/configuration-options-with-boost/" itemprop="url">
+            <span itemprop="name">Getting configuration options with C++ and Boost</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated" datetime="2022-03-09T15:05:39+01:00" content="2022-03-09">
+          03-09
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2022/intro-to-haskell/" itemprop="url">
+            <span itemprop="name">Introduction to Haskell Programming</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated" datetime="2022-01-10T00:00:00+01:00" content="2022-01-10">
+          01-10
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2022/intro_kubernetes/" itemprop="url">
+            <span itemprop="name">Kubernetes Tutorial for Beginners</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
+    </div>
+
+  <article itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated" datetime="2021-10-31T00:00:00+02:00" content="2021-10-31">
+          10-31
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/modern-js-p1/" itemprop="url">
+            <span itemprop="name">The Modern JavaScript Tutorial - Part 1 Core JavaScript Note</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated" datetime="2021-09-12T00:00:00+02:00" content="2021-09-12">
+          09-12
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/parallel_python/" itemprop="url">
+            <span itemprop="name">Introduction to Parallel Programing in Python</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+    </div>
+  </div>
+  
+  
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/tags/Programming/page/2/">2</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/tags/Programming/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    © 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-fish"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yue Jiao</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">686k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
