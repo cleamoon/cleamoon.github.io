@@ -13,9 +13,8 @@
 
 
 
-  
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script>
 
 
 
@@ -57,9 +56,9 @@
   --btn-default-hover-bg: #222;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
-  --highlight-background: #f0f0f0;
+  --highlight-background: #f3f3f3;
   --highlight-foreground: #444;
-  --highlight-gutter-background: #dedede;
+  --highlight-gutter-background: #e1e1e1;
   --highlight-gutter-foreground: #555;
   color-scheme: light;
 }
@@ -405,43 +404,74 @@ td {
   top: -6px;
   transform: rotate(-45deg);
 }
-/*
-
-Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
-
-*/
-
-.hljs {
+pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
-  background: #F0F0F0;
+  padding: 1em
 }
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: Default
+  Description: Original highlight.js style
+  Author: (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
+  Maintainer: @highlightjs/core-team
+  Website: https://highlightjs.org/
+  License: see project LICENSE
+  Touched: 2021
+*/
+/*
+This is left on purpose making default.css the single file that can be lifted
+as-is from the repository directly without the need for a build step
 
-
+Typically this "required" baseline CSS is added by `makestuff.js` during build.
+*/
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/* end baseline CSS */
+.hljs {
+  background: #F3F3F3;
+  color: #444
+}
 /* Base color: saturation 0; */
-
-.hljs,
 .hljs-subst {
-  color: #444;
+  /* default */
+  
 }
-
+/* purposely ignored */
+.hljs-formula,
+.hljs-attr,
+.hljs-property,
+.hljs-params {
+  
+}
 .hljs-comment {
-  color: #888888;
+  color: #697070
 }
-
+.hljs-tag,
+.hljs-punctuation {
+  color: #444a
+}
+.hljs-tag .hljs-name,
+.hljs-tag .hljs-attr {
+  color: #444
+}
 .hljs-keyword,
 .hljs-attribute,
 .hljs-selector-tag,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
 .hljs-doctag,
 .hljs-name {
-  font-weight: bold;
+  font-weight: bold
 }
-
-
 /* User color: hue: 0 */
-
 .hljs-type,
 .hljs-string,
 .hljs-number,
@@ -450,61 +480,47 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-quote,
 .hljs-template-tag,
 .hljs-deletion {
-  color: #880000;
+  color: #880000
 }
-
 .hljs-title,
 .hljs-section {
   color: #880000;
-  font-weight: bold;
+  font-weight: bold
 }
-
 .hljs-regexp,
 .hljs-symbol,
 .hljs-variable,
 .hljs-template-variable,
 .hljs-link,
 .hljs-selector-attr,
+.hljs-operator,
 .hljs-selector-pseudo {
-  color: #BC6060;
+  color: #ab5656
 }
-
-
 /* Language color: hue: 90; */
-
 .hljs-literal {
-  color: #78A960;
+  color: #695
 }
-
 .hljs-built_in,
 .hljs-bullet,
 .hljs-code,
 .hljs-addition {
-  color: #397300;
+  color: #397300
 }
-
-
 /* Meta color: hue: 200 */
-
 .hljs-meta {
-  color: #1f7199;
+  color: #1f7199
 }
-
-.hljs-meta-string {
-  color: #4d99bf;
+.hljs-meta .hljs-string {
+  color: #38a
 }
-
-
 /* Misc effects */
-
 .hljs-emphasis {
-  font-style: italic;
+  font-style: italic
 }
-
 .hljs-strong {
-  font-weight: bold;
+  font-weight: bold
 }
-
 code,
 kbd,
 figure.highlight,
@@ -1262,7 +1278,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #6efa6c;
+    background: #f1abff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2696,7 +2712,6 @@ header.header {
     color: var(--text-color);
     margin-top: 12px;
     max-height: calc(100vh - 24px);
-    visibility: hidden;
   }
   .site-state-item {
     padding: 0 10px;
@@ -2955,9 +2970,9 @@ mjx-container[display="true"] + br {
   display: none;
 }
 </style><link rel="alternate" href="/atom.xml" title="Yue Jiao's blog" type="application/atom+xml">
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope="" itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
 
   <main class="main">
@@ -3051,7 +3066,7 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3074,6 +3089,104 @@ mjx-container[display="true"] + br {
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://blog.yj0.se/2022/secure-express-with-helmetjs/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yue Jiao">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yue Jiao's blog">
+      <meta itemprop="description" content="Personal blog for idea sharing and archiving.">
+    </span>
+
+    <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Yue Jiao's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/secure-express-with-helmetjs/" class="post-title-link" itemprop="url">Secure Express apps with HelmetJS</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-19 02:37:07" itemprop="dateCreated datePublished" datetime="2022-04-19T02:37:07+02:00">2022-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-07-29 03:00:41" itemprop="dateModified" datetime="2022-07-29T03:00:41+02:00">2022-07-29</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>8.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time ≈</span>
+      <span>7 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>In this article, We introduce HelmetJS to secure Express apps.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/secure-express-with-helmetjs/#more" rel="contents">
+                Read more »
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -3970,106 +4083,6 @@ some basic properties of binomial heap.</p>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://blog.yj0.se/2021/amortized-analysis/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yue Jiao">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yue Jiao's blog">
-      <meta itemprop="description" content="Personal blog for idea sharing and archiving.">
-    </span>
-
-    <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Yue Jiao's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/amortized-analysis/" class="post-title-link" itemprop="url">An Brief Introduction to Amortized Analysis</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-16 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-16T00:00:00+01:00">2021-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-10 00:52:45" itemprop="dateModified" datetime="2022-08-10T00:52:45+02:00">2022-08-10</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>5k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time ≈</span>
-      <span>5 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Sometimes we want to design data structures that trade per-operation
-efficiency for overall efficiency. To analyze efficiency of these data
-structures, we will need to use amortized analysis.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/amortized-analysis/#more" rel="contents">
-                Read more »
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -4093,13 +4106,13 @@ structures, we will need to use amortized analysis.</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">686k</span>
+    <span title="Word count total">691k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">10:24</span>
+    <span title="Reading time total">10:29</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener external nofollow noreferrer" target="_blank">NexT.Gemini</a>

@@ -6,7 +6,7 @@
   <link href="http://blog.yj0.se/atom.xml" rel="self"/>
   
   <link href="http://blog.yj0.se/"/>
-  <updated>2024-06-09T13:30:05.067Z</updated>
+  <updated>2025-01-14T21:00:08.099Z</updated>
   <id>http://blog.yj0.se/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FFmpeg video compression benchmark</title>
+    <link href="http://blog.yj0.se/2025/ffmpeg-video-compression/"/>
+    <id>http://blog.yj0.se/2025/ffmpeg-video-compression/</id>
+    <published>2025-01-13T23:00:00.000Z</published>
+    <updated>2025-01-14T21:00:08.099Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;There are many modern video encoding algorithm that can be used for
+video compression. This article tests several of them and gives a simple
+benchmark.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="FFmpeg" scheme="http://blog.yj0.se/tags/FFmpeg/"/>
+    
+  </entry>
   
   <entry>
     <title>Collection of varies command line one liner</title>
@@ -148,11 +167,11 @@ examples.&lt;/p&gt;</summary>
     
     <category term="Course note" scheme="http://blog.yj0.se/tags/Course-note/"/>
     
+    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
+    
     <category term="Functional programming" scheme="http://blog.yj0.se/tags/Functional-programming/"/>
     
     <category term="Scala" scheme="http://blog.yj0.se/tags/Scala/"/>
-    
-    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
     
   </entry>
   
@@ -388,29 +407,6 @@ system. This tutorial shows the basics of Kubernetes for beginners.&lt;/p&gt;</s
     
     <summary type="html">&lt;p&gt;Binomial heap is a useful data structure. This article will introduce
 some basic properties of binomial heap.&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Data structure" scheme="http://blog.yj0.se/tags/Data-structure/"/>
-    
-    <category term="Algorithm" scheme="http://blog.yj0.se/tags/Algorithm/"/>
-    
-    <category term="Course note" scheme="http://blog.yj0.se/tags/Course-note/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>An Brief Introduction to Amortized Analysis</title>
-    <link href="http://blog.yj0.se/2021/amortized-analysis/"/>
-    <id>http://blog.yj0.se/2021/amortized-analysis/</id>
-    <published>2021-11-15T23:00:00.000Z</published>
-    <updated>2022-08-09T22:52:45.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Sometimes we want to design data structures that trade per-operation
-efficiency for overall efficiency. To analyze efficiency of these data
-structures, we will need to use amortized analysis.&lt;/p&gt;</summary>
     
     
     

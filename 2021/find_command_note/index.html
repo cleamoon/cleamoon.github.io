@@ -13,9 +13,8 @@
 
 
 
-  
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script>
 
 
 
@@ -57,9 +56,9 @@
   --btn-default-hover-bg: #222;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
-  --highlight-background: #f0f0f0;
+  --highlight-background: #f3f3f3;
   --highlight-foreground: #444;
-  --highlight-gutter-background: #dedede;
+  --highlight-gutter-background: #e1e1e1;
   --highlight-gutter-foreground: #555;
   color-scheme: light;
 }
@@ -405,43 +404,74 @@ td {
   top: -6px;
   transform: rotate(-45deg);
 }
-/*
-
-Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
-
-*/
-
-.hljs {
+pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
-  background: #F0F0F0;
+  padding: 1em
 }
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: Default
+  Description: Original highlight.js style
+  Author: (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
+  Maintainer: @highlightjs/core-team
+  Website: https://highlightjs.org/
+  License: see project LICENSE
+  Touched: 2021
+*/
+/*
+This is left on purpose making default.css the single file that can be lifted
+as-is from the repository directly without the need for a build step
 
-
+Typically this "required" baseline CSS is added by `makestuff.js` during build.
+*/
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/* end baseline CSS */
+.hljs {
+  background: #F3F3F3;
+  color: #444
+}
 /* Base color: saturation 0; */
-
-.hljs,
 .hljs-subst {
-  color: #444;
+  /* default */
+  
 }
-
+/* purposely ignored */
+.hljs-formula,
+.hljs-attr,
+.hljs-property,
+.hljs-params {
+  
+}
 .hljs-comment {
-  color: #888888;
+  color: #697070
 }
-
+.hljs-tag,
+.hljs-punctuation {
+  color: #444a
+}
+.hljs-tag .hljs-name,
+.hljs-tag .hljs-attr {
+  color: #444
+}
 .hljs-keyword,
 .hljs-attribute,
 .hljs-selector-tag,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
 .hljs-doctag,
 .hljs-name {
-  font-weight: bold;
+  font-weight: bold
 }
-
-
 /* User color: hue: 0 */
-
 .hljs-type,
 .hljs-string,
 .hljs-number,
@@ -450,61 +480,47 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-quote,
 .hljs-template-tag,
 .hljs-deletion {
-  color: #880000;
+  color: #880000
 }
-
 .hljs-title,
 .hljs-section {
   color: #880000;
-  font-weight: bold;
+  font-weight: bold
 }
-
 .hljs-regexp,
 .hljs-symbol,
 .hljs-variable,
 .hljs-template-variable,
 .hljs-link,
 .hljs-selector-attr,
+.hljs-operator,
 .hljs-selector-pseudo {
-  color: #BC6060;
+  color: #ab5656
 }
-
-
 /* Language color: hue: 90; */
-
 .hljs-literal {
-  color: #78A960;
+  color: #695
 }
-
 .hljs-built_in,
 .hljs-bullet,
 .hljs-code,
 .hljs-addition {
-  color: #397300;
+  color: #397300
 }
-
-
 /* Meta color: hue: 200 */
-
 .hljs-meta {
-  color: #1f7199;
+  color: #1f7199
 }
-
-.hljs-meta-string {
-  color: #4d99bf;
+.hljs-meta .hljs-string {
+  color: #38a
 }
-
-
 /* Misc effects */
-
 .hljs-emphasis {
-  font-style: italic;
+  font-style: italic
 }
-
 .hljs-strong {
-  font-weight: bold;
+  font-weight: bold
 }
-
 code,
 kbd,
 figure.highlight,
@@ -1262,7 +1278,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #6efa6c;
+    background: #f1abff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2696,7 +2712,6 @@ header.header {
     color: var(--text-color);
     margin-top: 12px;
     max-height: calc(100vh - 24px);
-    visibility: hidden;
   }
   .site-state-item {
     padding: 0 10px;
@@ -2955,9 +2970,9 @@ mjx-container[display="true"] + br {
   display: none;
 }
 </style><link rel="alternate" href="/atom.xml" title="Yue Jiao's blog" type="application/atom+xml">
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope="" itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
 
   <main class="main">
@@ -3053,7 +3068,7 @@ date</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -3314,13 +3329,13 @@ and print function are especially useful.</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">686k</span>
+    <span title="Word count total">691k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">10:24</span>
+    <span title="Reading time total">10:29</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener external nofollow noreferrer" target="_blank">NexT.Gemini</a>
