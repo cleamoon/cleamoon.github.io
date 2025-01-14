@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -15,7 +15,7 @@
 
   
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script>
 
 
 
@@ -518,8 +518,7 @@ pre {
   margin: 0 auto 20px;
 }
 figure.highlight figcaption,
-pre .caption,
-pre figcaption {
+pre .caption {
   background: var(--highlight-gutter-background);
   color: var(--highlight-foreground);
   display: flow-root;
@@ -528,14 +527,12 @@ pre figcaption {
   padding: 0.5em;
 }
 figure.highlight figcaption a,
-pre .caption a,
-pre figcaption a {
+pre .caption a {
   color: var(--highlight-foreground);
   float: right;
 }
 figure.highlight figcaption a:hover,
-pre .caption a:hover,
-pre figcaption a:hover {
+pre .caption a:hover {
   border-bottom-color: var(--highlight-foreground);
 }
 pre,
@@ -575,8 +572,6 @@ figure.highlight td {
   padding: 0;
 }
 figure.highlight .gutter {
-  -moz-user-select: none;
-  -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -594,8 +589,7 @@ figure.highlight .code pre {
 figure.highlight .marked {
   background: rgba(0,0,0,0.3);
 }
-pre .caption,
-pre figcaption {
+pre .caption {
   margin-bottom: 10px;
 }
 .gist table {
@@ -691,14 +685,9 @@ pre code {
   display: grid;
   grid-gap: 1.5rem;
   gap: 1.5rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   margin-bottom: 20px;
   padding: 1rem;
-}
-@media (max-width: 767px) {
-  .post-body .link-grid {
-    grid-template-columns: 1fr;
-  }
 }
 .post-body .link-grid .link-grid-container {
   border: solid #ddd;
@@ -904,7 +893,6 @@ pre code {
   justify-content: center;
   margin: 0;
   padding: 0;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 5;
@@ -1274,7 +1262,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #2811f6;
+    background: #6efa6c;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1284,15 +1272,7 @@ pre code {
     width: 4px;
   }
   .links-of-blogroll-item {
-    padding: 2px 10px;
-  }
-  .links-of-blogroll-item a {
-    box-sizing: border-box;
-    display: inline-block;
-    max-width: 280px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    padding: 0 5px;
   }
   .popular-posts .popular-posts-item .popular-posts-link:hover {
     background: none;
@@ -1322,67 +1302,58 @@ pre code {
   flex-direction: column;
   justify-content: center;
 }
-.cc-license .cc-opacity {
-  border-bottom: 0;
-  opacity: 0.7;
-}
-.cc-license .cc-opacity:hover {
-  opacity: 0.9;
-}
-.cc-license img {
-  display: inline-block;
-}
-.site-author-image {
-  border: 1px solid #eee;
-  max-width: 120px;
-  padding: 2px;
-}
-.site-author-name {
-  color: var(--text-color);
-  font-weight: 600;
-  margin: 0;
-}
-.site-description {
-  color: #999;
-  font-size: 0.8125em;
-  margin-top: 0;
-}
-.links-of-author a {
-  font-size: 0.8125em;
-}
-.links-of-author i[class^='fa'] {
-  margin-right: 2px;
-}
-.sidebar .sidebar-button:not(:first-child) {
-  margin-top: 15px;
-}
-.sidebar .sidebar-button button {
-  background: transparent;
-  color: #fc6423;
+.sidebar-toggle {
+  bottom: 61px;
+  height: 16px;
+  padding: 5px;
+  width: 16px;
+  background: #222;
   cursor: pointer;
-  line-height: 2;
-  padding: 0 15px;
-  border: 1px solid #fc6423;
-  border-radius: 4px;
+  opacity: 0.6;
+  position: fixed;
+  z-index: 30;
+  left: 30px;
 }
-.sidebar .sidebar-button button:hover {
+@media (max-width: 991px) {
+  .sidebar-toggle {
+    left: 20px;
+  }
+}
+.sidebar-toggle:hover {
+  opacity: 0.8;
+}
+@media (max-width: 991px) {
+  .sidebar-toggle {
+    opacity: 0.8;
+  }
+}
+.sidebar-toggle:hover .toggle-line {
   background: #fc6423;
-  color: #fff;
 }
-.sidebar .sidebar-button button i[class^='fa'] {
-  margin-right: 5px;
+@media (any-hover: hover) {
+  body:not(.sidebar-active) .sidebar-toggle:hover :first-child {
+    left: 50%;
+    top: 2px;
+    transform: rotate(45deg);
+    width: 50%;
+  }
+  body:not(.sidebar-active) .sidebar-toggle:hover :last-child {
+    left: 50%;
+    top: -2px;
+    transform: rotate(-45deg);
+    width: 50%;
+  }
 }
-.links-of-blogroll {
-  font-size: 0.8125em;
+.sidebar-active .sidebar-toggle :nth-child(2) {
+  opacity: 0;
 }
-.links-of-blogroll-title {
-  font-size: 0.875em;
-  font-weight: 600;
+.sidebar-active .sidebar-toggle :first-child {
+  top: 6px;
+  transform: rotate(45deg);
 }
-.links-of-blogroll-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.sidebar-active .sidebar-toggle :last-child {
+  top: -6px;
+  transform: rotate(-45deg);
 }
 .sidebar-nav {
   font-size: 0.875em;
@@ -1489,59 +1460,6 @@ pre code {
     height: var(--active-panel-height, auto);
   }
 }
-.sidebar-toggle {
-  bottom: 61px;
-  height: 16px;
-  padding: 5px;
-  width: 16px;
-  background: #222;
-  cursor: pointer;
-  opacity: 0.6;
-  position: fixed;
-  z-index: 30;
-  left: 30px;
-}
-@media (max-width: 991px) {
-  .sidebar-toggle {
-    left: 20px;
-  }
-}
-.sidebar-toggle:hover {
-  opacity: 0.8;
-}
-@media (max-width: 991px) {
-  .sidebar-toggle {
-    opacity: 0.8;
-  }
-}
-.sidebar-toggle:hover .toggle-line {
-  background: #fc6423;
-}
-@media (any-hover: hover) {
-  body:not(.sidebar-active) .sidebar-toggle:hover :first-child {
-    left: 50%;
-    top: 2px;
-    transform: rotate(45deg);
-    width: 50%;
-  }
-  body:not(.sidebar-active) .sidebar-toggle:hover :last-child {
-    left: 50%;
-    top: -2px;
-    transform: rotate(-45deg);
-    width: 50%;
-  }
-}
-.sidebar-active .sidebar-toggle :nth-child(2) {
-  opacity: 0;
-}
-.sidebar-active .sidebar-toggle :first-child {
-  top: 6px;
-  transform: rotate(45deg);
-}
-.sidebar-active .sidebar-toggle :last-child {
-  top: -6px;
-  transform: rotate(-45deg);
-}
 .post-toc {
   font-size: 0.875em;
 }
@@ -1590,6 +1508,21 @@ pre code {
 .post-toc .nav .active-current > a:hover {
   color: #fc6423;
 }
+.site-author-image {
+  border: 1px solid #eee;
+  max-width: 120px;
+  padding: 2px;
+}
+.site-author-name {
+  color: var(--text-color);
+  font-weight: 600;
+  margin: 0;
+}
+.site-description {
+  color: #999;
+  font-size: 0.8125em;
+  margin-top: 0;
+}
 .site-state {
   display: flex;
   flex-wrap: wrap;
@@ -1611,6 +1544,69 @@ pre code {
 .site-state-item-name {
   color: #999;
   font-size: 0.8125em;
+}
+.sidebar .sidebar-button:not(:first-child) {
+  margin-top: 15px;
+}
+.sidebar .sidebar-button button {
+  background: transparent;
+  color: #fc6423;
+  cursor: pointer;
+  line-height: 2;
+  padding: 0 15px;
+  border: 1px solid #fc6423;
+  border-radius: 4px;
+}
+.sidebar .sidebar-button button:hover {
+  background: #fc6423;
+  color: #fff;
+}
+.sidebar .sidebar-button button i[class^='fa'] {
+  margin-right: 5px;
+}
+.links-of-author a {
+  font-size: 0.8125em;
+}
+.links-of-author i[class^='fa'] {
+  margin-right: 2px;
+}
+.cc-license .cc-opacity {
+  border-bottom: 0;
+  opacity: 0.7;
+}
+.cc-license .cc-opacity:hover {
+  opacity: 0.9;
+}
+.cc-license img {
+  display: inline-block;
+}
+.links-of-blogroll {
+  font-size: 0.8125em;
+}
+.links-of-blogroll-title {
+  font-size: 0.875em;
+  font-weight: 600;
+}
+.links-of-blogroll-list {
+  list-style: none;
+  gap: 5px;
+  margin: 5px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+.links-of-blogroll-item {
+  max-width: calc(100% - 20px);
+}
+.links-of-blogroll-item a {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .footer {
   color: #999;
@@ -1669,7 +1665,7 @@ pre code {
   width: 100%;
 }
 .with-love {
-  color: #00f;
+  color: ##0000ff;
   display: inline-block;
   margin: 0 5px;
 }
@@ -1974,8 +1970,7 @@ pre code {
   font-size: 0.875em;
   margin-left: 4px;
 }
-.post-body img + figcaption,
-.post-body .fancybox + figcaption {
+.post-body figure:not(.highlight) figcaption {
   color: #999;
   font-size: 0.875em;
   font-weight: bold;
@@ -2222,55 +2217,6 @@ pre code {
   to {
     transform: rotateZ(-30deg);
   }
-}
-.followme {
-  color: #bbb;
-  padding: 1em 1.5em;
-  text-align: center;
-  background: var(--card-bg-color);
-  border-left: 3px solid #ff2a2a;
-  margin: 1em 0 0;
-}
-.followme .social-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.followme .social-list .social-item {
-  margin: 0.5em 2em;
-  position: relative;
-}
-@media (max-width: 991px) {
-  .followme .social-list .social-item {
-    margin: 0.5em 0.75em;
-  }
-}
-.followme .social-list .social-link {
-  border: 0;
-  display: block;
-}
-.followme .social-list .social-link .icon {
-  font-size: 1.75em;
-}
-.followme .social-list .social-link .label {
-  display: block;
-  font-size: 14px;
-}
-.followme .social-list .social-link:hover + .social-item-img {
-  display: block;
-}
-.followme .social-list span.social-link {
-  color: var(--link-color);
-}
-.followme .social-list span.social-link:hover {
-  color: var(--link-hover-color);
-}
-.followme .social-list .social-item-img {
-  display: none;
-  left: 50%;
-  max-width: 180px;
-  position: absolute;
-  transform: translate(-50%, 20px);
 }
 .category-all-page .category-all-title {
   text-align: center;
@@ -2563,13 +2509,6 @@ mark.search-keyword {
   color: #ff2a2a;
   font-weight: bold;
 }
-mjx-container[jax='CHTML'][display='true'],
-.has-jax {
-  overflow: auto hidden;
-}
-mjx-container[display='true'] + br {
-  display: none;
-}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
@@ -2702,7 +2641,12 @@ header.header {
 .menu .menu-item a .badge {
   margin-left: auto;
 }
-.menu .menu-item a.menu-item-active::after {
+@media (max-width: 991px) {
+  .menu .menu-item.menu-item-search {
+    display: none;
+  }
+}
+.main-menu .menu-item-active::after {
   background: #bbb;
   border-radius: 50%;
   content: ' ';
@@ -2712,11 +2656,6 @@ header.header {
   right: 15px;
   top: 50%;
   width: 6px;
-}
-@media (max-width: 991px) {
-  .menu .menu-item.menu-item-search {
-    display: none;
-  }
 }
 .sub-menu {
   margin: 0;
@@ -2743,7 +2682,6 @@ header.header {
 }
 @media (min-width: 992px) {
   .sidebar {
-    position: -webkit-sticky;
     position: sticky;
     top: 12px;
   }
@@ -2788,21 +2726,22 @@ header.header {
     width: 50%;
   }
   .links-of-author-item a {
+    border-bottom: 0;
+    border-radius: 4px;
+    display: block;
+    padding: 0 5px;
     box-sizing: border-box;
     display: inline-block;
     max-width: 100%;
     overflow: hidden;
-    padding: 0 5px;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .links-of-author-item a {
-    border-bottom: 0;
-    border-radius: 4px;
-    display: block;
-  }
   .links-of-author-item a:hover {
     background: var(--body-bg-color);
+  }
+  .links-of-blogroll-item a {
+    padding: 0 5px;
   }
 }
 .main-inner .sub-menu,
@@ -2900,16 +2839,11 @@ header.header {
     padding: 10px 12px;
   }
 }
-@media (min-width: 992px) and (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-}
 </style><noscript>
     
   </noscript>
 <link rel="alternate" href="/atom.xml" title="Yue Jiao's blog" type="application/atom+xml">
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -3111,13 +3045,13 @@ install FreshRSS or other similar program on VPS.</p>
 <h3 id="add-new-user">Add new user</h3>
 <p>It is general recommended to add a new user to a new VPS and remove
 access to the root user to increase security.</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">adduser yue</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">usermod -aG sudo yue</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">usermod -aG www-data yue</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">adduser yue</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">usermod -aG <span class="built_in">sudo</span> yue</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">usermod -aG www-data yue</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Then we need to add a ssh public key to the new user. On local
 machine:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t ed25519</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub | ssh yue@&lt;10.0.0.1&gt; <span class="string">"mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys"</span></span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="install-nginx">Install NGINX</h3>
 <p>Install the NGINX Open Source package:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt update</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install nginx</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> apt update</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> apt-get install nginx</span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="make-tcp-ports-available-on-oracle-cloud">Make TCP ports
 available on Oracle cloud</h4>
 <p>For Oracle Cloud, all ports except 22 are blocked. To use the TCP
@@ -3167,12 +3101,12 @@ Then we can add the NGINX config for FreshRSS at the file
 <code>/etc/nginx/sites-available/rss.yj0.se</code>:</p>
 <figure class="highlight nginx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> {</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line"></span><br><span class="line">	<span class="comment"># your server’s URL(s)</span></span><br><span class="line">	<span class="attribute">server_name</span> rss.yj0.se;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Enforce HTTPS</span></span><br><span class="line">    <span class="comment">#return 301 https://$server_name$request_uri;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment"># the folder p of your FreshRSS installation</span></span><br><span class="line">	<span class="attribute">root</span> /var/www/rss.yj0.se;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">index</span> index.php index.html index.htm;</span><br><span class="line"></span><br><span class="line">	<span class="comment"># nginx log files</span></span><br><span class="line">	<span class="attribute">access_log</span> /var/log/nginx/rss.access.log;</span><br><span class="line">	<span class="attribute">error_log</span> /var/log/nginx/rss.<span class="literal">error</span>.log;</span><br><span class="line"></span><br><span class="line">	<span class="section">location</span> / {</span><br><span class="line">		<span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="comment"># php files handling</span></span><br><span class="line">	<span class="comment"># this regex is mandatory because of the API</span></span><br><span class="line">	<span class="section">location</span> <span class="regexp">~ ^.+?\.php(/.*)?$</span> {</span><br><span class="line">		<span class="attribute">fastcgi_pass</span> unix:/var/run/php/php7.4-fpm.sock;</span><br><span class="line">		<span class="attribute">fastcgi_split_path_info</span><span class="regexp"> ^(.+\.php)(/.*)$</span>;</span><br><span class="line">		<span class="comment"># By default, the variable PATH_INFO is not set under PHP-FPM</span></span><br><span class="line">		<span class="comment"># But FreshRSS API greader.php need it. If you have a “Bad Request” error, double check this var!</span></span><br><span class="line">		<span class="comment"># <span class="doctag">NOTE:</span> the separate $path_info variable is required. For more details, see:</span></span><br><span class="line">		<span class="comment"># https://trac.nginx.org/nginx/ticket/321</span></span><br><span class="line">		<span class="attribute">set</span> <span class="variable">$path_info</span> <span class="variable">$fastcgi_path_info</span>;</span><br><span class="line">		<span class="attribute">fastcgi_param</span> PATH_INFO <span class="variable">$path_info</span>;</span><br><span class="line">		<span class="attribute">include</span> fastcgi_params;</span><br><span class="line">		<span class="attribute">fastcgi_param</span> SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>To enable this configuration:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">ln</span> -s /etc/nginx/sites-available/rss.yj0.se /etc/nginx/sites-enabled/rss.yj0.se</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo systemctl <span class="built_in">enable</span> nginx</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo systemctl start nginx</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /etc/nginx/sites-available/rss.yj0.se /etc/nginx/sites-enabled/rss.yj0.se</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> nginx</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> systemctl start nginx</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Next, install PHP and the necessary modules</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install php php-curl php-gmp php-intl php-mbstring php-sqlite3 php-xml php-zip php7.4-fpm</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install php php-curl php-gmp php-intl php-mbstring php-sqlite3 php-xml php-zip php7.4-fpm</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Next, we’ll need to install and configure MySQL. Install MySQL
 components like so:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install mysql-server mysql-client php-mysql</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install mysql-server mysql-client php-mysql</span></span><br></pre></td></tr></tbody></table></figure>
 <p>MySQL can now be started:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">service mysql start</span></span><br></pre></td></tr></tbody></table></figure>
 <p>We’ll need to configure MySQL.</p>
@@ -3181,16 +3115,16 @@ components like so:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">service mysql restart</span></span><br></pre></td></tr></tbody></table></figure>
 <p>With MySQL ready, we can continue to config FreshRSS. FreshRSS needs
 <code>git</code>, so we install it:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install git</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install git</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Next, change to the install directory and download FreshRSS using
 git</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /usr/share/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/FreshRSS/FreshRSS.git</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Change to the new FreshRSS directory, and set the permissions so that
 your Web server can access the files</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> FreshRSS</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chown</span> -R :www-data .</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">chmod</span> -R g+r .</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> FreshRSS</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chown</span> -R :www-data .</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">chmod</span> -R g+r .</span></span><br></pre></td></tr></tbody></table></figure>
 <p>We’ll also need to allow the data folder to be written to, like
 so:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">chmod</span> -R g+w ./data/</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> <span class="built_in">chmod</span> -R g+w ./data/</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Optional: If you would like to allow updates from the Web interface,
 set write permissions</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chmod</span> -R g+w .</span></span><br></pre></td></tr></tbody></table></figure>
@@ -3213,10 +3147,10 @@ edit <code>/etc/crontab</code> and append the following line:
 <h3 id="install-https-certificates">Install HTTPS certificates</h3>
 <p>To be able to use HTTPS for secure connection, we can use the Certbot
 from EFF for free:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get update &amp;&amp; sudo apt-get upgrade -y</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install certbot python3-certbot-nginx</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> apt-get update &amp;&amp; <span class="built_in">sudo</span> apt-get upgrade -y</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> apt install certbot python3-certbot-nginx</span></span><br></pre></td></tr></tbody></table></figure>
 <p>To add certificate for the newly installed FreshRSS, run the
 following command:</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo certbot --nginx -d rss.yj0.se</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sudo</span> certbot --nginx -d rss.yj0.se</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="reference">Reference</h3>
 <ol type="1">
 <li><p><a target="_blank" rel="noopener" href="https://community.hetzner.com/tutorials/howto-initial-setup-ubuntu">Initial
@@ -3238,23 +3172,6 @@ NGINX configuration file</a></p></li>
     
 
     <footer class="post-footer">
-          <div class="followme">
-  <span>Welcome to my other publishing channels</span>
-
-  <div class="social-list">
-
-      <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-      </div>
-  </div>
-</div>
-
           <div class="post-tags">
               <a href="/tags/DevOps/" rel="tag"># DevOps</a>
               <a href="/tags/VPS/" rel="tag"># VPS</a>
@@ -3291,9 +3208,9 @@ NGINX configuration file</a></p></li>
 
   <div class="copyright">
     © 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
-      <i class="fa fa-fish"></i>
+      <i class="fa fa-cat"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">Yue Jiao</span>
   </div>
@@ -3353,14 +3270,7 @@ NGINX configuration file</a></p></li>
 
 
 
-  
-
-  
 
 
 
-
-
-
-<script src="/bundle.js"></script><script>true;
-{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script></body></html>
+<script src="/bundle.js"></script></body></html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -15,7 +15,7 @@
 
   
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yj0.se","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/./public/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script>
 
 
 
@@ -518,8 +518,7 @@ pre {
   margin: 0 auto 20px;
 }
 figure.highlight figcaption,
-pre .caption,
-pre figcaption {
+pre .caption {
   background: var(--highlight-gutter-background);
   color: var(--highlight-foreground);
   display: flow-root;
@@ -528,14 +527,12 @@ pre figcaption {
   padding: 0.5em;
 }
 figure.highlight figcaption a,
-pre .caption a,
-pre figcaption a {
+pre .caption a {
   color: var(--highlight-foreground);
   float: right;
 }
 figure.highlight figcaption a:hover,
-pre .caption a:hover,
-pre figcaption a:hover {
+pre .caption a:hover {
   border-bottom-color: var(--highlight-foreground);
 }
 pre,
@@ -575,8 +572,6 @@ figure.highlight td {
   padding: 0;
 }
 figure.highlight .gutter {
-  -moz-user-select: none;
-  -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -594,8 +589,7 @@ figure.highlight .code pre {
 figure.highlight .marked {
   background: rgba(0,0,0,0.3);
 }
-pre .caption,
-pre figcaption {
+pre .caption {
   margin-bottom: 10px;
 }
 .gist table {
@@ -691,14 +685,9 @@ pre code {
   display: grid;
   grid-gap: 1.5rem;
   gap: 1.5rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   margin-bottom: 20px;
   padding: 1rem;
-}
-@media (max-width: 767px) {
-  .post-body .link-grid {
-    grid-template-columns: 1fr;
-  }
 }
 .post-body .link-grid .link-grid-container {
   border: solid #ddd;
@@ -904,7 +893,6 @@ pre code {
   justify-content: center;
   margin: 0;
   padding: 0;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 5;
@@ -1274,7 +1262,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #2811f6;
+    background: #6efa6c;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1284,15 +1272,7 @@ pre code {
     width: 4px;
   }
   .links-of-blogroll-item {
-    padding: 2px 10px;
-  }
-  .links-of-blogroll-item a {
-    box-sizing: border-box;
-    display: inline-block;
-    max-width: 280px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    padding: 0 5px;
   }
   .popular-posts .popular-posts-item .popular-posts-link:hover {
     background: none;
@@ -1322,67 +1302,58 @@ pre code {
   flex-direction: column;
   justify-content: center;
 }
-.cc-license .cc-opacity {
-  border-bottom: 0;
-  opacity: 0.7;
-}
-.cc-license .cc-opacity:hover {
-  opacity: 0.9;
-}
-.cc-license img {
-  display: inline-block;
-}
-.site-author-image {
-  border: 1px solid #eee;
-  max-width: 120px;
-  padding: 2px;
-}
-.site-author-name {
-  color: var(--text-color);
-  font-weight: 600;
-  margin: 0;
-}
-.site-description {
-  color: #999;
-  font-size: 0.8125em;
-  margin-top: 0;
-}
-.links-of-author a {
-  font-size: 0.8125em;
-}
-.links-of-author i[class^='fa'] {
-  margin-right: 2px;
-}
-.sidebar .sidebar-button:not(:first-child) {
-  margin-top: 15px;
-}
-.sidebar .sidebar-button button {
-  background: transparent;
-  color: #fc6423;
+.sidebar-toggle {
+  bottom: 61px;
+  height: 16px;
+  padding: 5px;
+  width: 16px;
+  background: #222;
   cursor: pointer;
-  line-height: 2;
-  padding: 0 15px;
-  border: 1px solid #fc6423;
-  border-radius: 4px;
+  opacity: 0.6;
+  position: fixed;
+  z-index: 30;
+  left: 30px;
 }
-.sidebar .sidebar-button button:hover {
+@media (max-width: 991px) {
+  .sidebar-toggle {
+    left: 20px;
+  }
+}
+.sidebar-toggle:hover {
+  opacity: 0.8;
+}
+@media (max-width: 991px) {
+  .sidebar-toggle {
+    opacity: 0.8;
+  }
+}
+.sidebar-toggle:hover .toggle-line {
   background: #fc6423;
-  color: #fff;
 }
-.sidebar .sidebar-button button i[class^='fa'] {
-  margin-right: 5px;
+@media (any-hover: hover) {
+  body:not(.sidebar-active) .sidebar-toggle:hover :first-child {
+    left: 50%;
+    top: 2px;
+    transform: rotate(45deg);
+    width: 50%;
+  }
+  body:not(.sidebar-active) .sidebar-toggle:hover :last-child {
+    left: 50%;
+    top: -2px;
+    transform: rotate(-45deg);
+    width: 50%;
+  }
 }
-.links-of-blogroll {
-  font-size: 0.8125em;
+.sidebar-active .sidebar-toggle :nth-child(2) {
+  opacity: 0;
 }
-.links-of-blogroll-title {
-  font-size: 0.875em;
-  font-weight: 600;
+.sidebar-active .sidebar-toggle :first-child {
+  top: 6px;
+  transform: rotate(45deg);
 }
-.links-of-blogroll-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.sidebar-active .sidebar-toggle :last-child {
+  top: -6px;
+  transform: rotate(-45deg);
 }
 .sidebar-nav {
   font-size: 0.875em;
@@ -1489,59 +1460,6 @@ pre code {
     height: var(--active-panel-height, auto);
   }
 }
-.sidebar-toggle {
-  bottom: 61px;
-  height: 16px;
-  padding: 5px;
-  width: 16px;
-  background: #222;
-  cursor: pointer;
-  opacity: 0.6;
-  position: fixed;
-  z-index: 30;
-  left: 30px;
-}
-@media (max-width: 991px) {
-  .sidebar-toggle {
-    left: 20px;
-  }
-}
-.sidebar-toggle:hover {
-  opacity: 0.8;
-}
-@media (max-width: 991px) {
-  .sidebar-toggle {
-    opacity: 0.8;
-  }
-}
-.sidebar-toggle:hover .toggle-line {
-  background: #fc6423;
-}
-@media (any-hover: hover) {
-  body:not(.sidebar-active) .sidebar-toggle:hover :first-child {
-    left: 50%;
-    top: 2px;
-    transform: rotate(45deg);
-    width: 50%;
-  }
-  body:not(.sidebar-active) .sidebar-toggle:hover :last-child {
-    left: 50%;
-    top: -2px;
-    transform: rotate(-45deg);
-    width: 50%;
-  }
-}
-.sidebar-active .sidebar-toggle :nth-child(2) {
-  opacity: 0;
-}
-.sidebar-active .sidebar-toggle :first-child {
-  top: 6px;
-  transform: rotate(45deg);
-}
-.sidebar-active .sidebar-toggle :last-child {
-  top: -6px;
-  transform: rotate(-45deg);
-}
 .post-toc {
   font-size: 0.875em;
 }
@@ -1590,6 +1508,21 @@ pre code {
 .post-toc .nav .active-current > a:hover {
   color: #fc6423;
 }
+.site-author-image {
+  border: 1px solid #eee;
+  max-width: 120px;
+  padding: 2px;
+}
+.site-author-name {
+  color: var(--text-color);
+  font-weight: 600;
+  margin: 0;
+}
+.site-description {
+  color: #999;
+  font-size: 0.8125em;
+  margin-top: 0;
+}
 .site-state {
   display: flex;
   flex-wrap: wrap;
@@ -1611,6 +1544,69 @@ pre code {
 .site-state-item-name {
   color: #999;
   font-size: 0.8125em;
+}
+.sidebar .sidebar-button:not(:first-child) {
+  margin-top: 15px;
+}
+.sidebar .sidebar-button button {
+  background: transparent;
+  color: #fc6423;
+  cursor: pointer;
+  line-height: 2;
+  padding: 0 15px;
+  border: 1px solid #fc6423;
+  border-radius: 4px;
+}
+.sidebar .sidebar-button button:hover {
+  background: #fc6423;
+  color: #fff;
+}
+.sidebar .sidebar-button button i[class^='fa'] {
+  margin-right: 5px;
+}
+.links-of-author a {
+  font-size: 0.8125em;
+}
+.links-of-author i[class^='fa'] {
+  margin-right: 2px;
+}
+.cc-license .cc-opacity {
+  border-bottom: 0;
+  opacity: 0.7;
+}
+.cc-license .cc-opacity:hover {
+  opacity: 0.9;
+}
+.cc-license img {
+  display: inline-block;
+}
+.links-of-blogroll {
+  font-size: 0.8125em;
+}
+.links-of-blogroll-title {
+  font-size: 0.875em;
+  font-weight: 600;
+}
+.links-of-blogroll-list {
+  list-style: none;
+  gap: 5px;
+  margin: 5px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+.links-of-blogroll-item {
+  max-width: calc(100% - 20px);
+}
+.links-of-blogroll-item a {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .footer {
   color: #999;
@@ -1669,7 +1665,7 @@ pre code {
   width: 100%;
 }
 .with-love {
-  color: #00f;
+  color: ##0000ff;
   display: inline-block;
   margin: 0 5px;
 }
@@ -1974,8 +1970,7 @@ pre code {
   font-size: 0.875em;
   margin-left: 4px;
 }
-.post-body img + figcaption,
-.post-body .fancybox + figcaption {
+.post-body figure:not(.highlight) figcaption {
   color: #999;
   font-size: 0.875em;
   font-weight: bold;
@@ -2222,55 +2217,6 @@ pre code {
   to {
     transform: rotateZ(-30deg);
   }
-}
-.followme {
-  color: #bbb;
-  padding: 1em 1.5em;
-  text-align: center;
-  background: var(--card-bg-color);
-  border-left: 3px solid #ff2a2a;
-  margin: 1em 0 0;
-}
-.followme .social-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.followme .social-list .social-item {
-  margin: 0.5em 2em;
-  position: relative;
-}
-@media (max-width: 991px) {
-  .followme .social-list .social-item {
-    margin: 0.5em 0.75em;
-  }
-}
-.followme .social-list .social-link {
-  border: 0;
-  display: block;
-}
-.followme .social-list .social-link .icon {
-  font-size: 1.75em;
-}
-.followme .social-list .social-link .label {
-  display: block;
-  font-size: 14px;
-}
-.followme .social-list .social-link:hover + .social-item-img {
-  display: block;
-}
-.followme .social-list span.social-link {
-  color: var(--link-color);
-}
-.followme .social-list span.social-link:hover {
-  color: var(--link-hover-color);
-}
-.followme .social-list .social-item-img {
-  display: none;
-  left: 50%;
-  max-width: 180px;
-  position: absolute;
-  transform: translate(-50%, 20px);
 }
 .category-all-page .category-all-title {
   text-align: center;
@@ -2563,13 +2509,6 @@ mark.search-keyword {
   color: #ff2a2a;
   font-weight: bold;
 }
-mjx-container[jax='CHTML'][display='true'],
-.has-jax {
-  overflow: auto hidden;
-}
-mjx-container[display='true'] + br {
-  display: none;
-}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
@@ -2702,7 +2641,12 @@ header.header {
 .menu .menu-item a .badge {
   margin-left: auto;
 }
-.menu .menu-item a.menu-item-active::after {
+@media (max-width: 991px) {
+  .menu .menu-item.menu-item-search {
+    display: none;
+  }
+}
+.main-menu .menu-item-active::after {
   background: #bbb;
   border-radius: 50%;
   content: ' ';
@@ -2712,11 +2656,6 @@ header.header {
   right: 15px;
   top: 50%;
   width: 6px;
-}
-@media (max-width: 991px) {
-  .menu .menu-item.menu-item-search {
-    display: none;
-  }
 }
 .sub-menu {
   margin: 0;
@@ -2743,7 +2682,6 @@ header.header {
 }
 @media (min-width: 992px) {
   .sidebar {
-    position: -webkit-sticky;
     position: sticky;
     top: 12px;
   }
@@ -2788,21 +2726,22 @@ header.header {
     width: 50%;
   }
   .links-of-author-item a {
+    border-bottom: 0;
+    border-radius: 4px;
+    display: block;
+    padding: 0 5px;
     box-sizing: border-box;
     display: inline-block;
     max-width: 100%;
     overflow: hidden;
-    padding: 0 5px;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .links-of-author-item a {
-    border-bottom: 0;
-    border-radius: 4px;
-    display: block;
-  }
   .links-of-author-item a:hover {
     background: var(--body-bg-color);
+  }
+  .links-of-blogroll-item a {
+    padding: 0 5px;
   }
 }
 .main-inner .sub-menu,
@@ -2898,11 +2837,6 @@ header.header {
   }
   .comments {
     padding: 10px 12px;
-  }
-}
-@media (min-width: 992px) and (max-width: 991px) {
-  .sidebar {
-    display: none;
   }
 }
 </style><noscript>
@@ -3021,7 +2955,7 @@ mjx-container[display="true"] + br {
   display: none;
 }
 </style><link rel="alternate" href="/atom.xml" title="Yue Jiao's blog" type="application/atom+xml">
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');loadCss('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"></noscript></head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -3591,14 +3525,14 @@ without type conversion</p>
 undefined</h4>
 <ul>
 <li><p>For a strict equality:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert (<span class="literal">null</span> === <span class="literal">undefined</span>); <span class="comment">// false</span></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span> (<span class="literal">null</span> === <span class="literal">undefined</span>); <span class="comment">// false</span></span><br></pre></td></tr></tbody></table></figure></li>
 <li><p>For a non-strict check:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert (<span class="literal">null</span> == <span class="literal">undefined</span>); <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span> (<span class="literal">null</span> == <span class="literal">undefined</span>); <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <h5 id="using-strict-equality-to-avoid-strange-bugs">Using strict
 equality to avoid strange bugs</h5>
 <h3 id="conditional-branching">2.10 Conditional branching</h3>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> year = <span class="number">2015</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (year == <span class="number">2015</span>) alert (<span class="string">"It is 2015"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (year == <span class="number">2015</span>) {</span><br><span class="line">    alert (<span class="string">"It is 2015"</span>);</span><br><span class="line">    alert (<span class="string">"Yes, I'm sure"</span>);</span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">    alert (<span class="string">"It is not 2015"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> year = <span class="number">2015</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (year == <span class="number">2015</span>) <span class="title function_">alert</span> (<span class="string">"It is 2015"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (year == <span class="number">2015</span>) {</span><br><span class="line">    <span class="title function_">alert</span> (<span class="string">"It is 2015"</span>);</span><br><span class="line">    <span class="title function_">alert</span> (<span class="string">"Yes, I'm sure"</span>);</span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">    <span class="title function_">alert</span> (<span class="string">"It is not 2015"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>A shorter way to write short conditionals is to write it with
 question mark operator:</p>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result = condition ? value1 : value2;</span><br></pre></td></tr></tbody></table></figure>
@@ -3671,7 +3605,7 @@ function code: </p><figure class="highlight js"><table><tbody><tr><td class="gut
 <p>The last line does not run the function, because there are no
 parentheses after <code>sayHi</code>. In JavaScript, a function is a
 value, wo we can deal with it as a value.</p>
-<p>For example: </p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ask</span>(<span class="params">question, yes, no</span>) {</span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">confirm</span>(question)) <span class="title function_">yes</span>()</span><br><span class="line">  <span class="keyword">else</span> <span class="title function_">no</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">ask (</span><br><span class="line">  <span class="string">"Do you agree?"</span>,</span><br><span class="line">  <span class="keyword">function</span>(<span class="params"></span>) { <span class="title function_">alert</span>(<span class="string">"You agreed."</span>); },</span><br><span class="line">  <span class="keyword">function</span>(<span class="params"></span>) { <span class="title function_">alert</span>(<span class="string">"You canceled the execution."</span>); }</span><br><span class="line">);</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>For example: </p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ask</span>(<span class="params">question, yes, no</span>) {</span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">confirm</span>(question)) <span class="title function_">yes</span>()</span><br><span class="line">  <span class="keyword">else</span> <span class="title function_">no</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="title function_">ask</span> (</span><br><span class="line">  <span class="string">"Do you agree?"</span>,</span><br><span class="line">  <span class="keyword">function</span>(<span class="params"></span>) { <span class="title function_">alert</span>(<span class="string">"You agreed."</span>); },</span><br><span class="line">  <span class="keyword">function</span>(<span class="params"></span>) { <span class="title function_">alert</span>(<span class="string">"You canceled the execution."</span>); }</span><br><span class="line">);</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>A function is a value representing an "action". A function
 declaration can be called earlier than it is defined. A function
 expression is created when the execution reaches it and is usable only
@@ -3681,7 +3615,7 @@ of it</p>
 <h3 id="arrow-function-the-basics">2.16 Arrow function, the basics</h3>
 <p>There is another simple and concise syntax for creating functions:
 the arrow functions </p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">func</span> = (<span class="params">arg1, arg2, ..., argN</span>) =&gt; expression</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>For example: </p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">sayHi</span> = (<span class="params"></span>) =&gt; <span class="title function_">alert</span>(<span class="string">"Hello!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">sayHi</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> age = <span class="title function_">prompt</span>(<span class="string">"what is your age?"</span>, <span class="number">18</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> welcome = (age &lt; <span class="number">18</span>) ? </span><br><span class="line">  <span class="function">() =&gt;</span> alert (<span class="string">"Hello!"</span>) :</span><br><span class="line">  <span class="function">() =&gt;</span> alert (<span class="string">"Greetings!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">welcome</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">sum</span> = (<span class="params">a, b</span>) =&gt; {</span><br><span class="line">  <span class="keyword">let</span> result = a + b;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">alert ( sum (<span class="number">1</span>, <span class="number">2</span>) ); <span class="comment">// 3</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>For example: </p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">sayHi</span> = (<span class="params"></span>) =&gt; <span class="title function_">alert</span>(<span class="string">"Hello!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">sayHi</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> age = <span class="title function_">prompt</span>(<span class="string">"what is your age?"</span>, <span class="number">18</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> welcome = (age &lt; <span class="number">18</span>) ? </span><br><span class="line">  <span class="function">() =&gt;</span> <span class="title function_">alert</span> (<span class="string">"Hello!"</span>) :</span><br><span class="line">  <span class="function">() =&gt;</span> <span class="title function_">alert</span> (<span class="string">"Greetings!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">welcome</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">sum</span> = (<span class="params">a, b</span>) =&gt; {</span><br><span class="line">  <span class="keyword">let</span> result = a + b;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="title function_">alert</span> ( <span class="title function_">sum</span> (<span class="number">1</span>, <span class="number">2</span>) ); <span class="comment">// 3</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <ul>
 <li>Without curly braces, the right side is an expression: the function
 evaluates it and returns the result</li>
@@ -3889,7 +3823,7 @@ an optional list of properties. A property is a "key: value" pair, where
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"><span class="keyword">let</span> user = {}; 	<span class="comment">// This is called an object literal</span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="literals-and-properties">Literals and properties</h4>
 <p>For example:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = {</span><br><span class="line">    <span class="attr">name</span>: <span class="string">"John"</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">    <span class="string">"likes birds"</span>: <span class="literal">false</span>,	<span class="comment">// multiword property name must be quoted</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="title function_">alert</span>( user.<span class="property">name</span> );			<span class="comment">// John</span></span><br><span class="line"><span class="title function_">alert</span>( user.<span class="property">age</span>  );			<span class="comment">// 30</span></span><br><span class="line"></span><br><span class="line">user.<span class="property">isAdmin</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="title function_">alert</span>( user.<span class="property">isAdmin</span> );		<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> user.<span class="property">age</span>;</span><br><span class="line"><span class="title function_">alert</span>( user.<span class="property">age</span> );			<span class="comment">// Undefined</span></span><br><span class="line"></span><br><span class="line">user[<span class="string">"likes birds"</span>]= <span class="literal">true</span>	<span class="comment">// For multiword properties, the dot access doesn't work</span></span><br><span class="line">alert (user[<span class="string">"likes birds"</span>])	<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> key = <span class="string">"name"</span>;</span><br><span class="line"><span class="title function_">alert</span>( user[key] );			<span class="comment">// John</span></span><br><span class="line"><span class="title function_">alert</span>( user.<span class="property">key</span>  );			<span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fruit = <span class="string">"apple"</span>;</span><br><span class="line"><span class="keyword">let</span> bag = {</span><br><span class="line">    [fruit]: <span class="number">5</span>,</span><br><span class="line">};</span><br><span class="line"><span class="title function_">alert</span>( bag.<span class="property">apple</span> );			<span class="comment">// 5 </span></span><br><span class="line">bag[fruit + <span class="string">"Computer"</span>] = <span class="number">6</span>;</span><br><span class="line"><span class="title function_">alert</span>( bag.<span class="property">appleComputer</span> );	<span class="comment">// 6</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = {</span><br><span class="line">    <span class="attr">name</span>: <span class="string">"John"</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">    <span class="string">"likes birds"</span>: <span class="literal">false</span>,	<span class="comment">// multiword property name must be quoted</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="title function_">alert</span>( user.<span class="property">name</span> );			<span class="comment">// John</span></span><br><span class="line"><span class="title function_">alert</span>( user.<span class="property">age</span>  );			<span class="comment">// 30</span></span><br><span class="line"></span><br><span class="line">user.<span class="property">isAdmin</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="title function_">alert</span>( user.<span class="property">isAdmin</span> );		<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> user.<span class="property">age</span>;</span><br><span class="line"><span class="title function_">alert</span>( user.<span class="property">age</span> );			<span class="comment">// Undefined</span></span><br><span class="line"></span><br><span class="line">user[<span class="string">"likes birds"</span>]= <span class="literal">true</span>	<span class="comment">// For multiword properties, the dot access doesn't work</span></span><br><span class="line"><span class="title function_">alert</span> (user[<span class="string">"likes birds"</span>])	<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> key = <span class="string">"name"</span>;</span><br><span class="line"><span class="title function_">alert</span>( user[key] );			<span class="comment">// John</span></span><br><span class="line"><span class="title function_">alert</span>( user.<span class="property">key</span>  );			<span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fruit = <span class="string">"apple"</span>;</span><br><span class="line"><span class="keyword">let</span> bag = {</span><br><span class="line">    [fruit]: <span class="number">5</span>,</span><br><span class="line">};</span><br><span class="line"><span class="title function_">alert</span>( bag.<span class="property">apple</span> );			<span class="comment">// 5 </span></span><br><span class="line">bag[fruit + <span class="string">"Computer"</span>] = <span class="number">6</span>;</span><br><span class="line"><span class="title function_">alert</span>( bag.<span class="property">appleComputer</span> );	<span class="comment">// 6</span></span><br></pre></td></tr></tbody></table></figure>
 <p>The dot requires the key to be a valid variable identifier. That
 implies: contains no spaces, doesn't start with a digit and doesn't
 include special characters (<code>$</code> and <code>_</code> are
@@ -3914,7 +3848,7 @@ automatically converted to strings</p>
 are sorted, others appear in creation order</p>
 <p>If we want integer properties with creation order, we can "cheat" by
 making the codes non-integer. For instance:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> codes = {</span><br><span class="line">    <span class="string">"+49"</span>: <span class="string">"Germany"</span>,</span><br><span class="line">    <span class="string">"+41"</span>: <span class="string">"Switzerland"</span>,</span><br><span class="line">    <span class="string">"+44"</span>: <span class="string">"Great Britain"</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">     <span class="string">"+1"</span>: <span class="string">"USA"</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> code <span class="keyword">in</span> codes) {</span><br><span class="line">    alert ( +code );	<span class="comment">// 49, 41, 44, 1</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> codes = {</span><br><span class="line">    <span class="string">"+49"</span>: <span class="string">"Germany"</span>,</span><br><span class="line">    <span class="string">"+41"</span>: <span class="string">"Switzerland"</span>,</span><br><span class="line">    <span class="string">"+44"</span>: <span class="string">"Great Britain"</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">     <span class="string">"+1"</span>: <span class="string">"USA"</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> code <span class="keyword">in</span> codes) {</span><br><span class="line">    <span class="title function_">alert</span> ( +code );	<span class="comment">// 49, 41, 44, 1</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="object-references-and-copying">4.2 Object references and
 copying</h3>
 <p>One of the fundamental differences of objects versus primitives is
@@ -4313,10 +4247,10 @@ chararcters, and for many other things. It is supported by the
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>( <span class="number">0xff</span> );	<span class="comment">// 255</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Binary and octal numeral systems are rarely used, but also supported
 using the <code>0b</code> and <code>0o</code> prefixes.</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">0b11111111</span>; 	<span class="comment">// binary form of 255</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">0o377</span>;			<span class="comment">// octal form of 255</span></span><br><span class="line">alert ( a == b );		<span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">0b11111111</span>; 	<span class="comment">// binary form of 255</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">0o377</span>;			<span class="comment">// octal form of 255</span></span><br><span class="line"><span class="title function_">alert</span> ( a == b );		<span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="tostringbase"><code>toString(base)</code></h4>
 <p>For instance:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">255</span>;</span><br><span class="line">alert (num.<span class="title function_">toString</span>(<span class="number">16</span>));		<span class="comment">// ff</span></span><br><span class="line">alert (num.<span class="title function_">toString</span>(<span class="number">2</span>));		<span class="comment">// 11111111</span></span><br><span class="line">alert (<span class="number">123456.</span>.<span class="title function_">toString</span>(<span class="number">36</span>));	<span class="comment">// 2n9c</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">255</span>;</span><br><span class="line"><span class="title function_">alert</span> (num.<span class="title function_">toString</span>(<span class="number">16</span>));		<span class="comment">// ff</span></span><br><span class="line"><span class="title function_">alert</span> (num.<span class="title function_">toString</span>(<span class="number">2</span>));		<span class="comment">// 11111111</span></span><br><span class="line"><span class="title function_">alert</span> (<span class="number">123456.</span>.<span class="title function_">toString</span>(<span class="number">36</span>));	<span class="comment">// 2n9c</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Here the two dots mean calling a method.</p>
 <h4 id="rounding">Rounding</h4>
 <p>There are several built-in functions for rounding:</p>
@@ -4331,7 +4265,7 @@ removes anything after the decimal point without rounding</li>
 <p>A number is represented in 64-bit format IEEE-754 internally so
 imprecision related to float number occurs. To fix this, you can use the
 method <code>toFixed</code>:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="number">0.1</span> + <span class="number">0.2</span>;</span><br><span class="line">alert (sum.<span class="title function_">toFixed</span>(<span class="number">2</span>));	<span class="comment">// 0.30</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="number">0.1</span> + <span class="number">0.2</span>;</span><br><span class="line"><span class="title function_">alert</span> (sum.<span class="title function_">toFixed</span>(<span class="number">2</span>));	<span class="comment">// 0.30</span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="tests-isfinite-and-isnan">Tests: <code>isFinite</code> and
 <code>isNaN</code></h4>
 <ul>
@@ -4370,7 +4304,7 @@ UTF-16, it is not tied to the page encoding.</p>
 backticks. Single and double quotes are essentially the same. Backticks
 allow use to embed any expression into the string, by wrapping it in
 <code>${...}</code></p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span> (a, b) {</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">alert (<span class="string">`1 + 2 = <span class="subst">${sum(<span class="number">1</span>,<span class="number">2</span>)}</span>.`</span>);		<span class="comment">// 1 + 2 = 3</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span> (<span class="params">a, b</span>) {</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="title function_">alert</span> (<span class="string">`1 + 2 = <span class="subst">${sum(<span class="number">1</span>,<span class="number">2</span>)}</span>.`</span>);		<span class="comment">// 1 + 2 = 3</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Another advantage of using backticks is that they allow a string to
 span multiple lines</p>
 <h4 id="special-characters">Special characters</h4>
@@ -4455,7 +4389,7 @@ reverse order.</p>
 bits in its binary representation. In practice, that means for 32-bit
 integers <code>~n</code>, becomes <code>-(n+1)</code>. Thus we can use
 this to test is a substring is found:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"Widget"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (~str.<span class="title function_">indexOf</span>(<span class="string">"Widget"</span>)) {</span><br><span class="line">    alert (<span class="string">"Found it"</span>); </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"Widget"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (~str.<span class="title function_">indexOf</span>(<span class="string">"Widget"</span>)) {</span><br><span class="line">    <span class="title function_">alert</span> (<span class="string">"Found it"</span>); </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>This only works when the length of the string is not 4294967295</p>
 <h5 id="includes-startswith-endswith">includes, startsWith,
 endsWith</h5>
@@ -4598,7 +4532,7 @@ the more time to move them, more in-memory operations. The
 <code>pop</code> method does not need to move anything, because other
 elements keep their indexes. That's why it's blazingly fast</p>
 <h4 id="loops-1">Loops</h4>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">"Apple"</span>, <span class="string">"Orange"</span>, <span class="string">"Pear"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) {</span><br><span class="line">    alert (arr[i])</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> fruit <span class="keyword">of</span> fruits) {</span><br><span class="line">    alert (fruit);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">"Apple"</span>, <span class="string">"Orange"</span>, <span class="string">"Pear"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) {</span><br><span class="line">    <span class="title function_">alert</span> (arr[i])</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> fruit <span class="keyword">of</span> fruits) {</span><br><span class="line">    <span class="title function_">alert</span> (fruit);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>It is possible to use <code>for ... in</code> to loop through array.
 But that is a bad idea. There are potential problems with it:</p>
 <ol type="1">
@@ -4876,7 +4810,7 @@ explicitly</h4>
 <p>For deeper understanding, let's see how to use an iterator
 explicitly. We'll iterate over a string in exactly the same way as
 <code>for..of</code>, but with direct calls:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"Hello"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> iterator = str[<span class="title class_">Symbol</span>.<span class="property">iterator</span>]();</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) {</span><br><span class="line">    <span class="keyword">let</span> result = iterator.<span class="title function_">next</span>();</span><br><span class="line">    <span class="keyword">if</span> (result.<span class="property">done</span>) <span class="keyword">break</span>;</span><br><span class="line">    alert (result.<span class="property">value</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"Hello"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> iterator = str[<span class="title class_">Symbol</span>.<span class="property">iterator</span>]();</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) {</span><br><span class="line">    <span class="keyword">let</span> result = iterator.<span class="title function_">next</span>();</span><br><span class="line">    <span class="keyword">if</span> (result.<span class="property">done</span>) <span class="keyword">break</span>;</span><br><span class="line">    <span class="title function_">alert</span> (result.<span class="property">value</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="iterable-and-array-likes">Iterable and array-likes</h4>
 <ul>
 <li>Iterables are objects that implement the
@@ -5190,7 +5124,7 @@ JS-specific object properties are skipped by
 <li>Symbolic keys and values</li>
 <li>Properties that store <code>undefined</code></li>
 </ul>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = {</span><br><span class="line">    <span class="title function_">sayHi</span>(<span class="params"></span>) {				<span class="comment">// ignored</span></span><br><span class="line">        <span class="title function_">alert</span>(<span class="string">"Hello"</span>);</span><br><span class="line">    },</span><br><span class="line">    [<span class="title class_">Symbol</span>(<span class="string">"id"</span>)]: <span class="number">123</span>,	<span class="comment">// ignored</span></span><br><span class="line">    <span class="attr">something</span>: <span class="literal">undefined</span>	<span class="comment">// ignored</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">alert (<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(user));	<span class="comment">// {} (empty object)</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = {</span><br><span class="line">    <span class="title function_">sayHi</span>(<span class="params"></span>) {				<span class="comment">// ignored</span></span><br><span class="line">        <span class="title function_">alert</span>(<span class="string">"Hello"</span>);</span><br><span class="line">    },</span><br><span class="line">    [<span class="title class_">Symbol</span>(<span class="string">"id"</span>)]: <span class="number">123</span>,	<span class="comment">// ignored</span></span><br><span class="line">    <span class="attr">something</span>: <span class="literal">undefined</span>	<span class="comment">// ignored</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="title function_">alert</span> (<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(user));	<span class="comment">// {} (empty object)</span></span><br></pre></td></tr></tbody></table></figure>
 <p>The nested objects are supported and converted automatically. But
 there must be no circular references.</p>
 <h4 id="excluding-and-transforming-replacer">Excluding and transforming:
@@ -5977,7 +5911,7 @@ will be no "constructor" in it. To keep the right "constructor", we can
 choose to add / remove properties to the default "prototype" instead of
 overwriting it as a whole or, alternatively, recreate the
 <code>constructor</code> property manually:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Rabbit</span> () {}</span><br><span class="line"></span><br><span class="line"><span class="title class_">Rabbit</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">jumps</span> = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Rabbit</span>.<span class="property"><span class="keyword">prototype</span></span> = {</span><br><span class="line">    <span class="attr">jumps</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">constructor</span>: <span class="title class_">Rabbit</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Rabbit</span> (<span class="params"></span>) {}</span><br><span class="line"></span><br><span class="line"><span class="title class_">Rabbit</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">jumps</span> = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Rabbit</span>.<span class="property"><span class="keyword">prototype</span></span> = {</span><br><span class="line">    <span class="attr">jumps</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">constructor</span>: <span class="title class_">Rabbit</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="native-prototypes">8.3 Native prototypes</h3>
 <p>The <code>prototype</code> property is widely used by the core of JS
 itself. All built-in constructor functions use it.</p>
@@ -6200,7 +6134,7 @@ we only need to make getter, but not the setter.</p>
 provides language-level support for private properties and methods.
 Privates should start with <code>#</code>. They are only accessible from
 inside the class. For instance:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CoffeeMachine</span> {</span><br><span class="line">    #waterLimit = <span class="number">200</span>;</span><br><span class="line">    </span><br><span class="line">    #fixWaterAmount (value) {</span><br><span class="line">    	<span class="keyword">if</span> (value &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span> (value &gt; <span class="variable language_">this</span>.#waterLimit) <span class="keyword">return</span> <span class="variable language_">this</span>.#waterLimit;</span><br><span class="line">	}</span><br><span class="line">    </span><br><span class="line">    <span class="title function_">setWaterAmount</span>(<span class="params">value</span>) {</span><br><span class="line">        <span class="variable language_">this</span>.#waterLimit = <span class="variable language_">this</span>.#<span class="title function_">fixWaterAmount</span>(value);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> coffeeMachine = <span class="keyword">new</span> <span class="title class_">CoffeeMachine</span>();</span><br><span class="line"></span><br><span class="line">coffeeMachine.#<span class="title function_">fixWaterAmount</span>(<span class="number">123</span>);		<span class="comment">// Error</span></span><br><span class="line">coffeeMachine.#waterLimit = <span class="number">1000</span>;		<span class="comment">// Error</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CoffeeMachine</span> {</span><br><span class="line">    #waterLimit = <span class="number">200</span>;</span><br><span class="line">    </span><br><span class="line">    #<span class="title function_">fixWaterAmount</span> (value) {</span><br><span class="line">    	<span class="keyword">if</span> (value &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span> (value &gt; <span class="variable language_">this</span>.#waterLimit) <span class="keyword">return</span> <span class="variable language_">this</span>.#waterLimit;</span><br><span class="line">	}</span><br><span class="line">    </span><br><span class="line">    <span class="title function_">setWaterAmount</span>(<span class="params">value</span>) {</span><br><span class="line">        <span class="variable language_">this</span>.#waterLimit = <span class="variable language_">this</span>.#<span class="title function_">fixWaterAmount</span>(value);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> coffeeMachine = <span class="keyword">new</span> <span class="title class_">CoffeeMachine</span>();</span><br><span class="line"></span><br><span class="line">coffeeMachine.#<span class="title function_">fixWaterAmount</span>(<span class="number">123</span>);		<span class="comment">// Error</span></span><br><span class="line">coffeeMachine.#waterLimit = <span class="number">1000</span>;		<span class="comment">// Error</span></span><br></pre></td></tr></tbody></table></figure>
 <p>On the language level, <code>#</code> is a special sign that the
 field is private. Private fields do not conflict with public ones. We
 can have both private <code>#waterAmount</code> and public
@@ -6230,7 +6164,7 @@ object belongs to a certain class. It also takes inheritance into
 account. The syntax is:</p>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj <span class="keyword">instanceof</span> <span class="title class_">Class</span></span><br></pre></td></tr></tbody></table></figure>
 <p>For instance:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Rabbit</span> {}</span><br><span class="line"><span class="keyword">let</span> rabbit = <span class="keyword">new</span> <span class="title class_">Rabbit</span>();</span><br><span class="line">alert (rabbit <span class="keyword">instanceof</span> <span class="title class_">Rabbit</span>);	<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">alert ( arr <span class="keyword">instanceof</span> <span class="title class_">Array</span> );		<span class="comment">// true</span></span><br><span class="line">alert ( arr <span class="keyword">instanceof</span> <span class="title class_">Object</span> );	<span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Rabbit</span> {}</span><br><span class="line"><span class="keyword">let</span> rabbit = <span class="keyword">new</span> <span class="title class_">Rabbit</span>();</span><br><span class="line"><span class="title function_">alert</span> (rabbit <span class="keyword">instanceof</span> <span class="title class_">Rabbit</span>);	<span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="title function_">alert</span> ( arr <span class="keyword">instanceof</span> <span class="title class_">Array</span> );		<span class="comment">// true</span></span><br><span class="line"><span class="title function_">alert</span> ( arr <span class="keyword">instanceof</span> <span class="title class_">Object</span> );	<span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
 <p>It also works with constructor functions:</p>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Rabbit</span>(<span class="params"></span>) {}</span><br><span class="line"></span><br><span class="line"><span class="title function_">alert</span>( <span class="keyword">new</span> <span class="title class_">Rabbit</span>() <span class="keyword">instanceof</span> <span class="title class_">Rabbit</span>);	<span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
 <p>The algorithm of <code>obj instanceof Class</code> works roughly as
@@ -6255,7 +6189,7 @@ of prototypes for <code>objB</code>. So the test of
 <p>The behavior of Object <code>toString</code> can be customized using
 a special object property <code>Symbol.toStringTag</code>. For
 instance:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = {</span><br><span class="line">    [<span class="title class_">Symbol</span>.<span class="property">toStringTag</span>]: <span class="string">"User"</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">alert ( {}.<span class="property">toString</span>.<span class="title function_">call</span>(user) );		<span class="comment">// [object User]</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = {</span><br><span class="line">    [<span class="title class_">Symbol</span>.<span class="property">toStringTag</span>]: <span class="string">"User"</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="title function_">alert</span> ( {}.<span class="property">toString</span>.<span class="title function_">call</span>(user) );		<span class="comment">// [object User]</span></span><br></pre></td></tr></tbody></table></figure>
 <p>For most environment-specific objects, there is such a property. We
 can use <code>{}.toString.call</code> instead of <code>instanceof</code>
 for built-in objects when we want to get the type as a string rather
@@ -6358,7 +6292,7 @@ JS has many built-in constructors for standard errors,
 <code>Error</code>, <code>SyntaxError</code>,
 <code>ReferenceError</code>, <code>TypeError</code> and others. We can
 use them to create error objects as well. The syntax is:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> error1 = <span class="keyword">new</span> <span class="title class_">Error</span> (message);</span><br><span class="line"><span class="keyword">let</span> error2 = <span class="keyword">new</span> <span class="title class_">SyntaxError</span> (message);</span><br><span class="line"><span class="keyword">let</span> error3 = <span class="keyword">new</span> <span class="title class_">ReferenceError</span> (message);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> error = <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">"Things happen"</span>)</span><br><span class="line">alert (error.<span class="property">name</span>);		<span class="comment">// Error</span></span><br><span class="line">alert (error.<span class="property">message</span>);	<span class="comment">// Things happen</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> error1 = <span class="keyword">new</span> <span class="title class_">Error</span> (message);</span><br><span class="line"><span class="keyword">let</span> error2 = <span class="keyword">new</span> <span class="title class_">SyntaxError</span> (message);</span><br><span class="line"><span class="keyword">let</span> error3 = <span class="keyword">new</span> <span class="title class_">ReferenceError</span> (message);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> error = <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">"Things happen"</span>)</span><br><span class="line"><span class="title function_">alert</span> (error.<span class="property">name</span>);		<span class="comment">// Error</span></span><br><span class="line"><span class="title function_">alert</span> (error.<span class="property">message</span>);	<span class="comment">// Things happen</span></span><br></pre></td></tr></tbody></table></figure>
 <p>Catch should only process errors that it knows and "rethrow" all
 others</p>
 <h4 id="try...catch...finally">try...catch...finally</h4>
@@ -6580,7 +6514,7 @@ promisify them. For example, the following callback style function</p>
 <p>A more general way to promisify functions with a helper function
 <code>promisift(f)</code>. It accepts a to-promisift function
 <code>f</code> and returns a wrapper function</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">promisify</span>(<span class="params">f</span>) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">            <span class="keyword">function</span> <span class="title function_">callback</span>(<span class="params">err, result</span>) {</span><br><span class="line">                <span class="keyword">if</span> (err) {</span><br><span class="line">                    reject (err);</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    resolve (result);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            </span><br><span class="line">            args.<span class="title function_">push</span>(callback);</span><br><span class="line">            </span><br><span class="line">            f.<span class="title function_">call</span>(<span class="variable language_">this</span>, ...args);</span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// usage: </span></span><br><span class="line"><span class="keyword">let</span> loadScriptPromise = <span class="title function_">promisify</span>(loadScript);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">promisify</span>(<span class="params">f</span>) {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">            <span class="keyword">function</span> <span class="title function_">callback</span>(<span class="params">err, result</span>) {</span><br><span class="line">                <span class="keyword">if</span> (err) {</span><br><span class="line">                    <span class="title function_">reject</span> (err);</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="title function_">resolve</span> (result);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            </span><br><span class="line">            args.<span class="title function_">push</span>(callback);</span><br><span class="line">            </span><br><span class="line">            f.<span class="title function_">call</span>(<span class="variable language_">this</span>, ...args);</span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// usage: </span></span><br><span class="line"><span class="keyword">let</span> loadScriptPromise = <span class="title function_">promisify</span>(loadScript);</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="microtasks">11.7 Microtasks</h3>
 <p>Promise handlers <code>.then</code>, <code>.catch</code>,
 <code>.finally</code> are always asynchronous. Even when a Promise is
@@ -6624,7 +6558,7 @@ and resumes when the promise settles, with <code>result</code> becoming
 its result.</p>
 <p>If we try to use <code>await</code> in a non-async function, there
 would be a syntax error. Thus it can't be used in top-level code. But we
-can do the following: </p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; {</span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">"/article/user.json"</span>);</span><br><span class="line">    <span class="keyword">let</span> user = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure><p></p>
+can do the following: </p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="title function_">async</span> () =&gt; {</span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">"/article/user.json"</span>);</span><br><span class="line">    <span class="keyword">let</span> user = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p><code>await</code> also accept "thenable" objects.</p>
 <h4 id="error-handling-1">Error handling</h4>
 <p>If a promise resolves normally, then <code>await promise</code>
@@ -6692,7 +6626,7 @@ generators</h3>
 return a promise * The <code>async</code> keyword handles it, we can
 simply make <code>async next()</code> 3. To iterate over such an object,
 we should use a <code>for await (let item of iterable)</code> loop</p>
-<p>For instance: </p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> range = {</span><br><span class="line">    <span class="attr">from</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">to</span>: <span class="number">5</span>,</span><br><span class="line"></span><br><span class="line">    [<span class="title class_">Symbol</span>.<span class="property">asyncIterator</span>]() {</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            <span class="attr">current</span>: <span class="variable language_">this</span>.<span class="property">from</span></span><br><span class="line">            <span class="attr">last</span>: <span class="variable language_">this</span>.<span class="property">to</span>,</span><br><span class="line"></span><br><span class="line">            <span class="keyword">async</span> <span class="title function_">next</span>(<span class="params"></span>) {</span><br><span class="line">                <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">current</span> &lt;= <span class="variable language_">this</span>.<span class="property">last</span>) {</span><br><span class="line">                    <span class="keyword">return</span> { <span class="attr">done</span>: <span class="literal">false</span>, <span class="attr">value</span>: <span class="variable language_">this</span>.<span class="property">current</span>++ };</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="keyword">return</span> { <span class="attr">done</span>: <span class="literal">true</span> };</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; {</span><br><span class="line">    <span class="keyword">for</span> <span class="keyword">await</span> (<span class="keyword">let</span> value <span class="keyword">of</span> range) {</span><br><span class="line">        <span class="title function_">alert</span>(value);</span><br><span class="line">    }</span><br><span class="line">})()        <span class="comment">// 1,2,3,4,5</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>For instance: </p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> range = {</span><br><span class="line">    <span class="attr">from</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">to</span>: <span class="number">5</span>,</span><br><span class="line"></span><br><span class="line">    [<span class="title class_">Symbol</span>.<span class="property">asyncIterator</span>]() {</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            <span class="attr">current</span>: <span class="variable language_">this</span>.<span class="property">from</span></span><br><span class="line">            <span class="attr">last</span>: <span class="variable language_">this</span>.<span class="property">to</span>,</span><br><span class="line"></span><br><span class="line">            <span class="keyword">async</span> <span class="title function_">next</span>(<span class="params"></span>) {</span><br><span class="line">                <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">current</span> &lt;= <span class="variable language_">this</span>.<span class="property">last</span>) {</span><br><span class="line">                    <span class="keyword">return</span> { <span class="attr">done</span>: <span class="literal">false</span>, <span class="attr">value</span>: <span class="variable language_">this</span>.<span class="property">current</span>++ };</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="keyword">return</span> { <span class="attr">done</span>: <span class="literal">true</span> };</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">(<span class="title function_">async</span> () =&gt; {</span><br><span class="line">    <span class="keyword">for</span> <span class="title function_">await</span> (<span class="keyword">let</span> value <span class="keyword">of</span> range) {</span><br><span class="line">        <span class="title function_">alert</span>(value);</span><br><span class="line">    }</span><br><span class="line">})()        <span class="comment">// 1,2,3,4,5</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>However, features that require regular, synchronous iterators, don't
 work with asynchronous ones. For instance, a spread syntax won't work:
 <code>alert( [...range] );</code></p>
@@ -6700,7 +6634,7 @@ work with asynchronous ones. For instance, a spread syntax won't work:
 <p>For most practical applicatioins, when we'd like to make an object
 that asynchronously generates a sequence of values, we can use an
 asynchronous generator.</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span>* <span class="title function_">generateSequence</span>(<span class="params">start, end</span>) {</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = start; i &lt;= end; i++) {</span><br><span class="line">        <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">yield</span> i;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; {</span><br><span class="line">    <span class="keyword">let</span> generator = <span class="title function_">generateSequence</span>(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line">    <span class="keyword">for</span> <span class="keyword">await</span> (<span class="keyword">let</span> value <span class="keyword">of</span> generator) {</span><br><span class="line">        <span class="title function_">alert</span>(value);       <span class="comment">// 1, 2, 3, 4, 5</span></span><br><span class="line">    }</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span>* <span class="title function_">generateSequence</span>(<span class="params">start, end</span>) {</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = start; i &lt;= end; i++) {</span><br><span class="line">        <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">yield</span> i;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">(<span class="title function_">async</span> () =&gt; {</span><br><span class="line">    <span class="keyword">let</span> generator = <span class="title function_">generateSequence</span>(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line">    <span class="keyword">for</span> <span class="title function_">await</span> (<span class="keyword">let</span> value <span class="keyword">of</span> generator) {</span><br><span class="line">        <span class="title function_">alert</span>(value);       <span class="comment">// 1, 2, 3, 4, 5</span></span><br><span class="line">    }</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="modles">Modles</h2>
 <h3 id="modules-introduction">13.1 Modules, introduction</h3>
 <h4 id="what-is-a-module">What is a module?</h4>
@@ -7042,23 +6976,6 @@ for those browsers that support them.</p>
     
 
     <footer class="post-footer">
-          <div class="followme">
-  <span>Welcome to my other publishing channels</span>
-
-  <div class="social-list">
-
-      <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-      </div>
-  </div>
-</div>
-
           <div class="post-tags">
               <a href="/tags/Programming/" rel="tag"># Programming</a>
               <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
@@ -7095,9 +7012,9 @@ for those browsers that support them.</p>
 
   <div class="copyright">
     © 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
-      <i class="fa fa-fish"></i>
+      <i class="fa fa-cat"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">Yue Jiao</span>
   </div>
@@ -7157,14 +7074,7 @@ for those browsers that support them.</p>
 
 
 
-  
-
-  
 
 
 
-
-
-
-<script src="/bundle.js"></script><script>true;
-{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script></body></html>
+<script src="/bundle.js"></script></body></html>
