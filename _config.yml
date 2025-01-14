@@ -13,7 +13,7 @@ timezone: Europe/Stockholm
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yj0.se
+url: http://blog.yj0.se
 root: /
 permalink: :year/:title/
 permalink_defaults:
@@ -94,6 +94,8 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
+#theme: butterfly
+#theme: simple
 #theme: landscape
 #theme: prontera
 #theme: miracle
@@ -113,3 +115,21 @@ search:
 
 
 # lazyload: enable
+
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  autodiscovery: true
+  template:
+
+sitemap:
+    path: sitemap.xml
+    tag: false
+    category: false

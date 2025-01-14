@@ -10,66 +10,66 @@ Basic Go synax is introduced in this article.
 
 <!-- more -->
 
-#### Packages, variables, and functions
+### Packages, variables, and functions
 
   ````go
-  package main
-  
-  import (
-  	"fmt"
-      "math/rand"
-      "math/cmplx"
-  )
-  
-  func add(x, y int) int {
-      return x + y
-  }
-  
-  func swap(x, y string) (string, string) {
-      return y, x
-  }
-  
-  func split(sum int) (x, y int) {
-      x = sum * 4 / 9
-      y = sum - x
-      return
-  }
-  
-  var (
-  	ToBe	bool 		= false
-      MaxInt 	uint64		= 1<<64 - 1
-      z		complex128	= cmplx.Sqrt(-5 + 12i)
-  )
-  
-  var i, j int = 1, 2
-  
-  const Pi = 3.14
-  
-  func needInt (x int) int { return x*10 + 1 }
-  func needFloat (x float64) float64 { return x * 0.1 }
-  
-  func main() {
-      fmt.Println("A random number is: ", rand.Intn(10))
-      fmt.Println(add(42, 13))
-      a, b := swap("hello", "world")
-      fmt.Println(a, b)
-      fmt.Println(split(17))
-      var c, python, java = true, false, "no"
-      fmt.Println(i, j, c, python, java)
-      fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
-  	fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
-  	fmt.Printf("Type: %T Value: %v\n", z, z)
-  	var i int
-  	var f float64
-  	var t bool
-  	var s string
-  	fmt.Printf("%v %v %v %q\n", i, f, t, s)
-      fmt.Println("Happy", Pi, "Day")
-      const Big = 1 << 100
-      fmt.Println(needFloat(Big))		// This line works as it print Big as a float number
-  	// fmt.Println(needInt(Big))	// This line does not work as it through overflows int exception
-  }
-  ````
+package main
+
+import (
+	"fmt"
+	"math/cmplx"
+	"math/rand"
+)
+
+func add(x, y int) int {
+	return x + y
+}
+
+func swap(x, y string) (string, string) {
+	return y, x
+}
+
+func split(sum int) (x, y int) {
+	x = sum * 4 / 9
+	y = sum - x
+	return
+}
+
+var (
+	ToBe   bool       = false
+	MaxInt uint64     = 1<<64 - 1
+	z      complex128 = cmplx.Sqrt(-5 + 12i)
+)
+
+var i, j int = 1, 2
+
+const Pi = 3.14
+
+func needInt(x int) int           { return x*10 + 1 }
+func needFloat(x float64) float64 { return x * 0.1 }
+
+func main() {
+	fmt.Println("A random number is: ", rand.Intn(10))
+	fmt.Println(add(42, 13))
+	a, b := swap("hello", "world")
+	fmt.Println(a, b)
+	fmt.Println(split(17))
+	var c, python, java = true, false, "no"
+	fmt.Println(i, j, c, python, java)
+	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
+	fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
+	fmt.Printf("Type: %T Value: %v\n", z, z)
+	var i int
+	var f float64
+	var t bool
+	var s string
+	fmt.Printf("%v %v %v %q\n", i, f, t, s)
+	fmt.Println("Happy", Pi, "Day")
+	const Big = 1 << 100
+	fmt.Println(needFloat(Big)) // This line works as it print Big as a float number
+	// fmt.Println(needInt(Big))	// This line does not work as it through overflows int exception
+}
+````
 
 * Inside a function, the `:=` short assignment statement can be used in place of a `var` declaration with implicit type
 
@@ -88,16 +88,16 @@ Basic Go synax is introduced in this article.
 
 
 
-#### Flow control statements: for, if, else, switch and defer
+### Flow control statements: for, if, else, switch and defer
 
-  ````go
+  ```go
   package main
   
   import (
   	"fmt"
-      "math"
-      "runtime"
-      "time"
+    "math"
+    "runtime"
+    "time"
   )
   
   func sqrt (x float64) string {
@@ -149,7 +149,7 @@ Basic Go synax is introduced in this article.
       defer fmt.Println("world")
       fmt.Println("hello")
   }
-  ````
+  ```
 
 * Go cannot have declared but not used variables
 
@@ -164,7 +164,7 @@ Basic Go synax is introduced in this article.
 
 
 
-#### More types: structs, slices, and maps
+### More types: structs, slices, and maps
 
   ````go
   package main
@@ -314,7 +314,7 @@ Basic Go synax is introduced in this article.
 
 
 
-#### Methods and Interfaces
+### Methods and Interfaces
 
   ````go
   package main
@@ -567,7 +567,7 @@ Basic Go synax is introduced in this article.
 
 
 
-#### Concurrency
+### Concurrency
 
   ````go
   package main
@@ -715,3 +715,26 @@ Basic Go synax is introduced in this article.
 * The `select` statement lets a goroutine wait on multiple communication operations
 
   * A `select` blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready
+
+### Beego ORM
+
+* Beego is a ORM library with GO style database management 
+* Installation
+```shell
+go get github.com/astaxie/beego
+```
+* Usage
+```go
+import (
+    "database/sql"
+    "github.com/astaxie/beego/orm"
+    "github.com/go-sql-driver/mysql"
+)
+
+func init() {
+    orm.RegisterDriver("mysql", orm.DR_MySQL)
+    orm.RegisterDataBase("default", "mysql", "root:root@/my_db?charset=utf8", 30)
+    orm.RegisterModel(new(User))
+    orm.RunSyncdb("default", false, true)
+}
+```

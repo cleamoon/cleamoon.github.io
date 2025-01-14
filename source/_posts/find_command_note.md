@@ -11,8 +11,9 @@ The find command is one of the most powerful tools in the Linux system. It searc
 
 ## Command syntax
 The general syntax for the `find` command is as follows: 
-```shell
-$ find [options] [path...] [expressio]
+
+```bash
+find [options] [path...] [expressio]
 ```
 
 * The `options` attribute controls the treatment of the symbolic links
@@ -24,8 +25,9 @@ $ find [options] [path...] [expressio]
 To find a file by its name, use the `-name` option followed by the name of the file you are searching for. To run a case-insensitive search, change the `-name` option with `-iname`
 
 For example:
-```shell
-$ find /home/username -type f -name document.pdf
+
+```bash
+find /home/username -type f -name document.pdf
 ```
 
 
@@ -33,8 +35,9 @@ $ find /home/username -type f -name document.pdf
 Searching for files by extension is the same as searching for files by name
 
 For example:
-```shell
-$ find /var/log/nginx -type f -name '*.log.gz'
+
+```bash
+find /var/log/nginx -type f -name '*.log.gz'
 ``` 
 
 
@@ -50,9 +53,10 @@ To search for fiels based on their type, use the `-type` option and one of the f
 * `s`: socket
 
 For example: 
-```shell
-$ find /var/www/my_website -type d -exec chmod 0755 {} \;
-$ find /var/www/my_website -type f -exec chmod 0644 {} \;
+
+```bash
+find /var/www/my_website -type d -exec chmod 0755 {} \;
+find /var/www/my_website -type f -exec chmod 0644 {} \;
 ```
 
 
@@ -67,15 +71,17 @@ To find files based on the file size, pass the `-szie` parameter along with the 
 * `G`: Gigabytes
 
 For example
-```shell
-$ find /tmp -type f -size 1024c
+
+```bash
+find /tmp -type f -size 1024c
 ```
 
 The `find` command also allows you to search for files that are greater or less than a specified size
-```shell
-$ find . -type f -size -1M	// less than 1M
-$ find . -type f -size +1M	// greater than 1M
-$ find . -type f -size +1M -size -2M	// between 1 and 2M
+
+```bash
+find . -type f -size -1M	// less than 1M
+find . -type f -size +1M	// greater than 1M
+find . -type f -size +1M -size -2M	// between 1 and 2M
 ```
 
 
@@ -83,9 +89,10 @@ $ find . -type f -size +1M -size -2M	// between 1 and 2M
 To search for files based on their last modification, access, or changed time, we can use a syntax similar to size. To use the plus and minus symbols for "greater than" or "less than" and use the `-daystart` option
 
 For example:
-```shell
-$ find /home -name "*.conf" -mtime 5	// search for files that has been modified in the last five days
-$ find /home -mtime +30 -daystart // search for files that were modified 30 or more days ago
+
+```bash
+find /home -name "*.conf" -mtime 5	// search for files that has been modified in the last five days
+find /home -mtime +30 -daystart // search for files that were modified 30 or more days ago
 ```
 
 
@@ -93,8 +100,9 @@ $ find /home -mtime +30 -daystart // search for files that were modified 30 or m
 The `-perm` option allows you to search for files based on the file permissions
 
 For example, to find all files with permissions of exactly `644` inside the `/var/www/html` directory
-```shell
-$ find /var/www/html -perm 644
+
+```bash
+find /var/www/html -perm 644
 ```
 
 You can prefix the numeric mode with minus `-` or flash `/`. When slash `/` is used as the prefix, then at least one category (user, group, or others) must have at least the respective bits set for a file to match. If minus `-` is used as the prefix, then for the file to match, at least the specified bits must be set
@@ -102,15 +110,24 @@ You can prefix the numeric mode with minus `-` or flash `/`. When slash `/` is u
 
 ### Find files by owner
 To find files owned by a particular user or group, use the `-user` and `-group` options
-```shell
-$ find / -user username
+
+```bash
+find / -user username
 ```
 
 
 ### Find and delete files
 To delete all matching files, append the `-delete` option to the end of the match expression
-```shell
-$ find /var/log/ -name `*.temp` -delete
+
+```bash
+find /var/log/ -name `*.temp` -delete
+```
+
+### Find and execute commands
+For example renaming files from `js` extension to `tsx` extension:
+
+```bash
+find ./ -depth -name "*.tsx" -exec sh -c 'mv "$1" "${1%.tsx}.js"' _ {} \;
 ```
 
 

@@ -418,10 +418,34 @@ done
 
 The trap statement tells the script to run cleanup() on signals 1, 2, 3 or 6. The most common one (CTRL-C) is signal 2 (SIGINT).
 
+## 15. Run software with certain environment Variables
 
+```shell
+#!/bin/sh 
+__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia $1
+``` 
+
+Here `$1` is the first command line argument and this script will run it will those environment variable. 
+
+## Unzip with unicode password in unknown charset
+
+For unzipping all kinds of chinese charsets:
+
+```shell
+password='password'
+zip=file.zip
+
+target_codes=(
+    UTF-8 UTF-16 UTF-16BE UTF-16LE ISO-8859-1 ISO-2022-JP ISO-2022-CN SHIFT-JIS EUC-CN EUC-JP EUC-JP-MS EUCJP BIG5 CN CN-GB CN-BIG5 GB2312 GB18030 GBK EUC-KR ISO-2022-KR JOHAB
+)
+
+for target in "${target_codes[@]}"; do
+    echo TRYING $target
+    unzip -P $(printf "$password" | iconv -f UTF-8 -t $target) "$zip" && break
+done
+```
 
 ## A. References
 
-* [Shell Scripting Tutorial]: https://www.shellscript.sh/
-
-  
+* [Shell Scripting Tutorial](https://www.shellscript.sh/)
+* [解压未知编码做密码的压缩包 Unzip with unicode password in unknown charset](https://recolic.net/blog/post/%E8%A7%A3%E5%8E%8B%E6%9C%AA%E7%9F%A5%E7%BC%96%E7%A0%81%E5%81%9A%E5%AF%86%E7%A0%81%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%8C%85-unzip-with-unicode-password-in-unknown-charset)

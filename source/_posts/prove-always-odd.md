@@ -1,14 +1,15 @@
 ---
-title: Prove of that $\lfloor(2+\sqrt{3})^n\rfloor$ is always odd for integer $n\geq 0$
+title: An interesting small problem
 date: 2020-03-09 19:00:00
 mathjax: true
 tags: [Mathematics]
 ---
 
-Let's prove the theorem in the title. 
+I read about an interesting small problem. The problem is to prove of that $\lfloor(2+\sqrt{3})^n\rfloor$ is always odd for integer $n\geq 0. Let's solve it.
 
 <!-- more -->
-We have the followig relations: 
+
+We have the following relations: 
 $$
 (2+\sqrt{3})^n = \sum_{k=0}^{n} 2^{n-k} (\sqrt{3})^k 
 $$

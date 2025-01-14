@@ -11,15 +11,19 @@ In this article, several FFmpeg examples that I used are listed.
 
 #### Convert flv to mp3
 ``` shell
-$ ffmpeg -i video.flv -vn -acodec libmp3lame -ab 128k audio.mp3
+ffmpeg -i video.flv -vn -acodec libmp3lame -ab 128k audio.mp3
 ```
 
+#### Convert all mp3 files in a directory to opus
+```shell
+for f in *.mp3; do ffmpeg -i "$f" -c:a libopus -b:a 64k "${f%.mp3}.opus"; done
+```
 
 
 #### Batch converting mkv to mp4
 
 ```shell
-$ for f in *.mkv; do ffmpeg -i "$f" -c copy "${f%.mkv}.mp4"; done
+for f in *.mkv; do ffmpeg -i "$f" -c copy "${f%.mkv}.mp4"; done
 ```
 
 
@@ -27,7 +31,7 @@ $ for f in *.mkv; do ffmpeg -i "$f" -c copy "${f%.mkv}.mp4"; done
 #### Convert animated gif to mp4
 
 ```shell
-$ ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" video.mp4
+ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" video.mp4
 ```
 
 
@@ -35,23 +39,31 @@ $ ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(i
 #### Burn subtitles into a video
 
 ```shell
-$ ffmpeg -i video.avi -vf subtitles=subtitle.srt out.avi
+ffmpeg -i video.avi -vf subtitles=subtitle.srt out.avi
 ```
+
 If the subtitles is embedded in the container `video.mkv`
 ```shell
-$ ffmpeg -i video.mkv -vf subtitles=video.mkv out.avi
+ffmpeg -i video.mkv -vf subtitles=video.mkv out.avi
 ```
+
 More complex, if the video has several sound tracks and subtitles, and the subtitles use different resolution than the video: 
 ````shell
 ffmpeg -i in.mkv -filter_complex "[0:s]scale=1280:-1[sub];[0:v][sub]overlay[v]" -map "[v]" -map 0:a -c:a copy out.mp4
 ````
 
+#### Clip video
+The `-ss` option specifies a start timestamp, the `-t` option specifies the encoding duration, the `-to` option specifies the timestamp to which you want to cut. For example: 
+```shell
+ffmpeg -ss 00:00:30.0 -i input.wmv -c copy -t  00:00:10.0 output.wmv
+ffmpeg -ss 00:00:30.0 -i input.wmv -c copy -to 00:00:40.0 output.wmv
+```
 
 
 #### Split video in chunks with same length
 
 ````shell
-$ ffmpeg -i input.mp4 -c copy -map 0 -segment_time 00:20:00 -f segment output%03d.mp4
+ffmpeg -i input.mp4 -c copy -map 0 -segment_time 00:20:00 -f segment output%03d.mp4
 ````
 
 
@@ -59,9 +71,9 @@ $ ffmpeg -i input.mp4 -c copy -map 0 -segment_time 00:20:00 -f segment output%03
 #### Split video in chunks with different lengths
 
 ````shell
-$ ffmpeg -i source.m4v -ss 0 -t 593.3 -c copy part1.m4v
-$ ffmpeg -i source.m4v -ss 593.3 -t 551.64 -c copy part2.m4v
-$ ffmpeg -i source.m4v -ss 1144.94 -t 581.25 -c copy part3.m4v
+ffmpeg -i source.m4v -ss 0 -t 593.3 -c copy part1.m4v
+ffmpeg -i source.m4v -ss 593.3 -t 551.64 -c copy part2.m4v
+ffmpeg -i source.m4v -ss 1144.94 -t 581.25 -c copy part3.m4v
 ````
 
 
@@ -80,6 +92,7 @@ Vary the CRF between around 18 and 24 — the lower, the higher the bitrate
 ````shell
 ffmpeg -i input.avi -vf scale=320:240 output.avi
 ````
+
 Keeping the aspect radio
 ````shell
 ffmpeg -i input.jpg -vf scale=320:-1 output_320.png
@@ -93,6 +106,11 @@ ffmpeg -i input.jpg -vf scale=320:-1 output_320.png
 ffmpeg -i input.mkv -filter:a "atempo=2.0" -vn output.mkv
 ```
 
+#### Broadcasting video through Bilibili direct-sending
+
+```shell
+ffmpeg -re -i "1.mp4" -vcodec copy -acodec aac -b:a 192k -f flv "rtmp://dl.live-send.acg.tv/live-dl/your_direct_sending_id_number"
+```
 
 
 #### References
