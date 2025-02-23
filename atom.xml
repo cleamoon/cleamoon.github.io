@@ -6,7 +6,7 @@
   <link href="http://blog.yj0.se/atom.xml" rel="self"/>
   
   <link href="http://blog.yj0.se/"/>
-  <updated>2025-01-14T21:00:08.099Z</updated>
+  <updated>2025-02-23T13:22:49.874Z</updated>
   <id>http://blog.yj0.se/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SillyTavern Setup</title>
+    <link href="http://blog.yj0.se/2025/silly_tavern_setup/"/>
+    <id>http://blog.yj0.se/2025/silly_tavern_setup/</id>
+    <published>2025-02-23T18:14:00.000Z</published>
+    <updated>2025-02-23T13:22:49.874Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;SillyTavern is a web application that allows you to create and share
+AI-generated content. It is often used for role playing. This article
+presents the setup of SillyTavern.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="AI" scheme="http://blog.yj0.se/tags/AI/"/>
+    
+    <category term="SillyTavern" scheme="http://blog.yj0.se/tags/SillyTavern/"/>
+    
+  </entry>
   
   <entry>
     <title>FFmpeg video compression benchmark</title>
@@ -394,28 +415,6 @@ system. This tutorial shows the basics of Kubernetes for beginners.&lt;/p&gt;</s
     
     
     <category term="Mathematics" scheme="http://blog.yj0.se/tags/Mathematics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Introduction to Binomial Heap</title>
-    <link href="http://blog.yj0.se/2021/binomial_heaps/"/>
-    <id>http://blog.yj0.se/2021/binomial_heaps/</id>
-    <published>2021-12-27T23:00:00.000Z</published>
-    <updated>2022-07-29T01:00:41.230Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Binomial heap is a useful data structure. This article will introduce
-some basic properties of binomial heap.&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Data structure" scheme="http://blog.yj0.se/tags/Data-structure/"/>
-    
-    <category term="Algorithm" scheme="http://blog.yj0.se/tags/Algorithm/"/>
-    
-    <category term="Course note" scheme="http://blog.yj0.se/tags/Course-note/"/>
     
   </entry>
   
