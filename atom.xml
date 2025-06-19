@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yue Jiao&#39;s blog</title>
+  
+  
+  <link href="http://blog.yj0.se/atom.xml" rel="self"/>
+  
+  <link href="http://blog.yj0.se/"/>
+  <updated>2025-02-23T13:22:49.874Z</updated>
+  <id>http://blog.yj0.se/</id>
+  
+  <author>
+    <name>Yue Jiao</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SillyTavern Setup</title>
+    <link href="http://blog.yj0.se/2025/silly_tavern_setup/"/>
+    <id>http://blog.yj0.se/2025/silly_tavern_setup/</id>
+    <published>2025-02-23T18:14:00.000Z</published>
+    <updated>2025-02-23T13:22:49.874Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;SillyTavern is a web application that allows you to create and share
+AI-generated content. It is often used for role playing. This article
+presents the setup of SillyTavern.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="AI" scheme="http://blog.yj0.se/tags/AI/"/>
+    
+    <category term="SillyTavern" scheme="http://blog.yj0.se/tags/SillyTavern/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FFmpeg video compression benchmark</title>
+    <link href="http://blog.yj0.se/2025/ffmpeg-video-compression/"/>
+    <id>http://blog.yj0.se/2025/ffmpeg-video-compression/</id>
+    <published>2025-01-13T23:00:00.000Z</published>
+    <updated>2025-01-14T21:00:08.099Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;There are many modern video encoding algorithm that can be used for
+video compression. This article tests several of them and gives a simple
+benchmark.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="FFmpeg" scheme="http://blog.yj0.se/tags/FFmpeg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Collection of varies command line one liner</title>
+    <link href="http://blog.yj0.se/2024/command_line_one_liner/"/>
+    <id>http://blog.yj0.se/2024/command_line_one_liner/</id>
+    <published>2024-06-07T22:00:00.000Z</published>
+    <updated>2024-06-09T13:30:05.067Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Collection of various one-liners for archiving. Always being
+updated.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Shell" scheme="http://blog.yj0.se/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Simple React Hooks Note</title>
+    <link href="http://blog.yj0.se/2023/react_hooks_note/"/>
+    <id>http://blog.yj0.se/2023/react_hooks_note/</id>
+    <published>2023-12-01T23:00:00.000Z</published>
+    <updated>2023-12-02T20:02:14.617Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Notes for React Hooks.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
+    
+    <category term="React" scheme="http://blog.yj0.se/tags/React/"/>
+    
+    <category term="Frontend" scheme="http://blog.yj0.se/tags/Frontend/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Marketing on Social Media</title>
+    <link href="http://blog.yj0.se/2023/markting_with_social_media_note/"/>
+    <id>http://blog.yj0.se/2023/markting_with_social_media_note/</id>
+    <published>2023-06-23T22:00:00.000Z</published>
+    <updated>2023-06-24T16:42:56.456Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Note of basic marketing on social media.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Marketing" scheme="http://blog.yj0.se/tags/Marketing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CheatSheet for Several Popular React/React Native Libraries</title>
+    <link href="http://blog.yj0.se/2022/react-libraries-cheatsheet/"/>
+    <id>http://blog.yj0.se/2022/react-libraries-cheatsheet/</id>
+    <published>2022-08-19T13:14:12.000Z</published>
+    <updated>2022-08-19T13:44:00.260Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This article presented several popular React/React Native libraries.
+It can be used as a cheatsheet for those libraries.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
+    
+    <category term="React" scheme="http://blog.yj0.se/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CircleCI Configuration Introduction</title>
+    <link href="http://blog.yj0.se/2022/circleci-config-intro/"/>
+    <id>http://blog.yj0.se/2022/circleci-config-intro/</id>
+    <published>2022-08-17T11:46:15.000Z</published>
+    <updated>2022-08-17T11:52:49.060Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;CircleCI is a platform for Continuous Integration and Delivery which
+can be used to implement DevOps practice.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
+    
+    <category term="DevOps" scheme="http://blog.yj0.se/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Basic of Modern CMake by Examples</title>
+    <link href="http://blog.yj0.se/2022/basic_modern_cmake/"/>
+    <id>http://blog.yj0.se/2022/basic_modern_cmake/</id>
+    <published>2022-08-08T22:00:00.000Z</published>
+    <updated>2022-08-09T22:40:42.850Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;CMake is one of the most popular software for building/testing
+automation. In this article, several basic usecases are presented with
+examples.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Shell" scheme="http://blog.yj0.se/tags/Shell/"/>
+    
+    <category term="C/C++" scheme="http://blog.yj0.se/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Basic Functional Programming in Scala</title>
+    <link href="http://blog.yj0.se/2022/basic-functional-programming-in-scala/"/>
+    <id>http://blog.yj0.se/2022/basic-functional-programming-in-scala/</id>
+    <published>2022-06-22T12:04:01.000Z</published>
+    <updated>2022-07-29T01:00:41.160Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;A brief introduction to functional programming in Scala.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Course note" scheme="http://blog.yj0.se/tags/Course-note/"/>
+    
+    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
+    
+    <category term="Functional programming" scheme="http://blog.yj0.se/tags/Functional-programming/"/>
+    
+    <category term="Scala" scheme="http://blog.yj0.se/tags/Scala/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Basic Concepts in Machine Learning</title>
+    <link href="http://blog.yj0.se/2022/basic-machine-learning/"/>
+    <id>http://blog.yj0.se/2022/basic-machine-learning/</id>
+    <published>2022-06-22T11:28:12.000Z</published>
+    <updated>2022-08-29T14:03:31.360Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Machine learning is getting everywhere. This article introduce some
+basic concepts in machine learning.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Course note" scheme="http://blog.yj0.se/tags/Course-note/"/>
+    
+    <category term="Machine learning" scheme="http://blog.yj0.se/tags/Machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Collection of Tools and Websites for Game Development</title>
+    <link href="http://blog.yj0.se/2022/game-assets-collection/"/>
+    <id>http://blog.yj0.se/2022/game-assets-collection/</id>
+    <published>2022-06-06T22:00:00.000Z</published>
+    <updated>2022-07-29T01:00:41.350Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Some tools and websites for game development are listed in this
+article for reference.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Game Development" scheme="http://blog.yj0.se/tags/Game-Development/"/>
+    
+    <category term="Resources" scheme="http://blog.yj0.se/tags/Resources/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Secure Express apps with HelmetJS</title>
+    <link href="http://blog.yj0.se/2022/secure-express-with-helmetjs/"/>
+    <id>http://blog.yj0.se/2022/secure-express-with-helmetjs/</id>
+    <published>2022-04-19T00:37:07.000Z</published>
+    <updated>2022-07-29T01:00:41.860Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;In this article, We introduce HelmetJS to secure Express apps.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
+    
+    <category term="Front-end" scheme="http://blog.yj0.se/tags/Front-end/"/>
+    
+    <category term="Express" scheme="http://blog.yj0.se/tags/Express/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Getting configuration options with C++ and Boost</title>
+    <link href="http://blog.yj0.se/2022/configuration-options-with-boost/"/>
+    <id>http://blog.yj0.se/2022/configuration-options-with-boost/</id>
+    <published>2022-03-22T17:32:07.000Z</published>
+    <updated>2022-07-29T01:00:41.230Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Take a look at some of the console programs, such as &lt;code&gt;cp&lt;/code&gt;
+in Linux. They all have a fancy help, their input parameters do not
+depend on any position, ad have a human readable syntax. You can
+implement the same functionality for your program with the
+&lt;code&gt;Boost.ProgramOptions&lt;/code&gt; library.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
+    
+    <category term="C++" scheme="http://blog.yj0.se/tags/C/"/>
+    
+    <category term="Boost" scheme="http://blog.yj0.se/tags/Boost/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Simple git references</title>
+    <link href="http://blog.yj0.se/2022/git-references/"/>
+    <id>http://blog.yj0.se/2022/git-references/</id>
+    <published>2022-03-14T23:19:22.000Z</published>
+    <updated>2022-07-29T01:00:41.350Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;A list of a few commonly used git commands.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="git" scheme="http://blog.yj0.se/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Introduction to Haskell Programming</title>
+    <link href="http://blog.yj0.se/2022/intro-to-haskell/"/>
+    <id>http://blog.yj0.se/2022/intro-to-haskell/</id>
+    <published>2022-03-09T14:05:39.000Z</published>
+    <updated>2022-07-29T01:00:41.550Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;A brief introduction to haskell programming.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
+    
+    <category term="Haskell" scheme="http://blog.yj0.se/tags/Haskell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Multivariable Calculus Cheatsheet</title>
+    <link href="http://blog.yj0.se/2022/multivariable_calculus_cheatsheet/"/>
+    <id>http://blog.yj0.se/2022/multivariable_calculus_cheatsheet/</id>
+    <published>2022-01-28T23:00:00.000Z</published>
+    <updated>2022-07-29T01:00:41.750Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;A cheatsheet of basic multivariable calculus.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Mathematics" scheme="http://blog.yj0.se/tags/Mathematics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FreshRSS installation on Oracle Cloud</title>
+    <link href="http://blog.yj0.se/2022/install-freshrss/"/>
+    <id>http://blog.yj0.se/2022/install-freshrss/</id>
+    <published>2022-01-19T14:45:47.000Z</published>
+    <updated>2024-06-23T12:17:09.279Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;In this article, the installation of FreshRSS on Oracle Cloud with
+Ubuntu OS is presented. It can be a reference for you if you want to
+install FreshRSS or other similar program on VPS.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="DevOps" scheme="http://blog.yj0.se/tags/DevOps/"/>
+    
+    <category term="VPS" scheme="http://blog.yj0.se/tags/VPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Solving Wordle</title>
+    <link href="http://blog.yj0.se/2022/wordle_solving/"/>
+    <id>http://blog.yj0.se/2022/wordle_solving/</id>
+    <published>2022-01-14T15:54:15.000Z</published>
+    <updated>2022-07-29T01:00:41.950Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Wordle is a popular word puzzle &lt;a
+href=&quot;https://www.cnet.com/how-to/wordle-explained-tips-tricks-the-perfect-start-word-everything-you-need-to-know/&quot;&gt;developed
+by Josh Wardle&lt;/a&gt;. The basic idea is to guess a given five letters&#39;
+word within six tries. After each guess, the letters are marked to show
+if each letter is correct or is correct and in correct position. You can
+find one &lt;a href=&quot;https://www.powerlanguage.co.uk/wordle/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here I present a half-manual simple solution to it.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="game" scheme="http://blog.yj0.se/tags/game/"/>
+    
+    <category term="programming" scheme="http://blog.yj0.se/tags/programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Tutorial for Beginners</title>
+    <link href="http://blog.yj0.se/2022/intro_kubernetes/"/>
+    <id>http://blog.yj0.se/2022/intro_kubernetes/</id>
+    <published>2022-01-09T23:00:00.000Z</published>
+    <updated>2022-07-29T01:00:41.580Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Kubernetes is a widely used open-source container orchestration
+system. This tutorial shows the basics of Kubernetes for beginners.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Programming" scheme="http://blog.yj0.se/tags/Programming/"/>
+    
+    <category term="DevOps" scheme="http://blog.yj0.se/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Introduction to Probability and Statistics</title>
+    <link href="http://blog.yj0.se/2022/intro-stats/"/>
+    <id>http://blog.yj0.se/2022/intro-stats/</id>
+    <published>2022-01-02T23:00:00.000Z</published>
+    <updated>2022-07-29T01:00:41.480Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Basic probability and statistics are introduced in this article.&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Mathematics" scheme="http://blog.yj0.se/tags/Mathematics/"/>
+    
+  </entry>
+  
+</feed>
