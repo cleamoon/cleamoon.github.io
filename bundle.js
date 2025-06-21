@@ -65,28 +65,6 @@ if (!window.NexT) window.NexT = {};
   });
 })();
 ;
-/* global CONFIG */
-
-window.addEventListener('tabs:register', () => {
-  let { activeClass } = CONFIG.comments;
-  if (CONFIG.comments.storage) {
-    activeClass = localStorage.getItem('comments_active') || activeClass;
-  }
-  if (activeClass) {
-    const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-    if (activeTab) {
-      activeTab.click();
-    }
-  }
-});
-if (CONFIG.comments.storage) {
-  window.addEventListener('tabs:click', event => {
-    if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-    const commentClass = event.target.classList[1];
-    localStorage.setItem('comments_active', commentClass);
-  });
-}
-;
 /* global NexT, CONFIG */
 
 HTMLElement.prototype.wrap = function(wrapper) {
@@ -102,11 +80,7 @@ HTMLElement.prototype.wrap = function(wrapper) {
     })
   );
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('readystatechange', onPageLoaded, { once: true });
-  } else {
-    onPageLoaded();
-  }
+  document.addEventListener('DOMContentLoaded', onPageLoaded);
   document.addEventListener('pjax:success', onPageLoaded);
 })();
 
@@ -182,6 +156,7 @@ NexT.utils = {
     figure.forEach(element => {
       // Skip pre > .mermaid for folding and copy button
       if (element.querySelector('.mermaid')) return;
+      const languageName = [...element.classList].find(cls => cls !== 'highlight');
       if (!inited) {
         let span = element.querySelectorAll('.code .line span');
         if (span.length === 0) {
@@ -195,10 +170,10 @@ NexT.utils = {
         });
       }
       const height = parseInt(window.getComputedStyle(element).height, 10);
-      const needFold = CONFIG.fold.enable && (height > CONFIG.fold.height);
-      if (!needFold && !CONFIG.copycode.enable) return;
+      const needFold = CONFIG.codeblock.fold.enable && (height > CONFIG.codeblock.fold.height);
+      if (!needFold && !CONFIG.codeblock.copy_button.enable && !CONFIG.codeblock.language) return;
       let target;
-      if (CONFIG.hljswrap && CONFIG.copycode.style === 'mac') {
+      if (CONFIG.hljswrap && CONFIG.codeblock.copy_button.style === 'mac') {
         target = element;
       } else {
         let box = element.querySelector('.code-container');
@@ -223,8 +198,14 @@ NexT.utils = {
           target.classList.add('unfold');
         });
       }
-      if (!inited && CONFIG.copycode.enable) {
+      if (!inited && CONFIG.codeblock.copy_button.enable) {
         this.registerCopyButton(target, element);
+      }
+      if (!inited && CONFIG.codeblock.language && languageName) {
+        const lang = document.createElement('div');
+        lang.className = 'code-lang';
+        lang.innerText = languageName.toUpperCase();
+        target.insertAdjacentElement('afterbegin', lang);
       }
     });
   },
@@ -262,7 +243,7 @@ NexT.utils = {
   updateActiveNav() {
     if (!Array.isArray(this.sections)) return;
     let index = this.sections.findIndex(element => {
-      return element && element.getBoundingClientRect().top > 10;
+      return element?.getBoundingClientRect().top > 10;
     });
     if (index === -1) {
       index = this.sections.length - 1;
@@ -291,7 +272,7 @@ NexT.utils = {
       this.updateActiveNav();
     }, { passive: true });
 
-    backToTop && backToTop.addEventListener('click', () => {
+    backToTop?.addEventListener('click', () => {
       window.anime({
         targets  : document.scrollingElement,
         duration : 500,
@@ -528,6 +509,18 @@ NexT.utils = {
     window.addEventListener('scroll', updateFooterPosition, { passive: true });
   },
 
+  /**
+   * Sets the CSS variable '--dialog-scrollgutter' to the specified gap value.
+   * If no gap is provided, it calculates the gap as the difference between
+   * the window's inner width and the document body's client width.
+   *
+   * @param {string} [gap] - The gap value to be set. If not provided, the
+   *                         default gap is calculated automatically.
+   */
+  setGutter(gap) {
+    document.body.style.setProperty('--dialog-scrollgutter', gap || `${window.innerWidth - document.body.clientWidth}px`);
+  },
+
   getScript(src, options = {}, legacyCondition) {
     if (typeof options === 'function') {
       return this.getScript(src, {
@@ -690,7 +683,7 @@ NexT.boot.registerEvents = function() {
     const tHash = location.hash;
     if (tHash !== '' && !tHash.match(/%\S{2}/)) {
       const target = document.querySelector(`.tabs ul.nav-tabs li a[href="${tHash}"]`);
-      target && target.click();
+      target?.click();
     }
   });
 
@@ -742,7 +735,7 @@ document.addEventListener('DOMContentLoaded', () => {
   NexT.boot.motion();
 });
 ;
-/* global CONFIG, pjax, LocalSearch */
+/* global CONFIG, NexT, pjax, LocalSearch */
 
 document.addEventListener('DOMContentLoaded', () => {
   if (!CONFIG.path) {
@@ -801,6 +794,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle and trigger popup window
   document.querySelectorAll('.popup-trigger').forEach(element => {
     element.addEventListener('click', () => {
+      NexT.utils.setGutter();
       document.body.classList.add('search-active');
       // Wait for search-popup animation to complete
       setTimeout(() => input.focus(), 500);
@@ -810,6 +804,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Monitor main search box
   const onPopupClose = () => {
+    NexT.utils.setGutter('0');
     document.body.classList.remove('search-active');
   };
 
@@ -826,6 +821,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('keydown', event => {
     if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
       event.preventDefault();
+      NexT.utils.setGutter();
       document.body.classList.add('search-active');
       setTimeout(() => input.focus(), 500);
       if (!localSearch.isfetched) localSearch.fetchData();
