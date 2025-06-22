@@ -6,7 +6,7 @@
   <link href="http://blog.yj0.se/atom.xml" rel="self"/>
   
   <link href="http://blog.yj0.se/"/>
-  <updated>2025-02-23T13:22:49.874Z</updated>
+  <updated>2025-06-21T13:05:33.229Z</updated>
   <id>http://blog.yj0.se/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://blog.yj0.se/2025/silly_tavern_setup/"/>
     <id>http://blog.yj0.se/2025/silly_tavern_setup/</id>
     <published>2025-02-23T18:14:00.000Z</published>
-    <updated>2025-02-23T13:22:49.874Z</updated>
+    <updated>2025-06-21T13:05:33.229Z</updated>
     
     
     <summary type="html">&lt;p&gt;SillyTavern is a web application that allows you to create and share
@@ -42,7 +42,7 @@ presents the setup of SillyTavern.&lt;/p&gt;</summary>
     <link href="http://blog.yj0.se/2025/ffmpeg-video-compression/"/>
     <id>http://blog.yj0.se/2025/ffmpeg-video-compression/</id>
     <published>2025-01-13T23:00:00.000Z</published>
-    <updated>2025-01-14T21:00:08.099Z</updated>
+    <updated>2025-01-14T21:00:08.090Z</updated>
     
     
     <summary type="html">&lt;p&gt;There are many modern video encoding algorithm that can be used for
@@ -61,7 +61,7 @@ benchmark.&lt;/p&gt;</summary>
     <link href="http://blog.yj0.se/2024/command_line_one_liner/"/>
     <id>http://blog.yj0.se/2024/command_line_one_liner/</id>
     <published>2024-06-07T22:00:00.000Z</published>
-    <updated>2024-06-09T13:30:05.067Z</updated>
+    <updated>2024-06-09T13:30:05.060Z</updated>
     
     
     <summary type="html">&lt;p&gt;Collection of various one-liners for archiving. Always being
@@ -79,7 +79,7 @@ updated.&lt;/p&gt;</summary>
     <link href="http://blog.yj0.se/2023/react_hooks_note/"/>
     <id>http://blog.yj0.se/2023/react_hooks_note/</id>
     <published>2023-12-01T23:00:00.000Z</published>
-    <updated>2023-12-02T20:02:14.617Z</updated>
+    <updated>2023-12-02T20:02:14.610Z</updated>
     
     
     <summary type="html">&lt;p&gt;Notes for React Hooks.&lt;/p&gt;</summary>
@@ -100,7 +100,7 @@ updated.&lt;/p&gt;</summary>
     <link href="http://blog.yj0.se/2023/markting_with_social_media_note/"/>
     <id>http://blog.yj0.se/2023/markting_with_social_media_note/</id>
     <published>2023-06-23T22:00:00.000Z</published>
-    <updated>2023-06-24T16:42:56.456Z</updated>
+    <updated>2023-06-24T16:42:56.450Z</updated>
     
     
     <summary type="html">&lt;p&gt;Note of basic marketing on social media.&lt;/p&gt;</summary>
@@ -117,7 +117,7 @@ updated.&lt;/p&gt;</summary>
     <link href="http://blog.yj0.se/2022/react-libraries-cheatsheet/"/>
     <id>http://blog.yj0.se/2022/react-libraries-cheatsheet/</id>
     <published>2022-08-19T13:14:12.000Z</published>
-    <updated>2022-08-19T13:44:00.260Z</updated>
+    <updated>2022-08-19T13:44:00.250Z</updated>
     
     
     <summary type="html">&lt;p&gt;This article presented several popular React/React Native libraries.
@@ -137,7 +137,7 @@ It can be used as a cheatsheet for those libraries.&lt;/p&gt;</summary>
     <link href="http://blog.yj0.se/2022/circleci-config-intro/"/>
     <id>http://blog.yj0.se/2022/circleci-config-intro/</id>
     <published>2022-08-17T11:46:15.000Z</published>
-    <updated>2022-08-17T11:52:49.060Z</updated>
+    <updated>2022-08-17T11:52:49.050Z</updated>
     
     
     <summary type="html">&lt;p&gt;CircleCI is a platform for Continuous Integration and Delivery which
@@ -178,7 +178,7 @@ examples.&lt;/p&gt;</summary>
     <link href="http://blog.yj0.se/2022/basic-functional-programming-in-scala/"/>
     <id>http://blog.yj0.se/2022/basic-functional-programming-in-scala/</id>
     <published>2022-06-22T12:04:01.000Z</published>
-    <updated>2022-07-29T01:00:41.160Z</updated>
+    <updated>2022-07-29T01:00:41.150Z</updated>
     
     
     <summary type="html">&lt;p&gt;A brief introduction to functional programming in Scala.&lt;/p&gt;</summary>
@@ -304,7 +304,7 @@ implement the same functionality for your program with the
     <link href="http://blog.yj0.se/2022/intro-to-haskell/"/>
     <id>http://blog.yj0.se/2022/intro-to-haskell/</id>
     <published>2022-03-09T14:05:39.000Z</published>
-    <updated>2022-07-29T01:00:41.550Z</updated>
+    <updated>2022-07-29T01:00:41.540Z</updated>
     
     
     <summary type="html">&lt;p&gt;A brief introduction to haskell programming.&lt;/p&gt;</summary>
@@ -340,7 +340,7 @@ implement the same functionality for your program with the
     <link href="http://blog.yj0.se/2022/install-freshrss/"/>
     <id>http://blog.yj0.se/2022/install-freshrss/</id>
     <published>2022-01-19T14:45:47.000Z</published>
-    <updated>2024-06-23T12:17:09.279Z</updated>
+    <updated>2024-06-23T12:17:09.270Z</updated>
     
     
     <summary type="html">&lt;p&gt;In this article, the installation of FreshRSS on Oracle Cloud with
